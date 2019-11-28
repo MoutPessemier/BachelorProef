@@ -1,0 +1,71 @@
+%---------- Inleiding ---------------------------------------------------------
+
+\section{Introductie} % The \section*{} command stops section numbering
+\label{sec:introductie}
+
+Hoe matuur is het gebruik van GraphQL in combinatie met graaf databanken? Kunnen deze technologiën makkelijk gecombineerd worden? Zijn ze onderhoudbaar? Hoe zit het met de performantie?
+
+GraphQL is een sterk opkomende technologie die gebruikt wordt om data uit een database op te halen. Deze technologie kan gebruikt worden bovenop een REST (Representational State Transfer) API (Application Programming Interface) service. Anderen zien het dan weer als een vervanger. 
+Graaf databanken bevatten sterk geconnecteerde data. Om dit op te vragen via een REST API zal ofwel meerdere requests naar de server en dus meerdere calls naar de databank nodig zijn, ofwel zal dit een zeer dure en tijdsintensieve operatie zijn. Kan GraphQL deze data op een performantere, minder intensieve manier ophalen?
+
+% bevat:
+ % de probleemstelling en context
+ % de motivatie en relevantie voor het onderzoek
+ % de doelstelling en onderzoeksvraag/-vragen
+
+%---------- Stand van zaken ---------------------------------------------------
+
+\section{Literatuurstudie}
+\label{sec:state-of-the-art}
+
+Een graaf databank management systeem is een online database management systeem met Create, Read, Update, Delete (CRUD) methoden die een graaf datamodel blootstellen. Graaf databanken zijn vooral gemaakt voor gebruik met online transactionele systemen (OLTP). Hierdoor zijn ze geoptimaliseerd voor transactionele performantie en gemaakt met transactionele integriteit en operationele beschikbaarheid in gedachten. \autocite{graphDatabases}
+
+\subsection{De kracht van graaf databanken}
+Graaf databanken voorzien een flexibel data model en een geoptimaliseerde data query methode voor een set van use-cases waarbij de snelheid en performantie sterk verbeterd is en waarbij de latency bij het opvragen van de data sterk verminderd ten opzichte van een relationele en NoSQL databanken. Deze use-case is natuurlijk werken met sterk geconnecteerde data. Bij niet graaf gerichte OLTP systemen zou dit een zeer intensieve, multi-join query zijn. \autocite{graphDatabases}
+Naast de performantie biedt ook de flexibiliteit een pluspunt. Grafen zijn natuurlijk additief. Dit wil zeggen dat gemakkelijk nieuwe relaties, nodes en labels toegevoegd kunnen worden.\autocite{graphDatabases}
+Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten evolueren met eenzelfde snelheid als het iteratief en incrementeel (agile) werkproces. De moderne graaf databanken zijn gebouwd voor het wrijvingsloos ondersteunen van development en onderhoud van het systeem.\autocite{graphDatabases}
+
+% bevat:
+% Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek?
+
+%Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Doll1954}! Denk zeker goed na welke werken je refereert en waarom.
+
+% Voor literatuurverwijzingen zijn er twee belangrijke commando's:
+% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
+%   geen onderdeel is van de zin.
+% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een
+%   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
+%   ...'')
+
+Je mag gerust gebruik maken van subsecties in dit onderdeel.
+
+%---------- Methodologie ------------------------------------------------------
+\section{Methodologie}
+\label{sec:methodologie}
+
+Om op de hierboven geschreven vragen een antwoord te bieden ga ik gebruik maken van simulaties en experimenten om productie waardige omgevingen na te bootsen. Hierbij wordt eerst gestart met een simpele Neo4J graaf databank die aangesproken wordt met een Node.JS backend via GraphQL. Stilaan wordt de databank uitgebreid tot een applicatiewaardige graaf databank. Hierbij  zal een onderzoek uitgevoerd worden naar onder andere de performantie, snelheid en onderhoudbaarheid van de databank en de GraphQL aanspreek methode. Nadien zal dit onderzoek uitgebreid worden naar andere graaf databanken zoals bijvoorbeeld ArrangoDB, DGraph of FaunaDB.
+
+\subsection{De gebruikte technologiën}
+\begin{enumerate}
+	\item GraphQL
+	\item Node.JS
+	\item Neo4J
+	\item Apollo
+\end{enumerate}
+
+%---------- Verwachte resultaten ----------------------------------------------
+\section{Verwachte resultaten}
+\label{sec:verwachte_resultaten}
+
+% Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data gaat moeten structureren.
+
+%---------- Verwachte conclusies ----------------------------------------------
+\section{Verwachte conclusies}
+\label{sec:verwachte_conclusies}
+
+Ondanks de hoeveelheid (geconnecteerde) data in een graaf databank, blijft de performantie bij het ophalen van de data stabiel en consistent.
+
+Een graaf databank met GraphQL als aanspreekpunt is makkelijk schaalbaar en onderhoudbaar.
+
+% Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
+

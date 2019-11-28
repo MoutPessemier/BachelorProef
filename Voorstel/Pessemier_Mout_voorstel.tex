@@ -1,0 +1,91 @@
+%==============================================================================
+% Sjabloon onderzoeksvoorstel bachelorproef
+%==============================================================================
+% Gebaseerd op LaTeX-sjabloon ‘Stylish Article’ (zie voorstel.cls)
+% Auteur: Jens Buysse, Bert Van Vreckem
+%
+% Compileren in TeXstudio:
+%
+% - Zorg dat Biber de bibliografie compileert (en niet Biblatex)
+%   Options > Configure > Build > Default Bibliography Tool: "txs:///biber"
+% - F5 om te compileren en het resultaat te bekijken.
+% - Als de bibliografie niet zichtbaar is, probeer dan F5 - F8 - F5
+%   Met F8 compileer je de bibliografie apart.
+%
+% Als je JabRef gebruikt voor het bijhouden van de bibliografie, zorg dan
+% dat je in ``biblatex''-modus opslaat: File > Switch to BibLaTeX mode.
+
+\documentclass{voorstel}
+\usepackage{lipsum}
+
+%------------------------------------------------------------------------------
+% Metadata over het voorstel
+%------------------------------------------------------------------------------
+
+%---------- Titel & auteur ----------------------------------------------------
+
+\PaperTitle{It's time to put the GraphQL in Graph Databases}
+\PaperType{Onderzoeksvoorstel Bachelorproef 2019-2020} % Type document
+
+\Authors{Mout Pessemier\textsuperscript{1}} % Authors
+\CoPromotor{Laurens Lavaert\textsuperscript{2} (Faktion XYZ)}
+\affiliation{\textbf{Contact:}
+	\textsuperscript{1} \href{mailto:mout.pessemier@student.hogent.be}{mout.pessemier@student.hogent.be};
+	\textsuperscript{2} \href{mailto:laurens@faktion.com}{laurens@faktion.com};
+}
+
+%---------- Abstract ----------------------------------------------------------
+
+\Abstract{Hier schrijf je de samenvatting van je voorstel, als een doorlopende tekst van één paragraaf. Wat hier zeker in moet vermeld worden: \textbf{Context} (Waarom is dit werk belangrijk?); \textbf{Nood} (Waarom moet dit onderzocht worden?); \textbf{Taak} (Wat ga je (ongeveer) doen?); \textbf{Object} (Wat staat in dit document geschreven?); \textbf{Resultaat} (Wat verwacht je van je onderzoek?); \textbf{Conclusie} (Wat verwacht je van van de conclusies?); \textbf{Perspectief} (Wat zegt de toekomst voor dit werk?).
+}
+
+%---------- Onderzoeksdomein en sleutelwoorden --------------------------------
+%
+% Het eerste sleutelwoord beschrijft het onderzoeksdomein. Je kan kiezen uit
+% deze lijst:
+%
+% - Mobiele applicatieontwikkeling
+% - Webapplicatieontwikkeling
+% - Applicatieontwikkeling (andere)
+% - Systeembeheer
+% - Netwerkbeheer
+% - Mainframe
+% - E-business
+% - Databanken en big data
+% - Machineleertechnieken en kunstmatige intelligentie
+% - Andere (specifieer)
+%
+% De andere sleutelwoorden zijn vrij te kiezen
+
+\Keywords{Databanken en big data. GraphQL --- Graph Databases --- Neo4J} % Keywords
+\newcommand{\keywordname}{Sleutelwoorden} % Defines the keywords heading name
+
+%---------- Titel, inhoud -----------------------------------------------------
+
+\begin{document}
+	
+	\flushbottom % Makes all text pages the same height
+	\maketitle % Print the title and abstract box
+	\tableofcontents % Print the contents section
+	\thispagestyle{empty} % Removes page numbering from the first page
+	
+	%------------------------------------------------------------------------------
+	% Hoofdtekst
+	%------------------------------------------------------------------------------
+	
+	% De hoofdtekst van het voorstel zit in een apart bestand, zodat het makkelijk
+	% kan opgenomen worden in de bijlagen van de bachelorproef zelf.
+	\input{voorstel-inhoud}
+	
+	%------------------------------------------------------------------------------
+	% Referentielijst
+	%------------------------------------------------------------------------------
+	% TODO: de gerefereerde werken moeten in BibTeX-bestand ``voorstel.bib''
+	% voorkomen. Gebruik JabRef om je bibliografie bij te houden en vergeet niet
+	% om compatibiliteit met Biber/BibLaTeX aan te zetten (File > Switch to
+	% BibLaTeX mode)
+	
+	\phantomsection
+	\printbibliography[heading=bibintoc]
+	
+\end{document}
