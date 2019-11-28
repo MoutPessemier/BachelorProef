@@ -2,11 +2,22 @@
 
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
+U heeft het misschien zelf al tegengekomen. U stuurt een API call naar uw graaf databank en staat minuten lang te wachten tot de grote en complex gestructureerde data uit de databank terug komt. Of u wil een update wegschrijven naar de databank en ook dit neemt weer innige tijd in beslag. U kan zich dan afvragen of dit niet sneller, efficiënter kan.\\
+Daarom heb ik een onderzoek uitgevoerd naar het gebruik van GraphQL om uw graaf databank aan te spreken en bovenstaande problemen te vermijden.\\
+Het onderzoek bestaat dan ook uit volgende vragen:
+\begin{itemize}
+	\item Hoe matuur is het gebruik van GraphQL in combinatie met graaf databanken? 
+	\item Kunnen deze technologieën makkelijk gecombineerd worden?
+	\item Zijn ze onderhoudbaar en schaalbaar?
+	\item Hoe zit het met de performantie?
+\end{itemize}
 
-Hoe matuur is het gebruik van GraphQL in combinatie met graaf databanken? Kunnen deze technologiën makkelijk gecombineerd worden? Zijn ze onderhoudbaar? Hoe zit het met de performantie?
+Om op deze vragen een antwoord te kunnen bieden moeten een aantal onderzoekscriteria vastgelegd worden. Zo zal onderzoek uitgevoerd worden naar:
+\begin{itemize}
+	\item de snelheid van het opvragen van data.
+	\item de grootte van de payload die verstuurd wordt over het netwerk
+\end{itemize}
 
-GraphQL is een sterk opkomende technologie die gebruikt wordt om data uit een database op te halen. Deze technologie kan gebruikt worden bovenop een REST (Representational State Transfer) API (Application Programming Interface) service. Anderen zien het dan weer als een vervanger. 
-Graaf databanken bevatten sterk geconnecteerde data. Om dit op te vragen via een REST API zal ofwel meerdere requests naar de server en dus meerdere calls naar de databank nodig zijn, ofwel zal dit een zeer dure en tijdsintensieve operatie zijn. Kan GraphQL deze data op een performantere, minder intensieve manier ophalen?
 
 % bevat:
  % de probleemstelling en context
@@ -16,14 +27,29 @@ Graaf databanken bevatten sterk geconnecteerde data. Om dit op te vragen via een
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{Literatuurstudie}
-\label{sec:state-of-the-art}
+\label{sec:literatuurstudie}
 
-Een graaf databank management systeem is een online database management systeem met Create, Read, Update, Delete (CRUD) methoden die een graaf datamodel blootstellen. Graaf databanken zijn vooral gemaakt voor gebruik met online transactionele systemen (OLTP). Hierdoor zijn ze geoptimaliseerd voor transactionele performantie en gemaakt met transactionele integriteit en operationele beschikbaarheid in gedachten. \autocite{graphDatabases}
+Een graaf databank management systeem is een online database management systeem met Create, Read, Update, Delete (CRUD) methoden die een graaf datamodel blootstellen. Graaf databanken zijn vooral gemaakt voor gebruik met online transactionele systemen (OLTP). Hierdoor zijn ze geoptimaliseerd voor transactionele performantie en gemaakt met transactionele integriteit en operationele beschikbaarheid in gedachten.
+
+\subsection{GraphQL}
+ GraphQL is een querytaal ontwikkeld door Facebook in 2012 en open source gemaakt  in 2015 . Sinds de release is de populariteit en het gebruik ervan sterk gestegen. Zaken zoals 'get what you ask for' en het flexiebel opbouwen van het databank schema zorgen ervoor dat GraphQL op korte tijd populair geworden is. Deze technologie kan bovenop een REST (Representational State Transfer) API (Application Programming Interface) service gebruikt worden maar velen zien het juist als een vervangmiddel voor REST API's. Ook het feit dat ze de meestgebruikte talen ondersteunen biedt.
+ 
+ Get what you ask for
+ Het 'get what you ask for' princiepe werkt als volgt: in plaats van een heel JSON object terug te krijgen zoals bij REST API's krijg je alleen die velden terug die gespecifieerd worden in de GraphQL query. Zo verminder je de grootte van data dat doorgestuurd wordt over het netwerk wat resulteert in snellere response tijden.
+ 
+ Real Time Updates
+ GraphQL in combinatie met Apollo voorziet zelf van real time (RT) data zodat je niet moet subscriben op een RX stream of andere vorm van RT data providers.
+
+\subsection{GraphQL +-}
+GraphQL +- is gebaseerd op de gewone GraphQL maar dan met enige wijzigingen en simplificaties om de taal te optimaliseren voor het aanspreken en ophalen van data uit graaf databanken.
+
+\subsection{Graaf databanken}
+Graaf databanken bevatten sterk geconnecteerde data. Om dit op te vragen via een REST API zal ofwel meerdere requests naar de server en dus meerdere calls naar de databank nodig zijn, ofwel zal dit een zeer dure en tijdsintensieve operatie zijn. Kan GraphQL deze data op een performantere, minder intensieve manier ophalen? \autocite{graphDatabases}
 
 \subsection{De kracht van graaf databanken}
-Graaf databanken voorzien een flexibel data model en een geoptimaliseerde data query methode voor een set van use-cases waarbij de snelheid en performantie sterk verbeterd is en waarbij de latency bij het opvragen van de data sterk verminderd ten opzichte van een relationele en NoSQL databanken. Deze use-case is natuurlijk werken met sterk geconnecteerde data. Bij niet graaf gerichte OLTP systemen zou dit een zeer intensieve, multi-join query zijn. \autocite{graphDatabases}
-Naast de performantie biedt ook de flexibiliteit een pluspunt. Grafen zijn natuurlijk additief. Dit wil zeggen dat gemakkelijk nieuwe relaties, nodes en labels toegevoegd kunnen worden.\autocite{graphDatabases}
-Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten evolueren met eenzelfde snelheid als het iteratief en incrementeel (agile) werkproces. De moderne graaf databanken zijn gebouwd voor het wrijvingsloos ondersteunen van development en onderhoud van het systeem.\autocite{graphDatabases}
+Graaf databanken voorzien een flexibel data model en een geoptimaliseerde data query methode voor een set van use-cases waarbij de snelheid en performantie sterk verbeterd is en waarbij de latency bij het opvragen van de data sterk verminderd ten opzichte van een relationele en NoSQL databanken. Deze use-case is natuurlijk werken met sterk geconnecteerde data. Bij niet graaf gerichte OLTP systemen zou dit een zeer intensieve, multi-join query zijn. \autocite{graphDatabases} 
+Naast de performantie biedt ook de flexibiliteit een pluspunt. Grafen zijn natuurlijk additief. Dit wil zeggen dat gemakkelijk nieuwe relaties, nodes en labels toegevoegd kunnen worden.\autocite{graphDatabases} 
+Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten evolueren met eenzelfde snelheid als het iteratief en incrementeel (agile) werkproces. De moderne graaf databanken zijn gebouwd voor het wrijvingsloos ondersteunen van development en onderhoud van het systeem.\autocite{graphDatabases} 
 
 % bevat:
 % Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek?
@@ -37,21 +63,26 @@ Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten
 %   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
 %   ...'')
 
-Je mag gerust gebruik maken van subsecties in dit onderdeel.
+%Je mag gerust gebruik maken van subsecties in dit onderdeel.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}
 \label{sec:methodologie}
 
-Om op de hierboven geschreven vragen een antwoord te bieden ga ik gebruik maken van simulaties en experimenten om productie waardige omgevingen na te bootsen. Hierbij wordt eerst gestart met een simpele Neo4J graaf databank die aangesproken wordt met een Node.JS backend via GraphQL. Stilaan wordt de databank uitgebreid tot een applicatiewaardige graaf databank. Hierbij  zal een onderzoek uitgevoerd worden naar onder andere de performantie, snelheid en onderhoudbaarheid van de databank en de GraphQL aanspreek methode. Nadien zal dit onderzoek uitgebreid worden naar andere graaf databanken zoals bijvoorbeeld ArrangoDB, DGraph of FaunaDB.
+Om op de hierboven geschreven vragen een antwoord te bieden ga ik gebruik maken van simulaties en experimenten om productie waardige omgevingen na te bootsen. Hierbij wordt eerst gestart met een simpele DGraph graaf databank die aangesproken wordt met een Node.JS backend via GraphQL(+-). Stilaan wordt de databank uitgebreid tot een applicatiewaardige graaf databank. Hierbij  zal een onderzoek uitgevoerd worden naar onder andere de performantie, snelheid en onderhoudbaarheid van de databank en de GraphQL aanspreek methode. Nadien zal dit onderzoek uitgebreid worden naar andere graaf databanken zoals bijvoorbeeld ArrangoDB, Neo4J of FaunaDB.
 
-\subsection{De gebruikte technologiën}
+Om de combinatie tussen GraphQL en graaf databanken te onderzoeken zal gebruik gemaakt worden van: 
 \begin{enumerate}
-	\item GraphQL
-	\item Node.JS
-	\item Neo4J
-	\item Apollo
+	\item GraphQL (+-)
+	\item DGraph Sandbox
 \end{enumerate}
+
+Om schaalbaarheid en performantie te testen zal een testomgeving opgezet worden met volgende eigenschappen:
+\begin{itemize}
+	\item Een Node.JS backend gecombineerd met Apollo en GraphQL
+	\item Een Node.JS backend gecombineerd met Express als REST API
+	\item Een DGraph datbank met substantiële hoeveelheden data
+\end{itemize}
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
@@ -63,9 +94,9 @@ Om op de hierboven geschreven vragen een antwoord te bieden ga ik gebruik maken 
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-Ondanks de hoeveelheid (geconnecteerde) data in een graaf databank, blijft de performantie bij het ophalen van de data stabiel en consistent.
+De beide technologieën zijn, ondanks vrij jong, goed te combineren, al kan de ondersteuning nog beter.\\ 
+Het gebruik van GraphQL zal de payload verminderen en zal de performantie bij grote hoeveelheden data weinig tot niet afnemen. Ook zal via het flexibele schema de schaalbaarheid makkelijk te implementeren zijn.
 
-Een graaf databank met GraphQL als aanspreekpunt is makkelijk schaalbaar en onderhoudbaar.
 
 % Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 
