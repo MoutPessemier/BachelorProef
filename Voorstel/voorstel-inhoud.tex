@@ -2,23 +2,17 @@
 
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
-U heeft het misschien zelf al tegengekomen. U stuurt een API call naar uw graaf databank en staat minuten lang te wachten tot de grote en complex gestructureerde data uit de databank terug komt. Of u wil een update wegschrijven naar de databank en ook dit neemt weer innige tijd in beslag. U kan zich dan afvragen of dit niet sneller, efficiënter kan.\\
-Daarom heb ik een onderzoek uitgevoerd naar het gebruik van GraphQL om uw graaf databank aan te spreken en bovenstaande problemen te vermijden.\\
+GraphQL is al genoeg vergeleken geweest met REST API's. De volgende stap echter, blijkt  nog niet besproken. Hoe moet GraphQL gecombineerd worden met niet conventionele graaf databanken? 
 Het onderzoek bestaat dan ook uit volgende vragen:
 \begin{itemize}
-	\item Hoe matuur is het gebruik van GraphQL in combinatie met graaf databanken? 
+	\item Hoe matuur is het gebruik van GraphQL (+-) in combinatie met graaf databanken? 
 	\item Kunnen deze technologieën makkelijk gecombineerd worden?
 	\item Zijn ze onderhoudbaar en schaalbaar?
 	\item Hoe zit het met de performantie?
+	\item Hoe stel ik een zoekboom bloot in GraphQL attributen?
 \end{itemize}
 
-Om op deze vragen een antwoord te kunnen bieden moeten een aantal onderzoekscriteria vastgelegd worden. Zo zal onderzoek uitgevoerd worden naar:
-\begin{itemize}
-	\item de snelheid van het opvragen van data.
-	\item de grootte van de payload die verstuurd wordt over het netwerk
-\end{itemize}
-
-
+Uit dit onderzoek moet blijken of het voor bedrijven de tijd waard is om GraphQL te combineren en te gebruiken in combinatie met niet conventionele graaf databanken.
 % bevat:
  % de probleemstelling en context
  % de motivatie en relevantie voor het onderzoek
@@ -28,28 +22,32 @@ Om op deze vragen een antwoord te kunnen bieden moeten een aantal onderzoekscrit
 
 \section{Literatuurstudie}
 \label{sec:literatuurstudie}
-
-Een graaf databank management systeem is een online database management systeem met Create, Read, Update, Delete (CRUD) methoden die een graaf datamodel blootstellen. Graaf databanken zijn vooral gemaakt voor gebruik met online transactionele systemen (OLTP). Hierdoor zijn ze geoptimaliseerd voor transactionele performantie en gemaakt met transactionele integriteit en operationele beschikbaarheid in gedachten.
+De wiskundige definitie van een graaf gaat als volgt, een graaf G bestaat uit een verzameling knopen V, en een verzameling bogen E. Elke boog verbindt twee knopen, en we noteren e = (v,w). De graaf G wordt genoteerd als het koppel (V,E), dus G = (V,E). \autocite{pod2Cursus}\\
+Grafen zijn overal terug te vinden. Van het GPS (Global Positioning System) tot het netwerk van vrienden op sociale media. De eenvoudigste manier om een graaf structuur op te slaan is dan ook in een graaf databank. \\
+Een graaf databank management systeem (graaf databank) is een online database management systeem met Create, Read, Update en Delete (CRUD) methoden die een graaf datamodel blootstellen. Graaf databanken zijn vooral gemaakt voor gebruik met online transactionele systemen (OLTP). Hierdoor zijn ze geoptimaliseerd voor transactionele performantie en gemaakt met transactionele integriteit en operationele beschikbaarheid in gedachten.
 
 \subsection{GraphQL}
- GraphQL is een querytaal ontwikkeld door Facebook in 2012 en open source gemaakt  in 2015 . Sinds de release is de populariteit en het gebruik ervan sterk gestegen. Zaken zoals 'get what you ask for' en het flexiebel opbouwen van het databank schema zorgen ervoor dat GraphQL op korte tijd populair geworden is. Deze technologie kan bovenop een REST (Representational State Transfer) API (Application Programming Interface) service gebruikt worden maar velen zien het juist als een vervangmiddel voor REST API's. Ook het feit dat ze de meestgebruikte talen ondersteunen biedt.
+ GraphQL is een querytaal ontwikkeld door Facebook in 2012 en open source gemaakt in 2015. Sinds de release is de populariteit en het gebruik ervan steeds aan het stijgen. Zaken zoals 'get what you ask for' en het flexibel opbouwen van het databank schema zorgen ervoor dat GraphQL op korte tijd populair geworden is. Deze technologie kan bovenop een REST (Representational State Transfer) API (Application Programming Interface) service gebruikt worden maar velen zien het juist als een vervangmiddel voor REST API's. \autocite{dgraphDocs} Het feit dat GraphQL ondersteund wordt door de meest gebruikte programmeer talen zoals JavaScript, Python en Java \autocite{top10Lang} speelt in het voordeel van de technologie.
  
- Get what you ask for
- Het 'get what you ask for' princiepe werkt als volgt: in plaats van een heel JSON object terug te krijgen zoals bij REST API's krijg je alleen die velden terug die gespecifieerd worden in de GraphQL query. Zo verminder je de grootte van data dat doorgestuurd wordt over het netwerk wat resulteert in snellere response tijden.
- 
- Real Time Updates
- GraphQL in combinatie met Apollo voorziet zelf van real time (RT) data zodat je niet moet subscriben op een RX stream of andere vorm van RT data providers.
+ \subsubsection{Get what you ask for}
+ Het 'get what you ask for' principe werkt als volgt: in plaats van een volledig JSON object terug te krijgen, krijg je alleen die velden terug die gespecificeerd worden in de GraphQL query. Zo verminderd de grootte van data die doorgestuurd wordt over het netwerk wat resulteert in snellere response tijden. \autocite{gqlDocs}
 
 \subsection{GraphQL +-}
-GraphQL +- is gebaseerd op de gewone GraphQL maar dan met enige wijzigingen en simplificaties om de taal te optimaliseren voor het aanspreken en ophalen van data uit graaf databanken.
+GraphQL +- is een specificatie van GraphQL gericht op het aanspreken van graaf databanken. De queries worden opgebouwd aan de hand van zoek criteria en overeenstemmende patronen in een graaf om nodes terug te vinden. Het resultaat van zo'n query is zelf een graaf.  Een belangrijke opmerking omtrent GraphQL +- nog in de maak is. Er wordt op regelmatige basis een update doorgevoerd met bugfixes, nieuwe features, verbetering van de performantie, ... . \autocite{dgraphDocs}
+%GraphQL +- is gebaseerd op de gewone GraphQL maar dan met enige wijzigingen en simplificaties om de taal te optimaliseren voor het aanspreken en ophalen van data uit graaf databanken.\autocite{dgraphDocs}
 
-\subsection{Graaf databanken}
-Graaf databanken bevatten sterk geconnecteerde data. Om dit op te vragen via een REST API zal ofwel meerdere requests naar de server en dus meerdere calls naar de databank nodig zijn, ofwel zal dit een zeer dure en tijdsintensieve operatie zijn. Kan GraphQL deze data op een performantere, minder intensieve manier ophalen? \autocite{graphDatabases}
+%\subsection{Graaf databanken}
+%Graaf databanken bevatten sterk geconnecteerde data.\autocite{graphDatabases} Om dit op te vragen via een REST API zal ofwel meerdere requests naar de server en dus meerdere calls naar de databank nodig zijn, ofwel zal dit een zeer dure en tijdsintensieve operatie zijn. \autocite{everythingGQL}
 
 \subsection{De kracht van graaf databanken}
-Graaf databanken voorzien een flexibel data model en een geoptimaliseerde data query methode voor een set van use-cases waarbij de snelheid en performantie sterk verbeterd is en waarbij de latency bij het opvragen van de data sterk verminderd ten opzichte van een relationele en NoSQL databanken. Deze use-case is natuurlijk werken met sterk geconnecteerde data. Bij niet graaf gerichte OLTP systemen zou dit een zeer intensieve, multi-join query zijn. \autocite{graphDatabases} 
-Naast de performantie biedt ook de flexibiliteit een pluspunt. Grafen zijn natuurlijk additief. Dit wil zeggen dat gemakkelijk nieuwe relaties, nodes en labels toegevoegd kunnen worden.\autocite{graphDatabases} 
-Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten evolueren met eenzelfde snelheid als het iteratief en incrementeel (agile) werkproces. De moderne graaf databanken zijn gebouwd voor het wrijvingsloos ondersteunen van development en onderhoud van het systeem.\autocite{graphDatabases} 
+Graaf databanken voorzien een flexibel data model en een geoptimaliseerde data query methode voor een set van use-cases waarbij de snelheid en performantie sterk verbeterd is en waar de latency bij het opvragen van de data sterk verminderd ten opzichte van een relationele en NoSQL databanken. Deze use-case zijn natuurlijk werken met sterk geconnecteerde data. % Bij niet graaf gerichte OLTP systemen zou dit een zeer intensieve, multi-join query zijn. 
+Naast de performantie biedt ook de flexibiliteit een pluspunt. Grafen zijn natuurlijk additief. Dit wil zeggen dat gemakkelijk nieuwe relaties, nodes en labels toegevoegd kunnen worden.
+Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten evolueren met eenzelfde snelheid als het iteratief en incrementeel (agile) werkproces. De moderne graaf databanken zijn gebouwd voor het wrijvingsloos ondersteunen van development en onderhoud van het systeem. \autocite{graphDatabases}
+
+\subsection{Combinatie}
+GraphQL speelt als het ware een laag, een centraal aanspreek punt, tussen de client applicatie en de databank.  Hieruit kan de hele databank gemakkelijk aangesproken worden. Dit werkt in het voordeel van een ontwikkelaar die nu gemakkelijk verschillende delen van de databank tegelijk kan aanspreken.
+%waarbij de verschillende tabellen tegelijk aangesproken kunnen worden en dus gemakkelijk gecombineerd worden tot 1 request waar alles inzit dat opgevraagd wordt, in tegenstelling tot REST API's. \autocite{everythingGQL}
+
 
 % bevat:
 % Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek?
@@ -69,34 +67,32 @@ Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten
 \section{Methodologie}
 \label{sec:methodologie}
 
-Om op de hierboven geschreven vragen een antwoord te bieden ga ik gebruik maken van simulaties en experimenten om productie waardige omgevingen na te bootsen. Hierbij wordt eerst gestart met een simpele DGraph graaf databank die aangesproken wordt met een Node.JS backend via GraphQL(+-). Stilaan wordt de databank uitgebreid tot een applicatiewaardige graaf databank. Hierbij  zal een onderzoek uitgevoerd worden naar onder andere de performantie, snelheid en onderhoudbaarheid van de databank en de GraphQL aanspreek methode. Nadien zal dit onderzoek uitgebreid worden naar andere graaf databanken zoals bijvoorbeeld ArrangoDB, Neo4J of FaunaDB.
-
+Om op de hierboven geschreven vragen een antwoord te bieden ga ik gebruik maken van simulaties en experimenten om productie waardige omgevingen na te bootsen. Hierbij wordt eerst gestart met een simpele DGraph graaf databank die aangesproken wordt met een Node.JS backend via GraphQL(+-). Stilaan wordt de databank uitgebreid tot een applicatiewaardige graaf databank. Hierbij  zal een onderzoek uitgevoerd worden naar onder andere de performantie, snelheid en onderhoudbaarheid van de databank en de GraphQL aanspreek methode. Nadien zal dit onderzoek uitgebreid worden naar andere graaf databanken zoals bijvoorbeeld ArrangoDB, Neo4J of FaunaDB.\\
 Om de combinatie tussen GraphQL en graaf databanken te onderzoeken zal gebruik gemaakt worden van: 
 \begin{enumerate}
 	\item GraphQL (+-)
 	\item DGraph Sandbox
 \end{enumerate}
-
+Hierbij wordt gekeken hoe lang het duurt, met opzoekingswerk inbegrepen om succesvol een lokale databank in docker te draaien via DGraph en via GraphQL +- er data uit op te halen.\\
 Om schaalbaarheid en performantie te testen zal een testomgeving opgezet worden met volgende eigenschappen:
 \begin{itemize}
 	\item Een Node.JS backend gecombineerd met Apollo en GraphQL
-	\item Een Node.JS backend gecombineerd met Express als REST API
 	\item Een DGraph datbank met substantiële hoeveelheden data
 \end{itemize}
+Binnen dit experiment zal geleidelijk aan het data model en de data binnen de databank uitgebreid worden.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
+Aangezien de focus van GraphQL ligt op het makkelijk opstellen van queries voor developers, wordt er verwacht dat het gebruik er van in combinatie met graaf databanken geen probleem geeft. \\
+De research dat gaat in het opzetten van beide technologieën blijft beperkt en is gemakkelijk op te zetten. Ook de schaalen beide technologieën goed mee met elkaar door onder andere het flexibele data model van GraphQL en de additieve eigenschap van graaf databanken. Het blootstellen van zoekbomen aan de hand van GraphQL attributen wordt gemakkelijk gemaakt door de GraphQL +- specificatie.
 
 % Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data gaat moeten structureren.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
-
-De beide technologieën zijn, ondanks vrij jong, goed te combineren, al kan de ondersteuning nog beter.\\ 
-Het gebruik van GraphQL zal de payload verminderen en zal de performantie bij grote hoeveelheden data weinig tot niet afnemen. Ook zal via het flexibele schema de schaalbaarheid makkelijk te implementeren zijn.
-
+Er wordt verwacht dat de opzet van een project met GraphQL en graaf databanken bedrijven niet zo mogen tegenhouden om er mee te beginnen. Ook dat de leercurve voor GraphQL (+-) in combinatie met graaf databanken zou geen struikelblok mogen zijn en dat het de tijd nodig om dit allemaal te leren het waard is.
 
 % Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 
