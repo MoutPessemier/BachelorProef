@@ -2,97 +2,84 @@
 
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
-GraphQL is al genoeg vergeleken geweest met REST API's. De volgende stap echter, blijkt  nog niet besproken. Hoe moet GraphQL gecombineerd worden met niet conventionele graaf databanken? 
-Het onderzoek bestaat dan ook uit volgende vragen:
+De hoeveelheid tijd die verloren gaat aan het uitvoeren van repetitieve, dagdagelijkse taken is een optimalisatieprobleem dat de meeste bedrijven tegenkomen. \\
+Een manier om dit probleem aan te pakken is de technologie, Robotic Process Automation (RPA). Doordat RPA processen en systemen gaat automatiseren, kunnen de werknemers zich focussen op belangrijkere en productievere taken.\\
+ Om uit te zoeken welke voor en nadelen RPA met zich meebrengt, bestaat het onderzoek uit volgende vragen:
 \begin{itemize}
-	\item Hoe matuur is het gebruik van GraphQL (+-) in combinatie met graaf databanken? 
-	\item Kunnen deze technologieën makkelijk gecombineerd worden?
-	\item Zijn ze onderhoudbaar en schaalbaar?
-	\item Hoe zit het met de performantie?
-	\item Hoe stel ik een zoekboom bloot in GraphQL attributen?
+	\item Welke recente ontwikkelingen zijn relevant binnenin het RPA segment? 
+	\item Waar kan RPA een meerwaarde bieden, is dit interessant voor elk bedrijf?
+	\item Welke kennis en vaardigheden vergt het om een RPA proces op te zetten?
+	\item Hoe betrouwbaar is RPA, hoe zit het met fout-tollerantie?
+	\item Wat als de applicatie niet responsief is?
 \end{itemize}
 
-Uit dit onderzoek moet blijken of het voor bedrijven de tijd waard is om GraphQL te combineren en te gebruiken in combinatie met niet conventionele graaf databanken.
+
 % bevat:
- % de probleemstelling en context
- % de motivatie en relevantie voor het onderzoek
- % de doelstelling en onderzoeksvraag/-vragen
+% de probleemstelling en context
+% de motivatie en relevantie voor het onderzoek
+% de doelstelling en onderzoeksvraag/-vragen
 
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{Literatuurstudie}
 \label{sec:literatuurstudie}
-De wiskundige definitie van een graaf gaat als volgt, een graaf G bestaat uit een verzameling knopen V, en een verzameling bogen E. Elke boog verbindt twee knopen, en we noteren e = (v,w). De graaf G wordt genoteerd als het koppel (V,E), dus G = (V,E). \autocite{pod2Cursus}\\
-Grafen zijn overal terug te vinden. Van het GPS (Global Positioning System) tot het netwerk van vrienden op sociale media. De eenvoudigste manier om een graaf structuur op te slaan is dan ook in een graaf databank. \\
-Een graaf databank management systeem (graaf databank) is een online database management systeem met Create, Read, Update en Delete (CRUD) methoden die een graaf datamodel blootstellen. Graaf databanken zijn vooral gemaakt voor gebruik met online transactionele systemen (OLTP). Hierdoor zijn ze geoptimaliseerd voor transactionele performantie en gemaakt met transactionele integriteit en operationele beschikbaarheid in gedachten.
+RPA, ook wel Robotic Process Automation genoemd, is een toepassing van technologieën, overzien door  business logica en gestructureerde inputs, gericht op het automatiseren van business processen. Gebruik makende van RPA tools, kan een bedrijf software configureren voor het vastleggen en interpreteren van applicaties voor onder andere transactionele processen, data manipulatie en het communiceren met andere digitale systemen. Deze automaties kunnen gaan van een simpele auto-reply mail tot het deployen van duizenden bots of het werken binnen een Enterprise Resource Planning (ERP) systeem. \autocite{whatIsRPA} \\
+Het gebruik van de technologie is sterk aan het stijgen, met een groeipercentage van 57\% van jaar op jaar. Wereldwijd is in 2018 \$680 miljoen euro gespendeerd aan RPA systemen en men verwacht dat dit rond \$2.4 mijard zal liggen tegen 2022. \autocite{isRPAWorthIt}\\
+Een goed geïmplementeerde RPA bot kan gemakkelijk 5 tot 10 mensen vervangen. \autocite{rpaMomentum}
 
-\subsection{GraphQL}
- GraphQL is een querytaal ontwikkeld door Facebook in 2012 en open source gemaakt in 2015. Sinds de release is de populariteit en het gebruik ervan steeds aan het stijgen. Zaken zoals 'get what you ask for' en het flexibel opbouwen van het databank schema zorgen ervoor dat GraphQL op korte tijd populair geworden is. Deze technologie kan bovenop een REST (Representational State Transfer) API (Application Programming Interface) service gebruikt worden maar velen zien het juist als een vervangmiddel voor REST API's. \autocite{dgraphDocs} Het feit dat GraphQL ondersteund wordt door de meest gebruikte programmeer talen zoals JavaScript, Python en Java \autocite{top10Lang} speelt in het voordeel van de technologie.
- 
- \subsubsection{Get what you ask for}
- Het 'get what you ask for' principe werkt als volgt: in plaats van een volledig JSON object terug te krijgen, krijg je alleen die velden terug die gespecificeerd worden in de GraphQL query. Zo verminderd de grootte van data die doorgestuurd wordt over het netwerk wat resulteert in snellere response tijden. \autocite{gqlDocs}
+\subsection{Voordelen van RPA}
+Het staat toe aan een organisatie om de loonkost te verlagen en fouten die door de werknemers gemaakt worden te verminderen aangezien RPA slecht 1 juist voorbeeld nodig heeft om nadien het geautomatiseerd proces juist uit te voeren.\\
+De echte sterkte ligt echter in het fijt dat RPA aan bedrijven de mogelijkheid geeft om processen en systemen die totaal niet voorzien zijn op het automatiseren, toch geautomatiseerd te krijgen. Hieronder vallen ook die systemen die al sterk verouderd zijn en heel traag vooruitgang boeken. \\
+Bots zijn over het algemeen gemakkelijk te implementeren en dragen een lage kost met hun mee. Ze hebben geen extra zelfgeschreven software of diep geïntegreerde systemen nodig.\\
+Deze automatisaties kunnen extra geholpen worden door het gebruik van Machine Learning  (ML),  Natural Language Processing (NLP) en speach recognition tot  Intelligent Automation (IA). \autocite{whatIsRPA}
 
-\subsection{GraphQL +-}
-GraphQL +- is een specificatie van GraphQL gericht op het aanspreken van graaf databanken. De queries worden opgebouwd aan de hand van zoek criteria en overeenstemmende patronen in een graaf om nodes terug te vinden. Het resultaat van zo'n query is zelf een graaf.  Een belangrijke opmerking omtrent GraphQL +- nog in de maak is. Er wordt op regelmatige basis een update doorgevoerd met bugfixes, nieuwe features, verbetering van de performantie, ... . \autocite{dgraphDocs}
-%GraphQL +- is gebaseerd op de gewone GraphQL maar dan met enige wijzigingen en simplificaties om de taal te optimaliseren voor het aanspreken en ophalen van data uit graaf databanken.\autocite{dgraphDocs}
+\subsection{Valkuilen van RPA}
+Ondanks de vele voordelen zijn er ook enkele gevaren aan RPA verbonden. Met een automatiserende technologie dreigt het risico er altijd dat jobs vervangen zullen worden. Meeste bedrijven proberen hier op in te spelen door de te vervangen werknemers te verplaatsen naar nieuwe jobs maar toch wordt er geschat dat zeker 9\% vervangen zal worden door RPA systemen.\\
+Het installeren van duizenden RPA systemen blijkt toch ingewikkelder en duurder dan verwacht. Slecht 3\% heeft in 2018 meer dan 50 RPA software packets succesvol kunnen opzetten. Ook veranderd het platform waarop de bots interageren met op regelmatige basis waarbij de nodige flexibiliteit niet standaard aanwezig is in de bot om zich aan te kunnen passen. Een laatste struikelblok is dat regulaties die een wijziging van het platform veroorzaken er kunnen voor zorgen dat maanden werk geleverd door een RPA agent niets meer waard zijn. \autocite{whatIsRPA}\\
 
-%\subsection{Graaf databanken}
-%Graaf databanken bevatten sterk geconnecteerde data.\autocite{graphDatabases} Om dit op te vragen via een REST API zal ofwel meerdere requests naar de server en dus meerdere calls naar de databank nodig zijn, ofwel zal dit een zeer dure en tijdsintensieve operatie zijn. \autocite{everythingGQL}
+Om te bepalen of een proces kan vervangen worden door RPA zijn een viertal regels voorop gesteld:
+\begin{itemize}
+	\item Het proces moet gebaseerd zijn op duidelijke regels
+	\item Het proces moet regelmatig herhaald worden of een eenduidige activator hebben
+	\item Het proces moet meerdere in- en outputs hebben
+	\item Het proces moet een groot genoeg volume hebben
+\end{itemize} \autocite{explainRPA}
 
-\subsection{De kracht van graaf databanken}
-Graaf databanken voorzien een flexibel data model en een geoptimaliseerde data query methode voor een set van use-cases waarbij de snelheid en performantie sterk verbeterd is en waar de latency bij het opvragen van de data sterk verminderd ten opzichte van een relationele en NoSQL databanken. Deze use-case zijn natuurlijk werken met sterk geconnecteerde data. % Bij niet graaf gerichte OLTP systemen zou dit een zeer intensieve, multi-join query zijn. 
-Naast de performantie biedt ook de flexibiliteit een pluspunt. Grafen zijn natuurlijk additief. Dit wil zeggen dat gemakkelijk nieuwe relaties, nodes en labels toegevoegd kunnen worden.
-Ook de beweeglijkheid van de data speelt een voordeel. We willen onze data laten evolueren met eenzelfde snelheid als het iteratief en incrementeel (agile) werkproces. De moderne graaf databanken zijn gebouwd voor het wrijvingsloos ondersteunen van development en onderhoud van het systeem. \autocite{graphDatabases}
+\subsection{ADP}
+Data processing (DP) is het omzetten van verworven data in relevante informatie, meestal uitgevoerd door een data analist. \autocite{whatIsDP}
 
-\subsection{Combinatie}
-GraphQL speelt als het ware een laag, een centraal aanspreek punt, tussen de client applicatie en de databank.  Hieruit kan de hele databank gemakkelijk aangesproken worden. Dit werkt in het voordeel van een ontwikkelaar die nu gemakkelijk verschillende delen van de databank tegelijk kan aanspreken.
-%waarbij de verschillende tabellen tegelijk aangesproken kunnen worden en dus gemakkelijk gecombineerd worden tot 1 request waar alles inzit dat opgevraagd wordt, in tegenstelling tot REST API's. \autocite{everythingGQL}
+\subsubsection{De 6 stappen van data verwerking}
+\begin{itemize}
+	\item Data collectie: verzamelen van data
+	\item Data preparatie: het 'opkuisen' van de data
+	\item Data input: de data in het systeem inbrengen
+	\item Data verwerken
+	\item Data interpretatie: de resultaten van de verwerking interpreteren
+	\item Data opslag: de data opslaan voor verder gebruik
+\end{itemize}  \autocite{whatIsDP}
 
-
-% bevat:
-% Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek?
-
-%Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Doll1954}! Denk zeker goed na welke werken je refereert en waarom.
-
-% Voor literatuurverwijzingen zijn er twee belangrijke commando's:
-% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
-%   geen onderdeel is van de zin.
-% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een
-%   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
-%   ...'')
-
-%Je mag gerust gebruik maken van subsecties in dit onderdeel.
+Automatic Data Processing (ADP) beschrijft dan het automatisch verwerken van inkomende data. Aangezien deze stappen over het algemeen eenzelfde stappenplan volgen kunnen deze geautomatiseerd worden. \\
+Aangezien de toekomst van data processing in the cloud zit en gebruik maakt van elektronische methoden om zijn snelheid en effectiviteit te verhogen \autocite{whatIsDP}, kan aan de hand van RPA deze snelheid nog omhoog getrokken worden en het aantal fouten nog sterker naar beneden geduwd worden wat resulteert in bruikbare data van hoge kwaliteit.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}
 \label{sec:methodologie}
-
-Om op de hierboven geschreven vragen een antwoord te bieden ga ik gebruik maken van simulaties en experimenten om productie waardige omgevingen na te bootsen. Hierbij wordt eerst gestart met een simpele DGraph graaf databank die aangesproken wordt met een Node.JS backend via GraphQL(+-). Stilaan wordt de databank uitgebreid tot een applicatiewaardige graaf databank. Hierbij  zal een onderzoek uitgevoerd worden naar onder andere de performantie, snelheid en onderhoudbaarheid van de databank en de GraphQL aanspreek methode. Nadien zal dit onderzoek uitgebreid worden naar andere graaf databanken zoals bijvoorbeeld ArrangoDB, Neo4J of FaunaDB.\\
-Om de combinatie tussen GraphQL en graaf databanken te onderzoeken zal gebruik gemaakt worden van: 
-\begin{enumerate}
-	\item GraphQL (+-)
-	\item DGraph Sandbox
-\end{enumerate}
-Hierbij wordt gekeken hoe lang het duurt, met opzoekingswerk inbegrepen om succesvol een lokale databank in docker te draaien via DGraph en via GraphQL +- er data uit op te halen.\\
-Om schaalbaarheid en performantie te testen zal een testomgeving opgezet worden met volgende eigenschappen:
-\begin{itemize}
-	\item Een Node.JS backend gecombineerd met Apollo en GraphQL
-	\item Een DGraph datbank met substantiële hoeveelheden data
-\end{itemize}
-Binnen dit experiment zal geleidelijk aan het data model en de data binnen de databank uitgebreid worden.
+%Aan de hand van het opzetten van enkele test scenario's zal geken worden naar verschillende aspecten. Zo zal er rekening gehouden worden met de tijd die nodig is om door de documentatie te gaan en een bepaald scenario op te zetten. Of het makkelijk is om een tweede bot toe te voegen. Daarnaast zal gekeken worden naar de tijd die vrijkomt aan de hand van het gebruik van deze software en of dit genoeg rendabel is om de kost van zo'n bot te dekken. \\
+%De scenario's zullen doorlopen worden van makkelijk naar moeilijk.
+Het onderzoek zal uitgevoerd worden door enkele interessante scenario's uit te werken met een RPA software paket om te kijken hoeveel tijd en kennis nodig is om de verschillende scenario's uit te werken. Ook zal gekeken worden in welke sectoren deze technologie het best werkt. Dit zal bereikt worden door verschillende scenario's uit te werken voor verschillende bedrijfssectoren. Bij het toevoegen van een extra RPA  proces zal gekeken worden of dit makkelijk te implementeren is en welke systemen meerdere RPA processen nodig hebben en welke niet. \\
+Deze scenario's zullen van makkelijk naar moeilijk doorlopen worden.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
-Aangezien de focus van GraphQL ligt op het makkelijk opstellen van queries voor developers, wordt er verwacht dat het gebruik er van in combinatie met graaf databanken geen probleem geeft. \\
-De research dat gaat in het opzetten van beide technologieën blijft beperkt en is gemakkelijk op te zetten. Ook de schaalen beide technologieën goed mee met elkaar door onder andere het flexibele data model van GraphQL en de additieve eigenschap van graaf databanken. Het blootstellen van zoekbomen aan de hand van GraphQL attributen wordt gemakkelijk gemaakt door de GraphQL +- specificatie.
-
+%. Hierbij moet wel gezegd worden dat het belangrijk is alleen die processen te automatiseren die daar werkelijk baat aan hebben en niet op elk proces waarop RPA kan toe gepast worden. Hierdoor zal uiteindelijk ook de kost verbonden met het opzetten van een bot gedekt worden. Daarnaast wordt ook verwacht dat RPA makkelijk te beveiligen en makkelijk integreer baar is in de dagelijkse werking van een bedrijf. Ook dat het toevoegen van een tweede of derde bot zonder veel moeite geïntegreerd kan worden.
+Er wordt verwacht dat RPA een duidelijke verhoging van de efficiëntie met zich meebrengt doordat medewerkers zich kunnen focussen op het uitvoeren van productievere taken. Hierbij wordt niet alleen bedoeld binnen de IT sector. RPA's kunnen namelijk veel systemen en processen automatiseren. Er wordt dan ook vanuit gegaan dat sectoren zoals sales, boekhouding en management hier ook baat bij hebben. Bij het opzetten van de scenario's wordt er verwacht dat dit op een week kan opgezet worden zonder veel problemen en eens opgezet, deze processen makkelijk te onderhouden zijn. Ook het toevoegen van enkele nieuwe processen is vlot te implementeren. Het foutgehaalte dat uit het automatiseren voortkomt wordt ook geschat minder te zijn dan wanneer werknemers deze taken uitvoeren.
 % Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data gaat moeten structureren.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
-Er wordt verwacht dat de opzet van een project met GraphQL en graaf databanken bedrijven niet zo mogen tegenhouden om er mee te beginnen. Ook dat de leercurve voor GraphQL (+-) in combinatie met graaf databanken zou geen struikelblok mogen zijn en dat het de tijd nodig om dit allemaal te leren het waard is.
-
+%Voor de bedrijven die besluiten toch de stap te zetten, wordt er verwacht dat dit project een duidelijk beeld schept over RPA. Hoeveel tijd het een bedrijf zal kost om een RPA agent op te zetten en hoeveel, in tijd en/of geld, het kost aan een organisatie om een extra bot toe te voegen. Vanaf welk punt het moeilijk wordt om bot effectief en efficiënt bij te voegen en hoeveel tijd ze uitsparen door het opzetten van een bot.
+RPA processen zijn het investeren waard tot op een bepaalde schaal of tot wanneer het makkelijker wordt om een groot aantal geïmplementeerde processen te ondersteunen. Vele sectoren kunnen gebruik maken van de geautomatiseerde processen en het niet meer te hoeven werken op traag vooruitgaande systemen levert de organisatie veel tijdwinst op. Ook het automatiseren van wat op lijkt op niet automatiseerbare systemen verhoogt de productiviteit. Ook zal het foutenaantal dalen waardoor de kwaliteit van de onderneming stijgt.
 % Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 

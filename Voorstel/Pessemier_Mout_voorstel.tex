@@ -3,17 +3,6 @@
 %==============================================================================
 % Gebaseerd op LaTeX-sjabloon ‘Stylish Article’ (zie voorstel.cls)
 % Auteur: Jens Buysse, Bert Van Vreckem
-%
-% Compileren in TeXstudio:
-%
-% - Zorg dat Biber de bibliografie compileert (en niet Biblatex)
-%   Options > Configure > Build > Default Bibliography Tool: "txs:///biber"
-% - F5 om te compileren en het resultaat te bekijken.
-% - Als de bibliografie niet zichtbaar is, probeer dan F5 - F8 - F5
-%   Met F8 compileer je de bibliografie apart.
-%
-% Als je JabRef gebruikt voor het bijhouden van de bibliografie, zorg dan
-% dat je in ``biblatex''-modus opslaat: File > Switch to BibLaTeX mode.
 
 \documentclass{voorstel}
 \usepackage{lipsum}
@@ -25,7 +14,7 @@
 
 %---------- Titel & auteur ----------------------------------------------------
 
-\PaperTitle{It's time to put the GraphQL in Graph Databases}
+\PaperTitle{RPA, automatisatie van morgen, nu}
 \PaperType{Onderzoeksvoorstel Bachelorproef 2019-2020} % Type document
 
 \Authors{Mout Pessemier\textsuperscript{1}} % Authors
@@ -37,7 +26,7 @@
 
 %---------- Abstract ----------------------------------------------------------
 
-\Abstract{De vraag of GraphQL effectief en efficiënt kan gecombineerd worden samen met graaf databanken zoals DGraph, ArrangoDB en Neo4J om zo de schaalbaarheid en maturiteit van het gebruik van GraphQL te testen wordt besproken in onderstaande paper. Zo hoop ik licht te schijnen op de mogelijke onduidelijkheden en twijfels rond het combineren van beide Technologieën. Om dit te testen zullen 2 experimenten uitgevoerd worden om enerzijds de opzet en leercurve van het gebruik van beide technologieën te testen en anderzijds om de schaalbaarheid en performantie van een steeds veranderende productie omgeving te testen. Hieruit moet blijken of het makkelijk is om beide technologieën te combineren en of het voor bedrijven de moeite waard is om tijd te investeren in het gebruik ervan.}
+\Abstract{Het dagelijkse tijdsverlies van werknemers binnen een bedrijf is optimalisatie probleem dat tot op de dag van vandaag nog niet optimaal is opgelost. Om een eventueel oplossing te implementeren kan beroep gedaan worden op Robotic Process Automation, maar is RPA wel zo efficiënt als beweerd wordt? In dit onderzoek worden de voor en nadelen, de tijd nodig voor het implementeren van, de kost en de hoeveelheid geld dat RPA kan uitsparen besproken om zo een beter beeld te scheppen wat RPA allemaal kan opleveren voor een onderneming. Hierbij wordt verwacht dat RPA de efficiëntie sterk omhoog zal trekken en dat geen uitgebreide kennis nodig is om een simpel systeem op te zetten. Ook wordt er verwacht dat RPA, door de flexibiliteit, op verschillende vlakken kan helpen met allerhande taken binnen de verschillende sectoren van de organisatie.}
 
 %---------- Onderzoeksdomein en sleutelwoorden --------------------------------
 %
@@ -57,7 +46,7 @@
 %
 % De andere sleutelwoorden zijn vrij te kiezen
 
-\Keywords{Databanken en big data. GraphQL --- Graph Databases --- DGraph} % Keywords
+\Keywords{Process Automation. Robotic Process Automation --- Automatic Data Processing --- Automatisatie} % Keywords
 \newcommand{\keywordname}{Sleutelwoorden} % Defines the keywords heading name
 
 %---------- Titel, inhoud -----------------------------------------------------
@@ -80,10 +69,6 @@
 	%------------------------------------------------------------------------------
 	% Referentielijst
 	%------------------------------------------------------------------------------
-	% TODO: de gerefereerde werken moeten in BibTeX-bestand ``voorstel.bib''
-	% voorkomen. Gebruik JabRef om je bibliografie bij te houden en vergeet niet
-	% om compatibiliteit met Biber/BibLaTeX aan te zetten (File > Switch to
-	% BibLaTeX mode)
 	
 	\phantomsection
 	\printbibliography[heading=bibintoc]
