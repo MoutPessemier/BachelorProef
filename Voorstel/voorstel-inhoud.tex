@@ -1,85 +1,73 @@
 %---------- Inleiding ---------------------------------------------------------
 
-\section{Introductie} % The \section*{} command stops section numbering
+\section{Introductie}
 \label{sec:introductie}
-De hoeveelheid tijd die verloren gaat aan het uitvoeren van repetitieve, dagdagelijkse taken is een optimalisatieprobleem dat de meeste bedrijven tegenkomen. \\
+De hoeveelheid tijd die verloren gaat aan het uitvoeren van repetitieve, dagelijkse taken is een optimalisatieprobleem dat de meeste bedrijven ervaren. \\
 Een manier om dit probleem aan te pakken is de technologie, Robotic Process Automation (RPA). Doordat RPA processen en systemen gaat automatiseren, kunnen de werknemers zich focussen op belangrijkere en productievere taken.\\
- Om uit te zoeken welke voor en nadelen RPA met zich meebrengt, bestaat het onderzoek uit volgende vragen:
+ Om uit te zoeken welke voor- en nadelen RPA met zich meebrengt, bestaat het onderzoek uit volgende vragen:
 \begin{itemize}
-	\item Welke recente ontwikkelingen zijn relevant binnenin het RPA segment? 
+	\item Welke recente ontwikkelingen zijn relevant binnen het RPA segment? 
 	\item Waar kan RPA een meerwaarde bieden, is dit interessant voor elk bedrijf?
 	\item Welke kennis en vaardigheden vergt het om een RPA proces op te zetten?
-	\item Hoe betrouwbaar is RPA, hoe zit het met fout-tollerantie?
-	\item Wat als de applicatie niet responsief is?
+	\item Hoe betrouwbaar is RPA, hoe zit het met fout tolerantie?
+	\item Wat als de applicatie vast loopt?
 \end{itemize}
-
-
-% bevat:
-% de probleemstelling en context
-% de motivatie en relevantie voor het onderzoek
-% de doelstelling en onderzoeksvraag/-vragen
 
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{Literatuurstudie}
 \label{sec:literatuurstudie}
-RPA, ook wel Robotic Process Automation genoemd, is een toepassing van technologieën, overzien door  business logica en gestructureerde inputs, gericht op het automatiseren van business processen. Gebruik makende van RPA tools, kan een bedrijf software configureren voor het vastleggen en interpreteren van applicaties voor onder andere transactionele processen, data manipulatie en het communiceren met andere digitale systemen. Deze automaties kunnen gaan van een simpele auto-reply mail tot het deployen van duizenden bots of het werken binnen een Enterprise Resource Planning (ERP) systeem. \autocite{whatIsRPA} \\
-Het gebruik van de technologie is sterk aan het stijgen, met een groeipercentage van 57\% van jaar op jaar. Wereldwijd is in 2018 \$680 miljoen euro gespendeerd aan RPA systemen en men verwacht dat dit rond \$2.4 mijard zal liggen tegen 2022. \autocite{isRPAWorthIt}\\
-Een goed geïmplementeerde RPA bot kan gemakkelijk 5 tot 10 mensen vervangen. \autocite{rpaMomentum}
+RPA, is een toepassing van software en gestructureerde inputs, gericht op het automatiseren van business processen. Gebruik makend van RPA tools, kan een bedrijf software configureren voor het vastleggen en interpreteren van applicaties om o.a. transactionele processen, data manipulatie en het communiceren met andere digitale systemen uit te voeren. Deze automatiseringen kunnen gaan van een simpele auto-reply mail tot het inzetten van duizenden bots of het werken binnen een Enterprise Resource Planning (ERP) systeem. \autocite{whatIsRPA} \\
+Het gebruik van de technologie stijgt sterk, met een groeipercentage van 57\%. Wereldwijd is in 2018, \$680 miljoen gespendeerd aan RPA systemen en men verwacht tegen 2022 zelfs  \$2.4 miljard.  \autocite{isRPAWorthIt}  Dit is ook niet onlogisch aangezien een goed geïmplementeerd RPA proces gemakkelijk 5 tot 10 mensen vervangt. \autocite{rpaMomentum}
 
 \subsection{Voordelen van RPA}
-Het staat toe aan een organisatie om de loonkost te verlagen en fouten die door de werknemers gemaakt worden te verminderen aangezien RPA slecht 1 juist voorbeeld nodig heeft om nadien het geautomatiseerd proces juist uit te voeren.\\
-De echte sterkte ligt echter in het fijt dat RPA aan bedrijven de mogelijkheid geeft om processen en systemen die totaal niet voorzien zijn op het automatiseren, toch geautomatiseerd te krijgen. Hieronder vallen ook die systemen die al sterk verouderd zijn en heel traag vooruitgang boeken. \\
-Bots zijn over het algemeen gemakkelijk te implementeren en dragen een lage kost met hun mee. Ze hebben geen extra zelfgeschreven software of diep geïntegreerde systemen nodig.\\
-Deze automatisaties kunnen extra geholpen worden door het gebruik van Machine Learning  (ML),  Natural Language Processing (NLP) en speach recognition tot  Intelligent Automation (IA). \autocite{whatIsRPA}
+Door RPA zal de loonkost verminderen en de gemaakte fouten dalen aangezien RPA slecht 1 juist voorbeeld nodig heeft om het geautomatiseerd proces correct uit te voeren.\\
+Het voornaamste voordeel is het feit dat RPA aan bedrijven de mogelijkheid geeft om processen en systemen die niet gemaakt zijn om te automatiseren, toch geautomatiseerd te krijgen. Hieronder vallen ook de systemen die sterk verouderd zijn en/of  traag zijn. \\
+Bots zijn over het algemeen gemakkelijk te implementeren en goedkoop. Ze hebben geen extra zelfgeschreven software of diep geïntegreerde systemen nodig.\\
+Deze automatiseringen kunnen extra ondersteund worden door het gebruik van Machine Learning  (ML),  Natural Language Processing (NLP) en speach recognition tot  Intelligent Automation (IA) waarbij RPA zich ook kan aanpassen in een licht veranderende omgeving. \autocite{whatIsRPA}
 
 \subsection{Valkuilen van RPA}
-Ondanks de vele voordelen zijn er ook enkele gevaren aan RPA verbonden. Met een automatiserende technologie dreigt het risico er altijd dat jobs vervangen zullen worden. Meeste bedrijven proberen hier op in te spelen door de te vervangen werknemers te verplaatsen naar nieuwe jobs maar toch wordt er geschat dat zeker 9\% vervangen zal worden door RPA systemen.\\
-Het installeren van duizenden RPA systemen blijkt toch ingewikkelder en duurder dan verwacht. Slecht 3\% heeft in 2018 meer dan 50 RPA software packets succesvol kunnen opzetten. Ook veranderd het platform waarop de bots interageren met op regelmatige basis waarbij de nodige flexibiliteit niet standaard aanwezig is in de bot om zich aan te kunnen passen. Een laatste struikelblok is dat regulaties die een wijziging van het platform veroorzaken er kunnen voor zorgen dat maanden werk geleverd door een RPA agent niets meer waard zijn. \autocite{whatIsRPA}\\
-
-Om te bepalen of een proces kan vervangen worden door RPA zijn een viertal regels voorop gesteld:
+Ondanks de vele voordelen zijn er ook enkele gevaren aan RPA verbonden. Met een automatiserende technologie bestaat het risico dat jobs verdwijnen. De meeste bedrijven proberen de te vervangen werknemers in te zetten voor nieuwe jobs maar toch wordt er geschat dat zeker 9\% vervangen zal worden door RPA systemen.\\
+Het installeren van duizenden RPA systemen blijkt toch ingewikkelder en duurder dan verwacht. Slecht 3\% van de bedrijven heeft in 2018 meer dan 50 RPA software packets succesvol kunnen opzetten. Ook verandert het platform waarmee de bots interageren op regelmatige basis waardoor de nodige flexibiliteit tot aanpassen niet standaard aanwezig is.\\
+Een laatste struikelblok is dat een kleine wijziging aan een formulier ervoor  kan zorgen dat het geleverde werk volledig verloren gaat omdat RPA niet meer weet wat te doen met deze nieuwe data. \autocite{whatIsRPA}\\
+\newline
+Om te bepalen of een proces kan vervangen worden door RPA zijn vier regels vooropgesteld:
 \begin{itemize}
 	\item Het proces moet gebaseerd zijn op duidelijke regels
 	\item Het proces moet regelmatig herhaald worden of een eenduidige activator hebben
 	\item Het proces moet meerdere in- en outputs hebben
-	\item Het proces moet een groot genoeg volume hebben
+	\item Het proces moet een voldoende groot volume hebben
 \end{itemize} \autocite{explainRPA}
 
-\subsection{ADP}
+\subsection{Automatic Data Processing}
 Data processing (DP) is het omzetten van verworven data in relevante informatie, meestal uitgevoerd door een data analist. \autocite{whatIsDP}
 
 \subsubsection{De 6 stappen van data verwerking}
 \begin{itemize}
 	\item Data collectie: verzamelen van data
-	\item Data preparatie: het 'opkuisen' van de data
+	\item Data voorbereiding: het 'opkuisen' van de data
 	\item Data input: de data in het systeem inbrengen
 	\item Data verwerken
 	\item Data interpretatie: de resultaten van de verwerking interpreteren
 	\item Data opslag: de data opslaan voor verder gebruik
 \end{itemize}  \autocite{whatIsDP}
 
-Automatic Data Processing (ADP) beschrijft dan het automatisch verwerken van inkomende data. Aangezien deze stappen over het algemeen eenzelfde stappenplan volgen kunnen deze geautomatiseerd worden. \\
-Aangezien de toekomst van data processing in the cloud zit en gebruik maakt van elektronische methoden om zijn snelheid en effectiviteit te verhogen \autocite{whatIsDP}, kan aan de hand van RPA deze snelheid nog omhoog getrokken worden en het aantal fouten nog sterker naar beneden geduwd worden wat resulteert in bruikbare data van hoge kwaliteit.
+Automatic Data Processing (ADP) beschrijft het automatisch verwerken van inkomende data. Deze stappen volgen in het algemeen eenzelfde stappenplan waardoor deze geautomatiseerd kunnen worden. \\
+Aangezien de toekomst van data processing in 'the cloud' ligt en gebruik gemaakt wordt van elektronische methoden om zijn snelheid en effectiviteit te verhogen \autocite{whatIsDP}, kan aan de hand van RPA deze snelheid nog omhoog en het aantal fouten nog sterk naar beneden gehaald worden. Dit resulteert in bruikbare data van hoge kwaliteit.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}
 \label{sec:methodologie}
-%Aan de hand van het opzetten van enkele test scenario's zal geken worden naar verschillende aspecten. Zo zal er rekening gehouden worden met de tijd die nodig is om door de documentatie te gaan en een bepaald scenario op te zetten. Of het makkelijk is om een tweede bot toe te voegen. Daarnaast zal gekeken worden naar de tijd die vrijkomt aan de hand van het gebruik van deze software en of dit genoeg rendabel is om de kost van zo'n bot te dekken. \\
-%De scenario's zullen doorlopen worden van makkelijk naar moeilijk.
-Het onderzoek zal uitgevoerd worden door enkele interessante scenario's uit te werken met een RPA software paket om te kijken hoeveel tijd en kennis nodig is om de verschillende scenario's uit te werken. Ook zal gekeken worden in welke sectoren deze technologie het best werkt. Dit zal bereikt worden door verschillende scenario's uit te werken voor verschillende bedrijfssectoren. Bij het toevoegen van een extra RPA  proces zal gekeken worden of dit makkelijk te implementeren is en welke systemen meerdere RPA processen nodig hebben en welke niet. \\
-Deze scenario's zullen van makkelijk naar moeilijk doorlopen worden.
+Interessante scenario's zullen tijdens het onderzoek uitgevoerd worden a.d.h.v. een RPA software pakket. Hierbij wordt gekeken 1) hoeveel tijd en kennis nodig is om deze uit te werken, 2) welke bedrijfssectoren voor deze technologie het meest in aanmerking komen 3) of een extra proces makkelijk te implementeren is en 4) welke systemen meerdere RPA processen nodig hebben . \\
+Deze scenario's zullen doorlopen worden van makkelijk naar moeilijk.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
-%. Hierbij moet wel gezegd worden dat het belangrijk is alleen die processen te automatiseren die daar werkelijk baat aan hebben en niet op elk proces waarop RPA kan toe gepast worden. Hierdoor zal uiteindelijk ook de kost verbonden met het opzetten van een bot gedekt worden. Daarnaast wordt ook verwacht dat RPA makkelijk te beveiligen en makkelijk integreer baar is in de dagelijkse werking van een bedrijf. Ook dat het toevoegen van een tweede of derde bot zonder veel moeite geïntegreerd kan worden.
-Er wordt verwacht dat RPA een duidelijke verhoging van de efficiëntie met zich meebrengt doordat medewerkers zich kunnen focussen op het uitvoeren van productievere taken. Hierbij wordt niet alleen bedoeld binnen de IT sector. RPA's kunnen namelijk veel systemen en processen automatiseren. Er wordt dan ook vanuit gegaan dat sectoren zoals sales, boekhouding en management hier ook baat bij hebben. Bij het opzetten van de scenario's wordt er verwacht dat dit op een week kan opgezet worden zonder veel problemen en eens opgezet, deze processen makkelijk te onderhouden zijn. Ook het toevoegen van enkele nieuwe processen is vlot te implementeren. Het foutgehaalte dat uit het automatiseren voortkomt wordt ook geschat minder te zijn dan wanneer werknemers deze taken uitvoeren.
-% Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data gaat moeten structureren.
+RPA zal een duidelijke verhoging van de efficiëntie met zich meebrengen doordat medewerkers zich kunnen focussen op het uitvoeren van productievere taken en dit niet alleen binnen de IT sector. RPA's kunnen namelijk veel systemen en processen automatiseren. Er wordt vanuit gegaan dat sectoren zoals sales, boekhouding en management hier ook baat bij hebben. De opzet van een scenario zal binnen een week succesvol gebeuren en het onderhoud van dit process zal zonder verdere problemen verlopen. Ook het implementeren van nieuwe processen gebeurd probleemloos. Er wordt geschat dat het foutgehalte door automatiseren sterk verminderd t.o.v. wanneer werknemers deze taken uitvoeren.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
-%Voor de bedrijven die besluiten toch de stap te zetten, wordt er verwacht dat dit project een duidelijk beeld schept over RPA. Hoeveel tijd het een bedrijf zal kost om een RPA agent op te zetten en hoeveel, in tijd en/of geld, het kost aan een organisatie om een extra bot toe te voegen. Vanaf welk punt het moeilijk wordt om bot effectief en efficiënt bij te voegen en hoeveel tijd ze uitsparen door het opzetten van een bot.
-RPA processen zijn het investeren waard tot op een bepaalde schaal of tot wanneer het makkelijker wordt om een groot aantal geïmplementeerde processen te ondersteunen. Vele sectoren kunnen gebruik maken van de geautomatiseerde processen en het niet meer te hoeven werken op traag vooruitgaande systemen levert de organisatie veel tijdwinst op. Ook het automatiseren van wat op lijkt op niet automatiseerbare systemen verhoogt de productiviteit. Ook zal het foutenaantal dalen waardoor de kwaliteit van de onderneming stijgt.
-% Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
+RPA processen zijn het investeren waard om een groot aantal geïmplementeerde processen te ondersteunen. Deze geautomatiseerde processen leveren veel tijdswinst op en kunnen in meerdere sectoren geïmplementeerd worden. De productiviteit stijgt zelfs bij systemen die oorspronkelijk niet voorzien zijn om te automatiseren.  De foutenmarge verkleint waardoor de kwaliteit van de onderneming stijgt.
 
