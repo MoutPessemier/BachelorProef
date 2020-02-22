@@ -1,3 +1,6 @@
+# General
+*.md
+
 # Main
 BachProef/bachproef-tin.aux
 BachProef/bachproef-tin.bcf
@@ -9,6 +12,11 @@ BachProef/bachproef-tin.pdf
 BachProef/bachproef-tin.run*
 BachProef/bachproef-tin.synctex.gz
 BachProef/bachproef-tin.toc
+BachProef/bachproef-tin.bib.bak
+BachProef/bachproef-tin.bib.sav
+Bachproef/bachproef-tin.blg
+Bachproef/bachproef-tin.bbl
+Bachproef/bachproef-tin.out
 
 # Voorstel
 Voorstel/voorstel.bib.bak
