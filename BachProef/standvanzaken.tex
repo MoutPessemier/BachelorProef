@@ -7,11 +7,139 @@
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+%Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz. naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin, gebruik je \texttt{$\backslash${}textcite\{\}}.
-Soms wil je de auteur niet expliciet vernoemen, dan gebruik je \texttt{$\backslash${}autocite\{\}}. In de volgende paragraaf een voorbeeld van elk.
+%Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz. naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin, gebruik je \texttt{$\backslash${}textcite\{\}}.
+%Soms wil je de auteur niet expliciet vernoemen, dan gebruik je \texttt{$\backslash${}autocite\{\}}. In de volgende paragraaf een voorbeeld van elk.
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+%\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
 
-\lipsum[7-20]
+%\lipsum[7-20]
+
+RPA is een onderdeel van business process automation (BPA), een overkoepelende term gebruikt voor het beschrijven van technologieën die activiteiten en workflows waaruit business taken bestaan uitvoeren met zo min mogelijk menselijke tussenkomst. \autocite{everythingRPA}
+
+RPA kan gecombineerd worden samen met artificiële intelligentie om zo langere en moeilijkere taken op zich te nemen. Hierdoor worden ze door sommigen beschreven als zelf-verbeterende digitale werkkrachten. Enkele velden waarbinnen RPA kan gecombineerd worden met AI zijn optical character recognition en natural language generation (NLG). \autocite{everythingRPA}
+
+\section{Algemene informatie}
+
+\subsection{Waarvoor kan RPA gebruikt worden}
+Enkele taken waarvoor RPA kan gebruikt worden:
+\begin{itemize}
+	\item data overzetten van de ene applicatie naar de andere
+	\item processen automatiseren
+	\item website scraping
+	\item data verzamelen en analyseren
+	\item reporting
+	\item emails verzenden
+	\item werken met spreadsheets, PDFs, texteditors, ...
+	\item ...
+\end{itemize}
+\autocite{everythingRPA} \autocite{idrRPA}
+
+\subsection{In welke sectoren wordt RPA gebruikt}
+Onderdelen van een onderneming waarbinnen deze taken kunnen gebruikt worden:
+\begin{itemize}
+	\item customer service: validatie van handtekeningen, uploaden van ingescande documenten, valideren van informatie voor automatische aanvaarding of afwijzing
+	\item accounting: procedure to pay, accounting, belastingen, ...
+	\item human resources (HR): payroll, time management, recruitment, ...
+	\item IT management en services: source-code control management, incident management, optimailseren van email notificaties, ...
+	\item supply chain management: order processing, payment processing, monitoring van de stock, ...
+\end{itemize}
+\autocite{everythingRPA}
+
+\subsection{Welke processen kunnen geautomatiseerd worden}
+RPA is kan niet gebruikt worden om zo maar eender welk business proces te gaan automatiseren. Een proces toont best een aantal karakteristieken die het geschikt maken om te automatiseren:
+\begin{itemize}
+	\item repetitief
+	\item gebaseerd op gestructureerde, digitale data
+	\item duidelijk afgebakende regels met weinig tot geen uitzonderingen
+	\item error-prone als het uitgevoerd wordt door een werknemer
+	\item tijdsgebonden
+\end{itemize}
+
+\section{Verschillen met soortgelijke technologieën}
+
+\subsection{Gewone automatisatie}
+Het grote verschil tussen RPA en gewone automatisatie is de kennis van coderen die nodig is om het doel te bereiken. Bij gewone automatisatie schrijft een programmeur code die een bepaalde taak automatiseerd. Bij RPA daarentegen wordt over het algemeen weinig tot geen code gebruikt om een proces te gaan automatiseren.
+\subsection{Business Process Management}
+Ook is er een verschil tussen RPA en business process management (BPM). Beide willen het aantal fouten verminderen en efficiëntie verhogen maar ze doen dat op faliekant andere manieren. BPM gaat helderheid scheppen bij business processen door deze te gaan modelleren en in kaart te brengen waar RPA deze processen juist wil gaan automatiseren, daarom niet in kaart brengen.
+\subsection{Intelligent Process Automation}
+Als laatste is er intelligent process automation (IPA) tegenover RPA. Er is hier minder sprake van een verschil aangezien IPA RPA combineerd met BPM, AI en machine learning (ML) om processen optimaal te gaan verbeteren.
+\autocite{everythingRPA}
+
+\section{De verschillende RPA Architecturen}
+Er zijn verschillende soorten RPA die kunnen gebruikt worden binnen een bedrijfscontext:
+
+\begin{itemize}
+	\item Assisted (Attended) automation: RPA loopt op een gebruiker zijn desktop om hem te helpen een proces op een snellere manier kunnen af te werken. Dit leid in het algemeen tot een vermindering van kosten en een betere klantenservice. Een groot nadeel aan deze architectuur is dat een wijziging of onregelmatigheid in de beeldscherm instellingen zoals bijvoorbeeld het wijzigen van display instellingen als lettergrootte kan er voor zorgen dat RPA faalt in het uitvoeren van de vooropgestelde taak.
+	\item Unassisted (Unattended) automation: heeft geen menselijke interactie nodig, RPA draait het systeem zelf en laat pas iets weten aan de werknemer wanneer iets fout gaat en hij het zelf niet kan oplossen. Dit zijn de 24/7 digitale werkkrachten die geassocieerd worden met RPA.
+	\item Hybrid RPA: Een combinatie van vorige 2 architecturen waarbij de werknemer en de RPA robot als een team samen werken, onderling taken van en naar elkaar sturen. De hybride methode overkoepelt op deze manier zowel het werk dat alleen uitgevoerd kan worden door de robot als ook het werk waarvoor menselijke interactie nodig is.
+\end{itemize}
+
+Daarnaast kan RPA op verschillende manieren geïmplementeerd worden, zo kan de low-code development mentaliteit gevolgd worden waarbij amper iets van kennis nodig is. Dit is perfect voor bedrijven met een beperkte IT kennis. Aan de andere kant kan ook veel gecodeerd worden om deze robots op te zetten.
+\autocite{everythingRPA}
+
+\section{Verschillen met soortgelijke technologieën}
+
+\subsection{Gewone automatie}
+Het grote verschil tussen RPA en gewone automatisatie is de kennis van coderen die nodig is om het doel te bereiken. Bij gewone automatisatie schrijft een programmeur code die een bepaalde taak gaat automatiseren. Bij RPA daarentegen wordt over het algemeen weinig tot geen code gebruikt om een proces te gaan automatiseren maar wordt via drag \& drop of de recorder de automatie samengesteld. \autocite{everythingRPA}
+
+\subsection{Business Process Management}
+Ook is er een verschil tussen RPA en business process management (BPM). Beide willen het aantal fouten verminderen en efficiëntie verhogen maar ze doen dat op faliekant andere manieren. BPM gaat helderheid scheppen bij business processen door deze te gaan modelleren en in kaart te brengen waar RPA deze processen juist wil gaan automatiseren, daarom niet in kaart brengen. \autocite{everythingRPA}
+
+\subsection{Intelligent Process Automation}
+Als laatste is er intelligent process automation (IPA) tegenover RPA. Er is hier minder sprake van een verschil aangezien IPA RPA combineerd met BPM, AI en machine learning (ML) om processen optimaal te gaan verbeteren. \autocite{everythingRPA}
+
+\section{Voordelen van RPA}
+
+\subsection{Efficiëntie}
+Vanwaar komt de efficiëntie van RPA?
+\begin{itemize}
+	\item Robots werken 24/7: in tegenstelling tot werknemers blijven robots werken na de werkuren. Ze worden ook niet moe en moeten nooit naar de wc. Ze kunnen ook hun concentratie niet verliezen. Als al deze punten opgeteld worden, dan kan slechts 1 conclusie getrokken worden: RPA robots zijn harde werkers die nooit pauze nodig hebben.
+	\item Snellere uitvoertijd: het aantal transacties die een robot kan afwerken per uur is veel meer dan het aantal dat een werknemer ooit zou kunnen afwerken binnen hetzelfde tijdskader.
+	\item Het vinden van fouten in het systeem: RPA verzamelt informatie over het systeem waar het op werkt en giet dit in een analytisch overzicht. Hier kan nadien informatie uit gehaald worden waar een vertraging of opstopping in het proces zich voordoet.
+	\item Meer gemotiveerde werknemers: waar RPA het proces zal verbeteren, zal ook de werknemer die verlost is van deze lastige taak meer motivatie tonen naar de leuke processen waaraan deze nu kan werken.
+	\item Doe meer met minder: Waar RPA kan gezien worden als een manier om even veel werk te verrichten met minder werknemers is het beter om te kijken naar de mogelijkheden die RPA biedt om meer werk te verrichten met hetzelfde aantal werknemers wat tot een groei van de onderneming kan leiden.
+\end{itemize}
+
+\autocite{efficiencyRPA}
+\subsection{Nauwkeurigheid}
+Als een proces juist opgezet is, dan kunnen RPA robots dit proces blijven juist uitvoeren zonder vermoeid te raken, hierdoor daalt het foutpercentage drastisch tot dicht bij 0\%. \autocite{efficiencyRPA}
+
+\subsection{Kostvermindering}
+RPA zorgt ervoor dat de hoeveelheid werk die afgewerkt geraakt zal stijgen met eenzelfde aantal werknemers of staat toe aan een bedrijf om met minder werknemers even veel werk klaar te krijgen. \autocite{efficiencyRPA}
+
+\subsection{Werknemer productiviteit en moraal}
+Door werknemers van de saaie en repetitieve taken weg te nemen en ze te laten werken aan taken die wel degelijk belang hebben binnen een bedrijf stijgt de inzet, moraal en productiviteit die van een werknemer kan verwacht worden. \autocite{efficiencyRPA}
+
+\subsection{Digitale transformatie}
+Door het gebruik van RPA kan een bedrijf delen of hele processen gaan automatiseren zonder wijzigingen aan te brengen aan legacy-code of te investeren in integratie van back-end systemen met reeds bestaande systemen. Hierdoor kunnen ze verder door gaan in deze digitale transformatie. \autocite{efficiencyRPA}
+
+\section{Nadelen van RPA}
+Gemiddeld falen 30 tot 50\% de eerst RPA projecten. \autocite{everythingRPA} Een van de grootste redenen waarom zo veel projecten falen is het feit dat men denkt dat een RPA project een puur IT project is. Dit is niet correct, het RPA proces moet opgezet worden door werknemers die kennis hebben van RPA maar ook de werknemers die het proces snappen en de 'as-is' kunnen interpreteren om zo deze werknemers te sturen in de juiste richting.
+
+Enkele andere veelvoorkomende risico's zijn:
+
+\subsection{Onderschatten van human capital}
+Ondanks net gezegd dat RPA niet alleen IT is, is de aanwezigheid van IT van vitaal belang om een RPA project te kunnen blijven ondersteunen/onderhouden. Iedereen kan een proces automeren maar het draaiende houden en onderhouden is al een pak technischer en dus niet voor iedereen weggelegd. \autocite{everythingRPA}
+
+\subsection{Security risico's}
+RPA brengt een aantal security risico's met zich mee. Zo kan een robot die niet goed geïmplementeerd is bijvoorbeeld frauduleuze zaken uitvoeren of toegang krijgen tot en werken met sensitieve data en beheerders privileges gaan misbruiken. Het is dus belangrijk om de processen zorgvuldig en aandachtig te gaan opstellen en zeker te controleren dat deze risico's vermeden kunnen worden. \autocite{everythingRPA} \autocite{predictionRPA}
+
+\section{De toekomst van RPA}
+We hebben natuurlijk geen glazen bol en kunnen dus niets met zekerheid zeggen over de toekomst van RPA. Wel kan gespeculeerd worden hoe deze technologie zal evolueren in de komende jaren. Experten zijn het er over het algemeen mee eens dat RPA de toekomst is van automatisering binnen IT. \autocite{futRPA}
+
+\subsection{Enkele nummers}
+RPA is ver gekomen sinds 2016. Toen lag het bedrag van gekochte RPA software rond \$73 miljoen. Dit is gestegen tot \$113 miljoen in 2017, \$153 miljoen in 2018 en \$192 miljoen in 2019. Er wordt geschat dat dit bedrag zal stijgen tot \$232 miljoen in 2020 en tegen 2021 zou dit bedrag liggen rond de \$272 miljoen. Hieruit valt duidelijk af te leiden dat er een sterke stijging in het gebruik van RPA voorlopig aan de gang is en dat dit niet direct blijkt te stoppen. Meer en meer ziet men dat RPA in de globale markt opgenomen wordt. \autocite{futRPA} Ondanks dat de enorme groei in RPA uitgaven blijft stijgen, zijn er toch enkele vragen die op komen rond de levensduur van RPA-markten. \autocite{everythingRPA}
+
+Enkele verwachtingen:
+\begin{itemize}
+	\item Meer gebruik in de komende jaren
+	\item combinatie met AI, cloud services en ML om RPA te verheven tot IPA
+	\item combinatie met andere tools
+\end{itemize}
+
+\subsection{RPA 2.0}
+RPA 2.0, ook wel intelligent digital robots (IDR) genoemd, gaat de huidige RPA gaan verbeteren door gebruik te maken van AI en ML om de robots slim te maken. Hierdoor moeten ze niet blindelings de regeltjes volgen maar kunnen ze, gebaseerd op de algoritmen en de interpretatie van de data, eigen beslissingen maken. Dit is een duidelijke stap naar het befaamde IPA. \autocite{idrRPA}
+
+Vooral deep-learning en reinforcement learning technieken worden gebruikt om RPA 2.0 te verwezenlijken. \autocite{idrRPA}
