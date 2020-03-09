@@ -7,36 +7,36 @@
 
 \usepackage{hogent-thesis-titlepage} % Titelpagina conform aan HOGENT huisstijl
 \usepackage{graphicx}
-\graphicspath{{./Assets/}}
+\graphicspath{{../Assets/}}
+\usepackage{url}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+\newacronym{rpa}{RPA}{Robotic Process Automation}
+\newacronym{ai}{AI}{Artificiële Inteliggentie}
+\newacronym{ml}{ML}{Machine Learning}
+\newacronym{ipa}{IPA}{Intelligent Process Automation}
+\newacronym{bpa}{BPA}{Business Process Automation}
+\newacronym{hr}{HR}{Human Resources}
+\newacronym{bpm}{BPM}{Business Process Management}
+\newacronym{ui}{UI}{User Interface}
+\newacronym{gui}{GUI}{Grafische User Interface}
 
 %%---------- Documenteigenschappen ---------------------------------------------
-% TODO: Vul dit aan met je eigen info:
 
-% De titel van het rapport/bachelorproef
 \title{Robotic Process Automation, automatisering van morgen, vandaag.}
 
-% Je eigen naam
 \author{Mout Pessemier}
 
-% De naam van je promotor (lector van de opleiding)
 \promotor{Johan Decorte}
 
-% De naam van je co-promotor. Als je promotor ook je opdrachtgever is en je
-% dus ook inhoudelijk begeleidt (en enkel dan!), mag je dit leeg laten.
 \copromotor{Laurens Lavaert}
 
-% Indien je bachelorproef in opdracht van/in samenwerking met een bedrijf of
-% externe organisatie geschreven is, geef je hier de naam. Zoniet laat je dit
-% zoals het is.
 \instelling{Faktion}
 
-% Academiejaar
 \academiejaar{2019-2020}
 
-% Examenperiode
-%  - 1e semester = 1e examenperiode => 1
-%  - 2e semester = 2e examenperiode => 2
-%  - tweede zit  = 3e examenperiode => 3
 \examenperiode{2}
 
 %===============================================================================
@@ -44,13 +44,6 @@
 %===============================================================================
 
 \begin{document}
-
-%---------- Taalselectie -------------------------------------------------------
-% Als je je bachelorproef in het Engels schrijft, haal dan onderstaande regel
-% uit commentaar. Let op: de tekst op de voorkaft blijft in het Nederlands, en
-% dat is ook de bedoeling!
-
-%\selectlanguage{english}
 
 %---------- Titelblad ----------------------------------------------------------
 \inserttitlepage
@@ -82,6 +75,8 @@
 % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
 % hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
 % https://www.overleaf.com/learn/latex/Glossaries
+\printglossary 
+\printglossary[type=\acronymtype]
 
 %---------- Kern ---------------------------------------------------------------
 
@@ -93,6 +88,7 @@
 
 \input{inleiding}
 \input{standvanzaken}
+\input{implementatie}
 \input{methodologie}
 
 % Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
