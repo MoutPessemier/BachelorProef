@@ -1,10 +1,10 @@
 \chapter{\IfLanguageName{dutch}{Implementatie}{Implementation}}
 \label{ch:implementatie}
 
-Aan de hand van de RPA provider UiPath zullen enkele concrete processen geautomatiseerd worden op Metamaze, het automated document processing platform bij Faktion zelf.
+Na het afwerken van de cursus 'RPA Developer Foundation', aangeboden op de site van UiPath\footnote{\url{https://academy.uipath.com/}}, zal de UiPath software suite gebruikt worden om de processen uit te werken. De tekst die hierop volgt licht enkele belangrijke concepten toe. Het is dan ook logisch dat deze tekst gebaseerd is op de aangeboden cursus.
 
 \section{De tools}
-Na het afwerken van de cursus 'RPA developer essentials training', aangeboden op de site van UiPath\footnote{\url{https://academy.uipath.com/}} zelf, zal ook de UiPath software suite gebruikt worden om de processen uit te werken. Deze tool suite bestaat uit 3 grote delen:
+Deze tool suite bestaat uit 3 grote delen:
 
 \subsection{UiPath Studio}
 Deze omgeving staat toe om automatisatie workflows visueel, snel en met een beperkte programmeer kennis op te bouwen. Studio is waar de geautomatiseerde processen gebouwd worden in een visuele manier. Hiervoor kan gebruik gemaakt worden van de ingebouwde recorder, drag \& drop van activiteiten en best-practice templates.
@@ -179,3 +179,52 @@ De Global Exception Handler is een type workflow dat is ontworpen om het gedrag 
 
 \subsection{Debugger}
 UiPath heeft een ingebouwde debugger om de workflows en sequenties stap voor stap te doorlopen en zo het project te debuggen.
+R
+\subsection{Orchestrator}
+Dit is de tool binnen de UiPath ToolSuite die gebruikt wordt om de gemaakte workflows te publiceren, toe te wijzen aan robots en ze laten uitvoeren. Dit komt, in tegenstelling tot de UiPath Studio ide, als een web applicatie. Er enkele belangrijke rollen die de orchestrator uitvoert:
+\begin{itemize}
+	\item provisioning: verzorgt de verbinding met de robots
+	\item deployment: zorgt voor de aanbreng en uitvoering van de workflows
+	\item configuration: zorgt voor de creatie, configuratie en onderhoud van de robot of robotten die de taken uitvoeren.
+	\item queues: de data die verwerkt wordt wordt opgedeeld in transacties. Queues kunnen eender welk aantal transacties bijhouden.
+	\item monitoring: zorgt voor robot identificatie en onderhoud van user permissies.
+	\item logging: slaat logs op in een sql database.
+	\item inter-connectivity: werkt als centraal aanspreekpunt om te communiceren met oplossingen van 3de partijen.
+\end{itemize}
+
+Dit leidt tot volgende voordelen:
+\begin{itemize}
+	\item accessibility version control: Workflows can be published as packages and stored in Orchestrator, at version level and with the developer's release notes. Different versions can be distributed to robots for execution.
+	\item transactional processing: Queues allow efficient allocation of the workload between robots, continuous execution and monitoring at transaction level.
+	\item efficient planning and executing: Orchestrator allows execution of tasks according to schedules that can accommodate various scenarios (like non-working days), to choose execution targets from the available robots and even to create continuous execution loops even outside business hours.
+	\item securely storing assets: As a good practice, configuration assets, credentials and data that change frequently must not be stored in the workflows. Orchestrator provides a secure way of storing assets and distributing them to robots according to different scenarios.
+	\item monitoring: Robots, processes and task execution can be monitored via Orchestrator, which can enable quick reaction in case of any error, and also provides the means for accurate reporting and auditing of the robot work.
+\end{itemize}
+
+\subsection{Robots}
+De robot is UiPath zijn workflow executie agent. Deze gaat de geïmplementeerde workflows gaan uitvoeren. Er zijn 4 types van robots:
+\begin{itemize}
+	\item Attended robot: getriggerd door een user en werkt samen met een werknemer op hetzelfde werkstation.
+	\item Unattended robot: deze robots werken in virtuele omgevingen en voeren eender welk aantal processen uit.
+	\item Development robot: heeft dezelfde features als een unattended robot maar wordt alleen gebruikt tijdens de ontwikkelingsfase om Studio te verbinden met de Orchestrator.
+	\item Non-production robot: heeft dezelfde eigenschappen als een unattended robot maar wordt alleen gebruikt om processen op te testen.
+\end{itemize}
+
+Daarnaast wordt er een onderscheid gemaakt tussen een standaard robot die alleen op 1 vast werkstation werkt en een zwevende robot die werkt op eender welk vrij station.
+
+\subsubsection{Omgevingen}
+Een omgeving (environment) is een groep robots die gebruikt wordt om 1 volledig proces uit te rollen. Een robot kan in meer dan 1 omgeving zitten, gegeven dat ze onder de zelfde service zitten.
+
+\subsection{Packages}
+Packages bestaan uit een of meer workflows die gepubliceerd zijn in Studio naar ofwel de lokale machine ofwel naar de orchestrator. De orchestrator houdt de verschillende versies van de packages bij. Packages kunnen actief (deployed) of inactief (niet deployed) zijn.
+
+\subsubsection{Proces}
+Een proces stelt een verbinding tussen een package en een environment voor.
+
+\subsection{Jobs \& Schedule}
+Eens een proces gemaakt is, kan de activatie en uitvoering op 3 manieren gestart worden:
+\begin{itemize}
+	\item Jobs: 
+	\item Schedules: 
+	\item Robot Tray: 
+\end{itemize}
