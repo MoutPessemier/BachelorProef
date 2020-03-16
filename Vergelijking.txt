@@ -1,0 +1,25 @@
+UiPath <-- --> Automation Anywhere
+
+Custom Activities:
+het toevoegen van custom activities is een pak makkelijker bij automation anywhere omdat enkel de dll file nodig is en deze rechtstreeks kan geupload worden. Bij UiPath moet er eerst een nuget package van gemaakt worden, geïnstalleerd worden en dan pas is de package bruikbaar. Het voordeel bij UiPath echter is dat ook de community edition overweg kan met custom activities waar bij automation anywhere de enterprise edition nodig is.
+
+Layout:
+Bij UiPath kan gekozen worden bij de layout tussen een workflow, sequence of state machine waarbij elke layout voor en nadelen heeft en zijn eigen bruikbaarheid. Bij Automation Anywhere is er 1 enkele layout, een die het meest aanleund naar een sequence flow bij UiPath.
+
+Tools:
+Bij UiPath is de tool suite opgedeeld in dedicated ide (Studio) en een web interface (Orchestrator) om de processen en bots te managen. Bij Automation Anywhere is er enkel een webplatform waarop zowel het managen van bots als het maken van bots gebeurd.
+
+
+Async code:
+Aangezien er een integratie met web services wil gebeuren, zal er hoogst waarschijnlijk gewerkt worden met async code. Beide standaard voorziene activities kunnen niet overweg met async code al is dat volgens mij (meer research nodig) op te vangen door het schrijiven van custom activities die wel overweg kunnen met async code.
+
+de community edition van automation anywhere zegt altijd dat de bot succesvol uitgevoerd geweest is ondanks dat er een fout is in begin van de flow en hij niet verder geraakt dan het eerste scherm?
+door even rond te spelen in de editor van automation anywhere raad ik het af. zeer veel frustraties, veel moeilijker in mijn ogen om een simpele flow op te zetten binnen een web browser.
+
+
+|                   | UiPath                            | Automation Anywhere | x | y |
+|-------------------|-----------------------------------|---------------------|---|---|
+| Aantal bots       | 2                                 | Oneindig            |   |   |
+| Aantal devices    | 1                                 | 1                   |   |   |
+| Aantal jobs       | Zoveel als de 2 robots aan kunnen | 1                   |   |   |
+| Custom Activities | Ja voor elke versie               | Enkel enterprise    |   |   |
