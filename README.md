@@ -3,7 +3,7 @@
 Deze bachelorproef gaat over Robotic Process Automation, een technologie die gebruikt kan worden om repetitieve taken en systemen te automatiseren zodat werknemers hun tijd aan belangrijke zaken kunnen spenderen.
 
 ### Onderzoeksvragen
-Als voornaamste punt zal onderzocht worden hoe efficiënt RPA werkelijk is. Daarnaast zal ook gekeken worden welke kennis en vaardigheden nodig zijn om een RPA implementatie op te zetten. Een derde onderwerp gaat over de betrouwbaarheid van zo een systeem. Hoe fout tolerant is RPA werkelijk? Hoe zit het met de up-time (hoe lang ze werken en rap ze herstelt worden na een fout) van de software agenten? Wat gebeurd er als de applicatie vast loopt?
+Hoe makkelijk of juist hoe moeilijk is het om een RPA workflow te integreren met een eigen webapplicatie? Welke RPA provider maakt deze taak het makkelijkst en hoe zit het dan met de tijd en kost nodig voor zo een workflow uit te werken?
 
 
 ## Het Voorstel
