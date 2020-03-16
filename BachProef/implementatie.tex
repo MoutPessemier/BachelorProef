@@ -1,4 +1,4 @@
-\chapter{\IfLanguageName{dutch}{Implementatie}{Implementation}}
+\chapter{\IfLanguageName{dutch}{Implementatie via UiPath}{Implementation using UiPath}}
 \label{ch:implementatie}
 
 Na het afwerken van de cursus 'RPA Developer Foundation', aangeboden op de site van UiPath\footnote{\url{https://academy.uipath.com/}}, zal de UiPath software suite gebruikt worden om de processen uit te werken. De tekst die hierop volgt licht enkele belangrijke concepten toe. Het is dan ook logisch dat deze tekst gebaseerd is op de aangeboden cursus.
@@ -179,8 +179,8 @@ De Global Exception Handler is een type workflow dat is ontworpen om het gedrag 
 
 \subsection{Debugger}
 UiPath heeft een ingebouwde debugger om de workflows en sequenties stap voor stap te doorlopen en zo het project te debuggen.
-R
-\subsection{Orchestrator}
+
+\section{Orchestrator}
 Dit is de tool binnen de UiPath ToolSuite die gebruikt wordt om de gemaakte workflows te publiceren, toe te wijzen aan robots en ze laten uitvoeren. Dit komt, in tegenstelling tot de UiPath Studio ide, als een web applicatie. Er enkele belangrijke rollen die de orchestrator uitvoert:
 \begin{itemize}
 	\item provisioning: verzorgt de verbinding met de robots
@@ -219,12 +219,27 @@ Een omgeving (environment) is een groep robots die gebruikt wordt om 1 volledig 
 Packages bestaan uit een of meer workflows die gepubliceerd zijn in Studio naar ofwel de lokale machine ofwel naar de orchestrator. De orchestrator houdt de verschillende versies van de packages bij. Packages kunnen actief (deployed) of inactief (niet deployed) zijn.
 
 \subsubsection{Proces}
-Een proces stelt een verbinding tussen een package en een environment voor.
+Een proces stelt een verbinding tussen een package en een environment voor. Deze processen worden dan toegekend aan robots als uit te voeren taak.
 
 \subsection{Jobs \& Schedule}
 Eens een proces gemaakt is, kan de activatie en uitvoering op 3 manieren gestart worden:
 \begin{itemize}
-	\item Jobs: 
-	\item Schedules: 
-	\item Robot Tray: 
+	\item Jobs: Kies tussen de lijst van robots welke robot welke job zal uitvoeren. Je kan ze ook dynamisch toekennen. Een job kan op 2 manieren gestopt worden: gebruik maken van een stop job of kill job.
+	\item Schedules: het inplannen van de uitvoering van een proces op basis van enkele configuratie opties: kiezen van regelmatige tijdsintervallen wanneer een proces uitgevoerd moet worden, het klaarzetten van parameters, het kiezen welke robots welke taken moeten uitvoeren en het opzetten van niet werkdagen.
+	\item Robot Tray: vooral gebruikt voor het testen van simpele automatisaties.
 \end{itemize}
+
+\subsection{Assets}
+Assets zijn gedeelde variabelen of credentials die opgeslagen zijn in de orchestrator en bruikbaar door robots in verschillende projecten. Assets bestaan uit Text (string zonder ""), Bool, Integer en Credential.
+
+Binnen Studio moet  de 'Get Asset' activiteit gebruikt worden voor de waarden van Text, Bool of Integer en de 'Get Credential' activiteit voor Credential assets. In de orchestrator kunnen ze aangemaakt worden via de Grafische User Interface (GUI).
+
+\subsection{Queue}
+Queues zijn containers die een oneindig aantal items kunnen vasthouden en individueel gaan verdelen onder de robots. Hierdoor kan een taak meteen uitgevoerd worden door de eerste robot die vrij komt om zo een logische volgorde (FIFO-structuur) aan te houden onder de taken. Er zijn 2 belangrijke taken die te maken hebben met de queue: Dispatcher (taken toevoegen aan de queue) en Performer (taken uitvoeren).
+
+\section{Robotic Enterprise Framework}
+\subsection{Transacties}
+Een transactie stelt de minimum hoeveelheid data en de nodige stappen om met die data aan de slag te gaan, voor.
+
+\subsection{REFramework}
+Het Robotic Enterprise Framework is een template die helpt bij het ontwerpen van (automatisatie) processen. Het voorziet een makkelijke manier om een project te openen, op te slaan, aan te passen en exception handling. Het framework zelf is geïmplementeerd als een state machine. De 4 statussen van het REFramework liggen op voorhand vast: initiële status --> transactionele data status --> verwerk transactie status --> eind proces status.
