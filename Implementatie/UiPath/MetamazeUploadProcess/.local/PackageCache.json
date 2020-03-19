@@ -2,6 +2,17 @@
   "Packages": [
     {
       "Package": {
+        "Id": "UiPath.Credentials.Activities",
+        "Version": "1.1.6479.13204"
+      },
+      "Assemblies": [
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\credentialmanagement/1.0.2\\lib/net35/CredentialManagement.dll",
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204\\lib/net40-client/UiPath.Credentials.Activities.dll"
+      ],
+      "Path": "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204"
+    },
+    {
+      "Package": {
         "Id": "UiPath.Excel.Activities",
         "Version": "2.8.1-preview"
       },
@@ -111,14 +122,13 @@
     },
     {
       "Package": {
-        "Id": "UiPath.Credentials.Activities",
-        "Version": "1.1.6479.13204"
+        "Id": "MetaMazeLibrary",
+        "Version": "1.0.0"
       },
       "Assemblies": [
-        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\credentialmanagement/1.0.2\\lib/net35/CredentialManagement.dll",
-        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204\\lib/net40-client/UiPath.Credentials.Activities.dll"
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\metamazelibrary/1.0.0\\lib/SendFiles.dll"
       ],
-      "Path": "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204"
+      "Path": "C:\\Users\\Mout Pessemier\\.nuget\\packages\\metamazelibrary/1.0.0"
     }
   ],
   "Conflicts": [],
@@ -170,6 +180,11 @@
     },
     "interop.domino.dll": {
       "Id": "interop.domino.dll",
+      "Version": "1.0.0",
+      "Dependencies": []
+    },
+    "MetaMazeLibrary": {
+      "Id": "MetaMazeLibrary",
       "Version": "1.0.0",
       "Dependencies": []
     },

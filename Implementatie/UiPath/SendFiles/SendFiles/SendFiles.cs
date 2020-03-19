@@ -5,7 +5,6 @@ using System.IO;
 using System.Net.Http;
 using System.Runtime.ExceptionServices;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -15,8 +14,6 @@ namespace SendFiles
     public class SendFiles : CodeActivity
     {
         private readonly HttpClient client = new HttpClient();
-        // demo threshold
-        private readonly double threshold = 0.75;
 
         [Category("Input")]
         [RequiredArgument]
@@ -43,7 +40,7 @@ namespace SendFiles
         protected override void Execute(CodeActivityContext context)
         {
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", BearerToken);
-            string url = "https://dev.adp.faktion.com/gql/api/organisations/" + OrganisationId + "/projects/" + ProjectId + "/process";
+            string url = "https://adp.faktion.com/gql/api/organisations/" + OrganisationId + "/projects/" + ProjectId + "/process";
             string response = null;
             bool succesfullRequest = false;
             MultipartFormDataContent formdata = new MultipartFormDataContent();
@@ -108,7 +105,10 @@ namespace SendFiles
                 // check status every 7 seconds
                 Thread.Sleep(7000);
             } while (polling && counter <= 150);
-            // Because we know that there is a response now, actually execute the request
+            if (counter == 150)
+            {
+                throw new Exception("Request Timeout: try again later.");
+            }
             // Because we know that there is a response now, actually execute the request
             var result = client.GetAsync(url + "/" + r.UploadId).Result;
             string jsonString = result.Content.ReadAsStringAsync().Result;
@@ -123,11 +123,14 @@ namespace SendFiles
                 // for this demo, check if a entity confidence is under the threshold
                 // if so, send a mail and gather all entity names
                 IList<string> uncertain = new List<string>();
-                foreach (var entity in pr.Entities)
+                foreach (var document in pr.Documents)
                 {
-                    if (entity.Confidence < threshold)
+                    foreach (var entity in document.Entities)
                     {
-                        uncertain.Add(entity.Value);
+                        if (entity.Confidence < document.DocumentType.Threshold)
+                        {
+                            uncertain.Add(entity.Type.Name);
+                        }
                     }
                 }
                 if (uncertain.Count != 0)
@@ -194,20 +197,26 @@ namespace SendFiles
 
     class ProcessResponse
     {
-        [JsonProperty("organisationId")]
-        public string OrganisationId { get; set; }
-
-        [JsonProperty("projectId")]
-        public string ProjectId { get; set; }
-
-        [JsonProperty("uploadId")]
-        public string UploadId { get; set; }
-
         [JsonProperty("status")]
         public string Status { get; set; }
 
+        [JsonProperty("documents")]
+        public Document[] Documents { get; set; }
+    }
+
+    class Document
+    {
         [JsonProperty("entities")]
         public Entity[] Entities { get; set; }
+
+        [JsonProperty("documentType")]
+        public DocumentType DocumentType { get; set; }
+    }
+
+    class DocumentType
+    {
+        [JsonProperty("threshold")]
+        public double Threshold { get; set; }
     }
 
     class Entity
@@ -215,7 +224,13 @@ namespace SendFiles
         [JsonProperty("confidence")]
         public double Confidence { get; set; }
 
-        [JsonProperty("value")]
-        public string Value { get; set; }
+        [JsonProperty("entityType")]
+        public EntityType Type { get; set; }
+    }
+
+    class EntityType
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
     }
 }

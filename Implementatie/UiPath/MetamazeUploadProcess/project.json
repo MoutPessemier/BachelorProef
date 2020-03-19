@@ -3,6 +3,7 @@
   "description": "The upload process to Metamaze",
   "main": "Main.xaml",
   "dependencies": {
+    "MetaMazeLibrary": "[1.0.0]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Excel.Activities": "[2.8.1-preview]",
     "UiPath.Mail.Activities": "[1.8.1-preview]",
