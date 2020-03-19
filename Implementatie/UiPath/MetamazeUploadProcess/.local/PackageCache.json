@@ -10,10 +10,10 @@
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\documentformat.openxml/2.5.0\\lib/DocumentFormat.OpenXml.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\microsoft.visualstudio.ole.interop/7.10.6071\\lib/Microsoft.VisualStudio.OLE.Interop.dll",
-        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OOXML.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXml4Net.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.OpenXmlFormats.dll",
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\npoi/2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\sharpziplib/1.0.0\\lib/net45/ICSharpCode.SharpZipLib.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.excel.activities/2.8.1-preview\\lib/net461/UiPath.Excel.Activities.Design.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.excel.activities/2.8.1-preview\\lib/net461/UiPath.Excel.Activities.dll",
@@ -72,10 +72,10 @@
       },
       "Assemblies": [
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\avalonedit/5.0.3\\lib/Net40/ICSharpCode.AvalonEdit.dll",
-        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.AvalonDock.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.DataGrid.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\extended.wpf.toolkit/2.8.0\\lib/net40/Xceed.Wpf.Toolkit.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\humanizer.core/2.4.2\\lib/netstandard2.0/Humanizer.dll",
@@ -101,13 +101,24 @@
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.uiautomation.activities/20.2.0-preview\\lib/net461/UiPath.Wizards.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.AzureComputerVision.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.Core.dll",
-        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.GoogleCloud.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.Microsoft.dll",
         "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.MicrosoftCloud.dll",
-        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.Tesseract.dll"
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.Tesseract.dll",
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.vision/2.0.1\\lib/net452/UiPath.Vision.dll"
       ],
       "Path": "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.uiautomation.activities/20.2.0-preview"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Credentials.Activities",
+        "Version": "1.1.6479.13204"
+      },
+      "Assemblies": [
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\credentialmanagement/1.0.2\\lib/net35/CredentialManagement.dll",
+        "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204\\lib/net40-client/UiPath.Credentials.Activities.dll"
+      ],
+      "Path": "C:\\Users\\Mout Pessemier\\.nuget\\packages\\uipath.credentials.activities/1.1.6479.13204"
     }
   ],
   "Conflicts": [],
@@ -131,6 +142,11 @@
           "Item2": "[2.5.0, )"
         }
       ]
+    },
+    "CredentialManagement": {
+      "Id": "CredentialManagement",
+      "Version": "1.0.2",
+      "Dependencies": []
     },
     "CsvHelper": {
       "Id": "CsvHelper",
@@ -216,6 +232,16 @@
       "Id": "UiPath",
       "Version": "20.2.7348.30662-preview",
       "Dependencies": []
+    },
+    "UiPath.Credentials.Activities": {
+      "Id": "UiPath.Credentials.Activities",
+      "Version": "1.1.6479.13204",
+      "Dependencies": [
+        {
+          "Item1": "CredentialManagement",
+          "Item2": "[1.0.2, )"
+        }
+      ]
     },
     "UiPath.Excel.Activities": {
       "Id": "UiPath.Excel.Activities",

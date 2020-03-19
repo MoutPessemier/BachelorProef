@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="817,970" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="817,1032" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="21">
+    <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -22,6 +22,7 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -45,10 +46,12 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This sequence will read the files of a certain path and send them to the Metamaze platform" DisplayName="Send Files Sequence" sap:VirtualizedContainerService.HintSize="797,870" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="This sequence will read the files of a certain path and send them to the Metamaze platform" DisplayName="Send Files Sequence" sap:VirtualizedContainerService.HintSize="797,932" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="files" />
       <Variable x:TypeArguments="x:Boolean" Name="sendMail" />
+      <Variable x:TypeArguments="ss:SecureString" Name="password" />
+      <Variable x:TypeArguments="x:String" Name="email" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -57,6 +60,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Gmail" DisplayName="Get Email Credentials" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[email]" />
     <Assign sap:VirtualizedContainerService.HintSize="755,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[files]</OutArgument>
@@ -74,25 +78,10 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" Email="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" Port="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Send Mail to client" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="Metamaze" SecureConnection="Auto">
-            <ui:SendMail.Body>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </ui:SendMail.Body>
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Hi there, this is your Metamaze upload report:&quot; + Environment.NewLine + &quot;Some entities were not extracted with a high enough certainity threshold : &quot; + &quot;variable&quot; + &quot;.&quot; +  Environment.NewLine + &quot;We recommand you go check it Out.&quot; + Environment.NewLine + Environment.NewLine + &quot;The Metamaze Team&quot;]" DisplayName="Send Mail to client" Email="[email]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="Metamaze" Password="[password.ToString]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Some entity thresholds were not reached.">
             <ui:SendMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
             </ui:SendMail.Files>
-            <ui:SendMail.Server>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </ui:SendMail.Server>
-            <ui:SendMail.Subject>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </ui:SendMail.Subject>
             <ui:SendMail.To>
               <InArgument x:TypeArguments="x:String">
                 <Literal x:TypeArguments="x:String" Value="" />
