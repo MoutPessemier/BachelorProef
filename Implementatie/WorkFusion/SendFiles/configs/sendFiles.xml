@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" scriptlang="groovy">
+    <robotics-flow>
+        <robot driver="universal" close-on-completion="true" start-in-private="true">
+            <capability name="SEARCH_ALL_WINDOWS" value="true" />
+            <script><![CDATA[
+                import com.workfusion.studio.rpa.recorder.api.internal.representation.*
+                import com.workfusion.studio.rpa.recorder.api.*
+                import com.workfusion.studio.rpa.recorder.api.types.*
+                import com.workfusion.studio.rpa.recorder.api.custom.*
+                import static com.workfusion.studio.rpa.recorder.api.RandomValues.CharacterSet.*
+ 
+				// Mapping the variables
+				@CustomScriptAction(
+					input = ['bearer_token', 'organisation_id', 'project_id', 'files'],
+					output = 'json'
+				)
+ 				
+ 				// Sending the files
+ 				def customScript() {
+					def url = "https://adp.faktion.com/gql/api/organisations/" + organisation_id + "/projectId/" + project_id + "/process"
+					    try {
+					        def postConnection = new URL(url)
+					        HttpURLConnection http = (HttpURLConnection) postConnection.openConnection()
+					        http.setRequestProperty("Authorization", "Bearer " + bearer_token)
+					        http.setRequestProperty("Content-Type", "multipart/form-data")
+					        http.setDoOutput(true)
+					        http.setRequestMethod('POST')
+					        // TODO: create multipart and send as content
+					        def multipart
+					        files.each {
+					            ContentHandler
+					            def content = new FileInputStream(new File(it))
+					            def name = getName(it)
+					            content.setRequestProperty(getContentType(name))
+					            multipart.addBinaryBody("files", content , name)
+					        }
+					        // TODO: write away the multipartContent
+					        http.getOutputStream().write(multipart)
+					        def responseCode = http.getResponseCode()
+					        def response
+					        if(responseCode >= 200 && responseCode < 300) {
+					            response = http.getInputStream().getText()
+					        }
+					        // TODO: parse uploadId
+					        def upload_id
+					        def polling = true
+					        def counter = 1
+					        def get = new URL(url + "/" + upload_id).openConnection()
+					        def getResponse
+					        do {
+					            // TODO: parse response
+					            getResponse = get.getInputStream().getText()
+					            switch(getResponse) {
+					                case "DONE":
+					                    polling = false;
+					                    break
+					                case "DOCUMENT_CLASSIFICATION_INTERVENTION":
+					                case "ENTITY_EXTRACTION_INTERVENTION":
+					                    throw new Exception("Intervention needed")
+					                case "FAILED":
+					                    throw new Exception("Something went wrong during the processing process")
+					                default:
+					                    counter++
+					                    break
+					            }
+					            // Sleep for 7 seconds before resending the request.
+					            Thread.sleep(7000)
+					        } while(polling && counter <= 150)
+					        // TODO: parse and format json (getResponse)
+					    } catch(all) {
+					        throw new Exception(all.getMessage())
+					    }
+ 				}
+ 				
+ 				def getContentType(String name){
+				    def splitName = name.split(".")
+				    def extension = splitName[1]
+				    switch (extension) {
+				        case "pdf":
+				            return "application/pdf";
+				        case "png":
+				            return "image/png";
+				        case "doc":
+				            return "application/msword";
+				        case "docx":
+				            return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+				        case "txt":
+				            return "text/plain";
+				        case "tif":
+				            return "image/tif";
+				        case "jpg":
+				            return "image/jpg";
+				        case "rtf":
+				            return "application/rtf";
+				        // default == not supported type, we don't set content type
+				        default:
+				            return "";
+				    }
+				}
+				def getName(String path) {
+				    // Java equivalent of \\
+				    def splitPath = path.split("\\\\")
+				    return splitPath[splitPath.length - 1]
+				}
+  
+            ]]></script>
+        </robot>
+    </robotics-flow>
+    <export include-original-data="true"/>
+</config>

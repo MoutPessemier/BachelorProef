@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -13,10 +14,10 @@ namespace SendFiles
     {
         private readonly HttpClient client = new HttpClient();
 
-        public void SendFilesToMetamaze(string organisationId, string projectId, string bearerToken, IList<string> files)
+        public DataTable SendFilesToMetamaze(string organisationId, string projectId, string bearerToken, IList<string> files)
         {
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
-            string url = "https://dev.adp.faktion.com/gql/api/organisations/" + organisationId + "/projects/" + projectId + "/process";
+            string url = "https://adp.faktion.com/gql/api/organisations/" + organisationId + "/projects/" + projectId + "/process";
             string response = null;
             bool succesfullRequest = false;
             MultipartFormDataContent formdata = new MultipartFormDataContent();
@@ -60,14 +61,20 @@ namespace SendFiles
             // since this is a poc this is a temporary solution, if this gets released this needs to be rewritten (maybe with webhooks)
             var polling = true;
             int counter = 1;
+            HttpResponseMessage result;
+            string jsonString = "";
+            ProcessResponse pr;
+            succesfullRequest = false;
             do
             {
-                response = client.GetAsync(url + "/" + r.UploadId).Result.Content.ReadAsStringAsync().Result;
-                ProcessResponse pre = JsonConvert.DeserializeObject<ProcessResponse>(response);
-                switch (pre.Status)
+                result = client.GetAsync(url + "/" + r.UploadId).Result;
+                jsonString = result.Content.ReadAsStringAsync().Result;
+                pr = JsonConvert.DeserializeObject<ProcessResponse>(jsonString);
+                switch (pr.Status)
                 {
                     case "DONE":
                         polling = false;
+                        succesfullRequest = result.IsSuccessStatusCode;
                         break;
                     case "DOCUMENT_CLASSIFICATION_INTERVENTION":
                     case "ENTITY_EXTRACTION_INTERVENTION":
@@ -85,38 +92,32 @@ namespace SendFiles
             {
                 throw new Exception("Request Timeout: try again later.");
             }
-            // Because we know that there is a response now, actually execute the request
-            var result = client.GetAsync(url + "/" + r.UploadId).Result;
-            string jsonString = result.Content.ReadAsStringAsync().Result;
-            succesfullRequest = result.IsSuccessStatusCode;
             if (!succesfullRequest)
             {
                 throw new Exception("Something went wrong when asking for the result of the pipeline");
             }
-            ProcessResponse pr = JsonConvert.DeserializeObject<ProcessResponse>(jsonString);
             try
             {
-                // for this demo, check if a entity confidence is under the threshold
-                // if so, send a mail and gather all entity names
-                IList<string> uncertain = new List<string>();
+                DataTable dataTable = new DataTable();
+                dataTable.Clear();
+                dataTable.Columns.Add("EntityName");
+                dataTable.Columns.Add("Confidence");
+                dataTable.Columns.Add("Threshold");
+
+                // we make a data table with all the entities in it so that we can do whatever we want with them in the rest of our workflow
                 foreach (var document in pr.Documents)
                 {
                     foreach (var entity in document.Entities)
                     {
-                        if (entity.Confidence < document.DocumentType.Threshold)
-                        {
-                            uncertain.Add(entity.Type.Name);
-                        }
+                        DataRow row = dataTable.NewRow();
+                        row["EntityName"] = entity.Type.Name;
+                        row["Confidence"] = entity.Confidence;
+                        row["Threshold"] = document.DocumentType.Threshold;
+                        dataTable.Rows.Add(row);
                     }
                 }
-                if (uncertain.Count != 0)
-                {
-                    /*TODO: set these variables as out: sendMail and uncertainEntities*/
-                }
-                else
-                {
-                    /*TODO: set these variables as out: sendMail and uncertainEntities*/
-                }
+
+                return dataTable;
             }
             // again, I absolutely want to catch every exception and pass these along to the workflow
             catch (Exception ex)

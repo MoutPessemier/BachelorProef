@@ -8,6 +8,7 @@ using System.Threading;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Data;
 
 namespace SendFiles
 {
@@ -21,26 +22,24 @@ namespace SendFiles
 
         [Category("Input")]
         [RequiredArgument]
-        public string OrganisationId { get; set; }
+        public InArgument<string> OrganisationId { get; set; }
 
         [Category("Input")]
         [RequiredArgument]
-        public string ProjectId { get; set; }
+        public InArgument<string> ProjectId { get; set; }
 
         [Category("Input")]
         [RequiredArgument]
-        public string BearerToken { get; set; }
+        public InArgument<string> BearerToken { get; set; }
 
         [Category("Output")]
-        public OutArgument<bool> SendMail { get; set; }
+        public OutArgument<DataTable> JsonResult { get; set; }
 
-        [Category("Output")]
-        public OutArgument<string> UncertainEntities { get; set; }
 
         protected override void Execute(CodeActivityContext context)
         {
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", BearerToken);
-            string url = "https://adp.faktion.com/gql/api/organisations/" + OrganisationId + "/projects/" + ProjectId + "/process";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", BearerToken.Get(context));
+            string url = "https://adp.faktion.com/gql/api/organisations/" + OrganisationId.Get(context) + "/projects/" + ProjectId.Get(context) + "/process";
             string response = null;
             bool succesfullRequest = false;
             MultipartFormDataContent formdata = new MultipartFormDataContent();
@@ -62,7 +61,7 @@ namespace SendFiles
             }
             catch (TimeoutException e)
             {
-                /* Add a retry count of 3*/
+                /* TODO: Add a retry count of 3*/
                 ExceptionDispatchInfo.Capture(e.InnerException).Throw();
                 throw;
             }
@@ -84,14 +83,20 @@ namespace SendFiles
             // since this is a poc this is a temporary solution, if this gets released this needs to be rewritten (maybe with webhooks)
             var polling = true;
             int counter = 1;
+            HttpResponseMessage result;
+            string jsonString = "";
+            ProcessResponse pr;
+            succesfullRequest = false;
             do
             {
-                response = client.GetAsync(url + "/" + r.UploadId).Result.Content.ReadAsStringAsync().Result;
-                ProcessResponse pre = JsonConvert.DeserializeObject<ProcessResponse>(response);
-                switch (pre.Status)
+                result = client.GetAsync(url + "/" + r.UploadId).Result;
+                jsonString = result.Content.ReadAsStringAsync().Result;
+                pr = JsonConvert.DeserializeObject<ProcessResponse>(response);
+                switch (pr.Status)
                 {
                     case "DONE":
                         polling = false;
+                        succesfullRequest = result.IsSuccessStatusCode;
                         break;
                     case "DOCUMENT_CLASSIFICATION_INTERVENTION":
                     case "ENTITY_EXTRACTION_INTERVENTION":
@@ -100,49 +105,40 @@ namespace SendFiles
                         throw new Exception("Something went wrong during the processing process");
                     default:
                         counter++;
+                        // check status every 7 seconds
+                        Thread.Sleep(7000);
                         break;
                 }
-                // check status every 7 seconds
-                Thread.Sleep(7000);
             } while (polling && counter <= 150);
             if (counter == 150)
             {
                 throw new Exception("Request Timeout: try again later.");
             }
-            // Because we know that there is a response now, actually execute the request
-            var result = client.GetAsync(url + "/" + r.UploadId).Result;
-            string jsonString = result.Content.ReadAsStringAsync().Result;
-            succesfullRequest = result.IsSuccessStatusCode;
             if (!succesfullRequest)
             {
                 throw new Exception("Something went wrong when asking for the result of the pipeline");
             }
-            ProcessResponse pr = JsonConvert.DeserializeObject<ProcessResponse>(jsonString);
             try
             {
-                // for this demo, check if a entity confidence is under the threshold
-                // if so, send a mail and gather all entity names
-                IList<string> uncertain = new List<string>();
+                DataTable dataTable = new DataTable();
+                dataTable.Clear();
+                dataTable.Columns.Add("EntityName");
+                dataTable.Columns.Add("Confidence");
+                dataTable.Columns.Add("Threshold");
+
+                // we make a data table with all the entities in it so that we can do whatever we want with them in the rest of our workflow
                 foreach (var document in pr.Documents)
                 {
                     foreach (var entity in document.Entities)
                     {
-                        if (entity.Confidence < document.DocumentType.Threshold)
-                        {
-                            uncertain.Add(entity.Type.Name);
-                        }
+                        DataRow row = dataTable.NewRow();
+                        row["EntityName"] = entity.Type.Name;
+                        row["Confidence"] = entity.Confidence;
+                        row["Threshold"] = document.DocumentType.Threshold;
+                        dataTable.Rows.Add(row);
                     }
                 }
-                if (uncertain.Count != 0)
-                {
-                    SendMail.Set(context, true);
-                    UncertainEntities.Set(context, String.Join(",", uncertain));
-                }
-                else
-                {
-                    SendMail.Set(context, false);
-                    UncertainEntities.Set(context, "");
-                }
+                JsonResult.Set(context, dataTable);
             }
             // again, I absolutely want to catch every exception and pass these along to the workflow
             catch (Exception ex)

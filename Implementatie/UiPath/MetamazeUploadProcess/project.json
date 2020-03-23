@@ -3,12 +3,13 @@
   "description": "The upload process to Metamaze",
   "main": "Main.xaml",
   "dependencies": {
-    "MetaMazeLibrary": "[1.0.0]",
+    "DebugPackage": "[1.0.0]",
+    "MetaMazeSendFiles": "[1.0.0]",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
-    "UiPath.Excel.Activities": "[2.8.1-preview]",
-    "UiPath.Mail.Activities": "[1.8.1-preview]",
-    "UiPath.System.Activities": "[20.2.0-preview]",
-    "UiPath.UIAutomation.Activities": "[20.2.0-preview]"
+    "UiPath.Excel.Activities": "[2.8.2-preview]",
+    "UiPath.Mail.Activities": "[1.8.2-preview]",
+    "UiPath.System.Activities": "[20.3.0-preview]",
+    "UiPath.UIAutomation.Activities": "[20.3.0-alpha]"
   },
   "webServices": [],
   "schemaVersion": "4.0",

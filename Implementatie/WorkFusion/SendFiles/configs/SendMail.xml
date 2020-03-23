@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" scriptlang="groovy">
+    <robotics-flow>
+        <robot driver="universal" close-on-completion="true" start-in-private="true">
+            <capability name="SEARCH_ALL_WINDOWS" value="true" />
+            <script><![CDATA[
+                import com.workfusion.studio.rpa.recorder.api.internal.representation.*
+                import com.workfusion.studio.rpa.recorder.api.*
+                import com.workfusion.studio.rpa.recorder.api.types.*
+                import com.workfusion.studio.rpa.recorder.api.custom.*
+                import static com.workfusion.studio.rpa.recorder.api.RandomValues.CharacterSet.*
+                // Custom imports
+                import javax.mail.*
+				import javax.mail.internet.*
+ 
+				// Mapping the variables
+				@CustomScriptAction(
+					input = ['email', 'password', 'to', 'from'],
+					output = 'NoClueYet'
+				)
+ 				
+ 				// Sending the files
+ 				def customScript() {
+					String host = "smtp.gmail.com"
+					String port = "587"
+					
+					Properties props = System.getProperties()
+					props.put("mail.smtp.user", email)
+					props.put("mail.smtp.host", host)
+					props.put("mail.smtp.port", port)
+					props.put("mail.smtp.starttls.enable","true")
+					props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory")
+					props.put("mail.smtp.ssl.trust", host)
+
+					MimeMessage message = new MimeMessage(Session.getDefaultInstance(props))
+					message.setFrom(new InternetAddress(from))
+					message.addRecipients(Message.RecipientType.TO, new InternetAddress(to))
+					message.setSubject("Some Entity Thresholds Were Not Reached")
+					message.setContent("TestMessage", "text/plain")
+					
+					try {
+    					Transport.send(message, email, password)
+					} catch (MessagingException e) {
+    					e.printStackTrace()
+					}
+ 				}
+  
+            ]]></script>
+        </robot>
+    </robotics-flow>
+    <export include-original-data="true"/>
+</config>
