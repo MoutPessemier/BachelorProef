@@ -6,3 +6,4 @@ D:\BachelorProef\Implementatie\UiPath\SendFiles\SendFiles\obj\Debug\SendFiles.cs
 D:\BachelorProef\Implementatie\UiPath\SendFiles\SendFiles\obj\Debug\SendFiles.csproj.CopyComplete
 D:\BachelorProef\Implementatie\UiPath\SendFiles\SendFiles\obj\Debug\SendFiles.dll
 D:\BachelorProef\Implementatie\UiPath\SendFiles\SendFiles\obj\Debug\SendFiles.pdb
+D:\BachelorProef\Implementatie\UiPath\SendFiles\SendFiles\obj\Debug\SendFiles.csprojAssemblyReference.cache

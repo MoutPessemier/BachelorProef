@@ -91,7 +91,7 @@ namespace SendFiles
             {
                 result = client.GetAsync(url + "/" + r.UploadId).Result;
                 jsonString = result.Content.ReadAsStringAsync().Result;
-                pr = JsonConvert.DeserializeObject<ProcessResponse>(response);
+                pr = JsonConvert.DeserializeObject<ProcessResponse>(jsonString);
                 switch (pr.Status)
                 {
                     case "DONE":

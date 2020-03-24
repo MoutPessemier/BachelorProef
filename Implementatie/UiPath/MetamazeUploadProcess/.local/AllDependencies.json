@@ -53,15 +53,6 @@
           "lib/net40-client/CsvHelper.dll": {}
         }
       },
-      "DebugPackage/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/_._": {}
-        },
-        "runtime": {
-          "lib/MetaSend.dll": {}
-        }
-      },
       "DocumentFormat.OpenXml/2.5.0": {
         "type": "package",
         "compile": {
@@ -140,15 +131,6 @@
         },
         "runtime": {
           "lib/Interop.Domino.dll": {}
-        }
-      },
-      "MetaMazeSendFiles/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/_._": {}
-        },
-        "runtime": {
-          "lib/SendFiles.dll": {}
         }
       },
       "Microsoft.AspNet.SignalR.Client/2.4.0": {
@@ -236,6 +218,15 @@
           "lib/net45/NPOI.OpenXml4Net.dll": {},
           "lib/net45/NPOI.OpenXmlFormats.dll": {},
           "lib/net45/NPOI.dll": {}
+        }
+      },
+      "SendFilesMetaMaze/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/SendFiles.dll": {}
         }
       },
       "SharpZipLib/1.0.0": {
@@ -973,17 +964,6 @@
         "lib/portable-net40+sl5+win8+wpa+wp8/CsvHelper.xml"
       ]
     },
-    "DebugPackage/1.0.0": {
-      "sha512": "DI1blmqIrlob1q4LGL4uCuV8yeGqdcMDl1rNhCmtuzQeVnpEyE2i5f7pYwrIIBUsPWi/7RpevZUIf+NyE1YhkQ==",
-      "type": "package",
-      "path": "debugpackage/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        "debugpackage.1.0.0.nupkg.sha512",
-        "debugpackage.nuspec",
-        "lib/MetaSend.dll"
-      ]
-    },
     "DocumentFormat.OpenXml/2.5.0": {
       "sha512": "H5jnox0hcLwzAjrpNqDPIItjh7dplF1kk1z8LatpI2h75wBgps1MepEttJFKs7xedQReCMHA0tGpNI0H2B+Mrg==",
       "type": "package",
@@ -1052,17 +1032,6 @@
         "interop.domino.dll.1.0.0.nupkg.sha512",
         "interop.domino.dll.nuspec",
         "lib/Interop.Domino.dll"
-      ]
-    },
-    "MetaMazeSendFiles/1.0.0": {
-      "sha512": "BVic1VPOH2s3+AHlZNxvB619yr57tkYAFxY9zyTQSS38bKu5AJnXTkhgJ+xvsBIzxEbTzFmeyymUy3jg4fRFyg==",
-      "type": "package",
-      "path": "metamazesendfiles/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        "lib/SendFiles.dll",
-        "metamazesendfiles.1.0.0.nupkg.sha512",
-        "metamazesendfiles.nuspec"
       ]
     },
     "Microsoft.AspNet.SignalR.Client/2.4.0": {
@@ -1219,6 +1188,17 @@
         "logo/60_60.jpg",
         "npoi.2.4.1.nupkg.sha512",
         "npoi.nuspec"
+      ]
+    },
+    "SendFilesMetaMaze/1.0.0": {
+      "sha512": "BDluenmAZhiKtNUGdbTV1aNqaGN7icna/Iz2li0tcVk1yZufJijp2xU9oVG2cJLlPfK47e2iZlZtEJ4JVjAdhw==",
+      "type": "package",
+      "path": "sendfilesmetamaze/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "lib/SendFiles.dll",
+        "sendfilesmetamaze.1.0.0.nupkg.sha512",
+        "sendfilesmetamaze.nuspec"
       ]
     },
     "SharpZipLib/1.0.0": {
@@ -1741,8 +1721,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
-      "DebugPackage >= 1.0.0 <= 1.0.0",
-      "MetaMazeSendFiles >= 1.0.0 <= 1.0.0",
+      "SendFilesMetaMaze >= 1.0.0 <= 1.0.0",
       "UiPath.Credentials.Activities >= 1.1.6479.13204 <= 1.1.6479.13204",
       "UiPath.Excel.Activities >= 2.8.2-preview <= 2.8.2-preview",
       "UiPath.Mail.Activities >= 1.8.2-preview <= 1.8.2-preview",
@@ -1764,12 +1743,7 @@
     "frameworks": {
       "net461": {
         "dependencies": {
-          "DebugPackage": {
-            "include": "Runtime",
-            "target": "Package",
-            "version": "[1.0.0, 1.0.0]"
-          },
-          "MetaMazeSendFiles": {
+          "SendFilesMetaMaze": {
             "include": "Runtime",
             "target": "Package",
             "version": "[1.0.0, 1.0.0]"
