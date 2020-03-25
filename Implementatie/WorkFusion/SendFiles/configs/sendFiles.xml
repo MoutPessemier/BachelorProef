@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" scriptlang="groovy">
-    <robotics-flow>
-        <robot driver="universal" close-on-completion="true" start-in-private="true">
-            <capability name="SEARCH_ALL_WINDOWS" value="true" />
-            <script><![CDATA[
+<config
+	xmlns="http://web-harvest.sourceforge.net/schema/1.0/config"
+	scriptlang="groovy">
+	<robotics-flow>
+		<robot driver="universal" close-on-completion="true"
+			start-in-private="true">
+			<capability name="SEARCH_ALL_WINDOWS" value="true" />
+			<script><![CDATA[
                 import com.workfusion.studio.rpa.recorder.api.internal.representation.*
                 import com.workfusion.studio.rpa.recorder.api.*
                 import com.workfusion.studio.rpa.recorder.api.types.*
-                import com.workfusion.studio.rpa.recorder.api.custom.*
+                import com.workfusion.studio.rpa.recorder.api.custom.*w
                 import static com.workfusion.studio.rpa.recorder.api.RandomValues.CharacterSet.*
+                
+                /*
+                Based upon:
+                https://docs.smartthings.com/en/latest/getting-started/groovy-basics.html
+				https://www.vogella.com/tutorials/Groovy/article.html
+                https://stackoverflow.com/questions/1378920/how-can-i-make-a-multipart-form-data-post-request-using-java
+				https://www.baeldung.com/httpclient-multipart-upload
+				https://www.example-code.com/java/http_multipart_form_data_upload.asp
+				https://stackoverflow.com/questions/38085964/authorization-bearer-token-in-httpclient
+				https://gist.github.com/frankvilhelmsen/5212452
+				https://stackoverflow.com/questions/25850077/how-to-upload-large-files-by-multipart-request-in-java/26014712
+				https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java
+				http://theoryapp.com/parse-json-in-java/
+				https://groovy-lang.org/json.html
+				https://stackoverflow.com/questions/1378920/how-can-i-make-a-multipart-form-data-post-request-using-java
+				https://stackoverflow.com/questions/38085964/authorization-bearer-token-in-httpclient
+				https://www.baeldung.com/httpclient-multipart-upload 
+				https://stackoverflow.com/questions/25692515/groovy-built-in-rest-http-client
+				https://www.tothenew.com/blog/groovy-http-builder-for-sending-multipart-file/
+				http://docs.groovy-lang.org/2.4.0/html/gapi/groovy/json/JsonSlurper.html
+				https://forum.workfusion.com/t/how-to-change-a-variables-value-in-a-list-or-a-table/51348
+				https://forum.workfusion.com/t/how-to-include-plugin-in-rpaexpress/58011
+				https://forum.workfusion.com/t/update-datatable-using-groovy/60919
+                */
+                
+                // custom imports
+                import groovy.json.JsonSlurper
  
 				// Mapping the variables
 				@CustomScriptAction(
@@ -18,60 +48,91 @@
  				
  				// Sending the files
  				def customScript() {
-					def url = "https://adp.faktion.com/gql/api/organisations/" + organisation_id + "/projectId/" + project_id + "/process"
-					    try {
-					        def postConnection = new URL(url)
-					        HttpURLConnection http = (HttpURLConnection) postConnection.openConnection()
-					        http.setRequestProperty("Authorization", "Bearer " + bearer_token)
-					        http.setRequestProperty("Content-Type", "multipart/form-data")
-					        http.setDoOutput(true)
-					        http.setRequestMethod('POST')
-					        // TODO: create multipart and send as content
-					        def multipart
-					        files.each {
-					            ContentHandler
-					            def content = new FileInputStream(new File(it))
-					            def name = getName(it)
-					            content.setRequestProperty(getContentType(name))
-					            multipart.addBinaryBody("files", content , name)
-					        }
-					        // TODO: write away the multipartContent
-					        http.getOutputStream().write(multipart)
-					        def responseCode = http.getResponseCode()
-					        def response
-					        if(responseCode >= 200 && responseCode < 300) {
-					            response = http.getInputStream().getText()
-					        }
-					        // TODO: parse uploadId
-					        def upload_id
-					        def polling = true
-					        def counter = 1
-					        def get = new URL(url + "/" + upload_id).openConnection()
-					        def getResponse
-					        do {
-					            // TODO: parse response
-					            getResponse = get.getInputStream().getText()
-					            switch(getResponse) {
-					                case "DONE":
-					                    polling = false;
-					                    break
-					                case "DOCUMENT_CLASSIFICATION_INTERVENTION":
-					                case "ENTITY_EXTRACTION_INTERVENTION":
-					                    throw new Exception("Intervention needed")
-					                case "FAILED":
-					                    throw new Exception("Something went wrong during the processing process")
-					                default:
-					                    counter++
-					                    break
-					            }
-					            // Sleep for 7 seconds before resending the request.
-					            Thread.sleep(7000)
-					        } while(polling && counter <= 150)
-					        // TODO: parse and format json (getResponse)
-					    } catch(all) {
-					        throw new Exception(all.getMessage())
-					    }
- 				}
+				    // define url
+				    def url = "https://adp.faktion.com/gql/api/organisations/" + organisation_id + "/projectId/" + project_id + "/process"
+				    // create global json parser
+				    def slurper = new JsonSlurper()
+				    // define global response
+				    def response
+				    // Setup post request
+				    def postConnection = new URL(url)
+				    HttpURLConnection http = (HttpURLConnection) postConnection.openConnection()
+				    http.setRequestProperty("Authorization", "Bearer " + bearer_token)
+				    http.setRequestProperty("Content-Type", "multipart/form-data")
+				    http.setDoOutput(true)
+				    http.setRequestMethod('POST')
+				    // TODO: create multipart and send as content
+				    def multipart
+				    // add each file as a filestream to the multipart
+				    try{
+				        files.each {
+				            //
+				            def content = new FileInputStream(new File(it))
+				            def name = getName(it)
+				            content.setRequestProperty(getContentType(name))
+				            multipart.addBinaryBody("files", content , name)
+				        }
+				        // TODO: write away the multipartContent as bytestream?
+				        http.getOutputStream().write(multipart)
+				        def responseCode = http.getResponseCode()
+				        // check if succesfull, if not throw error and catch inside recording
+				        if(responseCode >= 200 && responseCode < 300) {
+				            response = http.getInputStream().getText()
+				        } else {
+				            json = "Something went wrong during the upload process"
+				            throw new Exception("Something went wrong during the upload process")
+				        }
+				    } catch(exception) {
+				        json = exception.message
+				        throw new Exception(exception.message)
+				    }
+				    // TODO: parse uploadId (don't have any experience with slurper)
+				    String upload_id = slurper.parseText(response).uploadId
+				    // start polling for the result of the get request
+				    def polling = true
+				    def counter = 1
+				    def getConnection = new URL(url + "/" + upload_id).openConnection()
+				    def getResponse
+				    def parsedJson
+				    do {
+				        getResponse = getConnection.getInputStream().getText()
+				        def responseCode = getConnection.get
+				        // TODO: parse response (slurper <--> class based)?
+				        parsedJson = slurper.parseText(getResponse)
+				        switch(parsedJson.status) {
+				            case "DONE":
+				                polling = false;
+				                break
+				            case "DOCUMENT_CLASSIFICATION_INTERVENTION":
+				            case "ENTITY_EXTRACTION_INTERVENTION":
+				                throw new Exception("Intervention needed")
+				            case "FAILED":
+				                throw new Exception("Something went wrong during the processing process")
+				            default:
+				                counter++
+				                // Sleep for 7 seconds before resending the request.
+				                Thread.sleep(7000)
+				                break
+				        }
+				    } while(polling && counter <= 150)
+				    // put json into table variable
+				    String[] columnNames = new String[] {"EntityName", "Confidence", "Theshold"}
+				    List<Object[]> temp = new ArrayList();
+				    parsedJson.documents.each {
+				        def threshold = it.documentType.threshold
+				        it.entities.each {
+				            Object[] row = new Object[3];
+				            row[0] = it.entityType.name
+				            row[1] = it.confidence
+				            row[2] = threshold
+				            temp.add(row)
+				        }
+				    }
+				    Object[][] json = new Object[temp.size()][]
+				    for (int i = 0; i < temp.size(); i++) {
+				        json[i] = temp.get(i)
+				    }
+				}
  				
  				def getContentType(String name){
 				    def splitName = name.split(".")
@@ -105,7 +166,7 @@
 				}
   
             ]]></script>
-        </robot>
-    </robotics-flow>
-    <export include-original-data="true"/>
+		</robot>
+	</robotics-flow>
+	<export include-original-data="true" />
 </config>

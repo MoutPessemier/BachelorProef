@@ -1,4 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿/*
+ Based upon the official Microsoft docs about:
+ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/how-to-make-multiple-web-requests-in-parallel-by-using-async-and-await
+ https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.postasync?view=netframework-4.8
+ https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpresponsemessage?view=netframework-4.8
+ https://docs.microsoft.com/en-us/dotnet/api/system.net.http?view=netframework-4.8
+ https://docs.microsoft.com/en-us/dotnet/api/system.net.http.streamcontent?view=netframework-4.8
+ https://docs.microsoft.com/en-us/dotnet/api/system.io.filestream?view=netframework-4.8
+ https://docs.microsoft.com/en-us/dotnet/api/system.io.bufferedstream?view=netframework-4.8
+
+ To use this inside of UiPath, you have to publish the dll:
+ https://docs.microsoft.com/en-us/nuget/nuget-org/publish-a-package
+ */
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
