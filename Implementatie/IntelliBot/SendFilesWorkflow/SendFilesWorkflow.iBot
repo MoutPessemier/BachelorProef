@@ -1,0 +1,1541 @@
+<?xml version="1.0"?>
+<AutxProcess xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="AutxRpaProcess">
+  <ID>c06bb968-2aa5-4064-aa90-b92b843af99f</ID>
+  <RuntimeID>0a634a0b-d535-4343-9963-23ab0d5a8702</RuntimeID>
+  <References>
+    <AutxPluginReference>
+      <ID>fba0ec3d-51f8-4b67-810f-26e829b1a4ce</ID>
+      <PluginID>293745f8-12ea-4a86-be5f-8cea9576f0b5</PluginID>
+      <Name>ESSENTIAL TOOLKIT</Name>
+      <Version>9,6</Version>
+      <Signature>A2EAFF40BDC267CDDCD7C38C78C5A30971B5639D44B1174B5A2AB8EC4701BA85</Signature>
+    </AutxPluginReference>
+    <AutxPluginReference>
+      <ID>91fd2c77-14ff-4d40-8fac-8cf8985c2914</ID>
+      <PluginID>be36a04a-b045-46f7-ac32-dbcfc0ca7377</PluginID>
+      <Name>ESSENTIAL CONNECTORS</Name>
+      <Version>21,30005</Version>
+      <Signature>F96D1E4B5689C80A412DFB8781E4DA3866E76B676E73332F8D9378412720FB37</Signature>
+    </AutxPluginReference>
+  </References>
+  <UserPlugins />
+  <Activities>
+    <AutxActivity>
+      <ID>d6547d57-ef13-4f71-a04f-8a56278647b3</ID>
+      <ParentID>c06bb968-2aa5-4064-aa90-b92b843af99f</ParentID>
+      <Items>
+        <DesignItem xsi:type="EntryPoint">
+          <ID>96fdbf13-f017-4448-a156-bfc571694747</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>10</X>
+          <Y>10</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5000</Order>
+          <CommentConnectionPort>
+            <ID>6db94089-98f1-40ee-8126-09822d9e005c</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <Variables />
+          <Items />
+          <ControlOut>
+            <ID>33ce667a-4b41-4522-982d-52c0f53e783a</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+        </DesignItem>
+        <DesignItem xsi:type="ExitPoint">
+          <ID>ebc1d29b-55e8-4522-b12c-bf7b81470418</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>1835.666666666667</X>
+          <Y>365.33333333333326</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5001</Order>
+          <CommentConnectionPort>
+            <ID>5329e918-115c-47b4-b892-d55df2b78d3f</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <Variables />
+          <Items />
+          <ControlIn>
+            <ID>fd41d5ab-4f4b-43c6-977b-bd16aeae62ef</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+        </DesignItem>
+        <DesignItem xsi:type="AutxStaticMethod">
+          <ID>3c1889e1-0e71-47cd-b49a-77c4e17137d1</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>133</X>
+          <Y>44.333333333333371</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5002</Order>
+          <CommentConnectionPort>
+            <ID>47434158-1af4-41c9-9dd5-d2cf03e6830c</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <Name>GetFiles</Name>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>b35a6e8f-9ae6-4ad1-9cdd-0c51b0c4cea4</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>9dcb7521-e360-4e5b-a5fa-3413303ccd59</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <ReturnDataPort>
+            <ID>e0dbc31a-3a30-4805-b1af-4d767355ea77</ID>
+            <Name>Return</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>9a9c9b3a-2fb0-4036-bdea-17e21ce6bd34</ID>
+              <Name>ReadOnlyCollection`1</Name>
+              <FullName>System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</FullName>
+              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>false</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>true</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Connection</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+          </ReturnDataPort>
+          <MethodName>GetFiles</MethodName>
+          <ClassName>Directory</ClassName>
+          <ClassType>
+            <ID>ea125d09-8d9e-4e8c-9ed9-477bd5b474e6</ID>
+            <Name>AutxFolder</Name>
+            <FullName>UTL.RPA.CONNECTORS.AutxFolder</FullName>
+            <Assembly>UTL.RPA.CONNECTORS, Version=1.0.3.0, Culture=neutral, PublicKeyToken=3560024ae975bbad</Assembly>
+          </ClassType>
+          <Image>/UTL.RPA.CONNECTORS;component/Resources/Images/folder.png</Image>
+          <Params>
+            <AutxDataInPort>
+              <ID>bd744240-8223-49ab-9062-66f90aac637e</ID>
+              <Name>directoryPath</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>e255b389-999b-4b12-8ab0-ae5bbf2322c6</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+              <StaticValue>C:\Users\Mout Pessemier\Desktop\temp</StaticValue>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>aaa75ee3-2ae8-48f1-abc4-833298f3efb6</ID>
+              <Name>searchSubDirectories</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>98386cd4-3631-495a-811c-e9b525057e35</ID>
+                <Name>Boolean</Name>
+                <FullName>System.Boolean</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>false</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+              <StaticValue>False</StaticValue>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>c4bd7aef-89e3-4769-8a49-8932ae0125b7</ID>
+              <Name>fileExtension</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>5c5387bf-42ec-4aeb-aee3-da320f3782ef</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+              <StaticValue />
+            </AutxDataInPort>
+          </Params>
+          <OutParams />
+          <MEStatics />
+          <MEInputs />
+          <MEOutputs />
+          <MECtrlOutputs />
+        </DesignItem>
+        <DesignItem xsi:type="ScriptBlock">
+          <ID>d1f84e74-644d-447a-81ca-04caba86370c</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>514.66666666666686</X>
+          <Y>206.66666666666657</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5003</Order>
+          <CommentConnectionPort>
+            <ID>446b2859-2d4b-4e4b-8bbe-9ecc28d3aeed</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>a56c51b0-4685-4722-967a-7a946ef01160</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>f87c78f6-813c-424f-ac30-ec329bc43599</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <DataOut>
+            <ID>79471d4b-393c-4a4f-bd20-7a2a94b3814a</ID>
+            <Name>Return</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>e2dc711e-2411-41e7-b716-1b1cc15b5268</ID>
+              <Name>Table</Name>
+              <FullName>System.Data.DataTable</FullName>
+              <Assembly>System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>true</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>false</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Connection</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+          </DataOut>
+          <Code />
+          <Items>
+            <AutxDataInPort>
+              <ID>c57ced95-e9ff-4b44-88fa-8c0c190b0cd1</ID>
+              <Name>files</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>d9d052d8-f8ab-439b-9683-7d6f239faec2</ID>
+                <Name>List</Name>
+                <FullName>System.Collections.ArrayList</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>true</IsTypeEditable>
+              <IsNameEditable>true</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>false</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>21fd4e75-3d74-46e8-9444-87caf8f87cba</ID>
+              <Name>bearerToken</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>true</IsTypeEditable>
+              <IsNameEditable>true</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>false</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>cf2bdfad-4561-4e86-89b1-16e55778c053</ID>
+              <Name>organisationId</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>true</IsTypeEditable>
+              <IsNameEditable>true</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>false</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>fdc08c5d-28b8-4118-a495-ee91a50d6202</ID>
+              <Name>projectId</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>true</IsTypeEditable>
+              <IsNameEditable>true</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>false</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+          </Items>
+        </DesignItem>
+        <DesignItem xsi:type="Decision">
+          <ID>60e9bc6b-d16a-402b-a988-296ba6504358</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>1366.6666666666665</X>
+          <Y>220.00000000000006</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5004</Order>
+          <CommentConnectionPort>
+            <ID>39165a4d-b3f9-4fad-b1c2-9382baa4205c</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>e9b352e7-0615-4f53-8b39-efe96035bfcd</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlYes>
+            <ID>e0276637-5543-43d5-aa37-5b5d38eb3d1d</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlYes>
+          <ControlNo>
+            <ID>94be32a9-5ab8-4383-80af-3490ef9fde59</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlNo>
+          <Items />
+          <ExpressionText />
+        </DesignItem>
+        <DesignItem xsi:type="AutxVariableContainer">
+          <ID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>232.66666666666663</X>
+          <Y>249.00000000000006</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5006</Order>
+          <CommentConnectionPort>
+            <ID>e5190953-a3b3-4e0c-aba3-f563096b0e78</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>400d2da7-8ab4-4a04-8b07-a51191d1903c</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>97604070-0066-4071-a92d-6d9bb1b952e0</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <Items>
+            <AutxObjectReference>
+              <ID>28d879f9-cf1f-4935-ae93-cd5632e8b6eb</ID>
+              <ObjectID>88db3191-3000-4602-9b74-bb583da69aad</ObjectID>
+              <ObjectRootParentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+              <IsGlobal>false</IsGlobal>
+              <DataIn>
+                <ID>25a0e4c3-54af-4afb-93f4-1f3b93f15a1c</ID>
+                <Name>IN</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>02ec13c9-7acd-4b14-b43b-190a9439b591</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataIn>
+              <DataOut>
+                <ID>140a6415-4b68-4087-bb43-1e790368f41d</ID>
+                <Name>OUT</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>e8daa945-5a9f-49f9-b773-40e57c60d396</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataOut>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>336403dd-6b8b-468f-b34e-7180db84282e</ID>
+              <ObjectID>f45ea447-4e9b-4c65-a491-24f8f240c7cd</ObjectID>
+              <ObjectRootParentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+              <IsGlobal>false</IsGlobal>
+              <DataIn>
+                <ID>d57aa218-a8ad-4b68-ad0e-99ee6ea0674a</ID>
+                <Name>IN</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>bd8e3925-a72c-43ba-8fa0-85ebba3280e7</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataIn>
+              <DataOut>
+                <ID>29bcd5e5-6ba3-4efa-9338-a0d02b9601fe</ID>
+                <Name>OUT</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>35c13c5d-c8f1-4afd-acf7-42148f439401</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataOut>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>89354ef8-0cef-4f5a-b35b-96ec81c00291</ID>
+              <ObjectID>0a0c6c00-60ad-4046-84c8-a65cfbc4df85</ObjectID>
+              <ObjectRootParentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+              <IsGlobal>false</IsGlobal>
+              <DataIn>
+                <ID>9c6bb377-37f1-4114-b3e1-1c22bce700e0</ID>
+                <Name>IN</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>87265436-b2cb-4e67-89c4-9877e137f904</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Static</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+                <StaticValue>5ccad715074ce2b850f646d5</StaticValue>
+              </DataIn>
+              <DataOut>
+                <ID>b317fb12-51b6-4e98-9cd8-ccac9cca79d8</ID>
+                <Name>OUT</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>e68ee115-239c-40d4-a001-dcc2d2312533</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataOut>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>b5681a1c-27e6-41a6-b884-fa773ce7353b</ID>
+              <ObjectID>3cfe95fb-ac0b-4442-bada-81219aa53ff4</ObjectID>
+              <ObjectRootParentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+              <IsGlobal>false</IsGlobal>
+              <DataIn>
+                <ID>7510b8f0-44aa-4fef-a85d-738fce567a25</ID>
+                <Name>IN</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>b27e930b-9a41-4dab-b1e0-53c51e2e9df8</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Static</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+                <StaticValue>5e7354bd2a053952c30fc6d7</StaticValue>
+              </DataIn>
+              <DataOut>
+                <ID>a4611b75-73d6-4065-bf1a-739aa3a061f8</ID>
+                <Name>OUT</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>2084d94f-dd7d-4e42-b9a2-ea40f879e84b</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataOut>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>b3af1d8d-ac61-494e-9c10-e179f862b413</ID>
+              <ObjectID>c9c752f2-908e-41f6-b436-920ebff659eb</ObjectID>
+              <ObjectRootParentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+              <IsGlobal>false</IsGlobal>
+              <DataIn>
+                <ID>ef6751c0-99a5-4c16-b3d8-6b712914f951</ID>
+                <Name>IN</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>7f12583c-e136-4820-8051-4405115b5f7c</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataIn>
+              <DataOut>
+                <ID>825835b7-b98a-4a49-af88-6145b3058bcc</ID>
+                <Name>OUT</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>2556dcba-1e3a-4314-9a18-d769ed853dd2</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataOut>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>404f056a-d5ba-4279-8605-acf0a38a2e36</ID>
+              <ObjectID>823f4c6b-d3dd-41ed-bafd-52ba1e34e422</ObjectID>
+              <ObjectRootParentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+              <IsGlobal>false</IsGlobal>
+              <DataIn>
+                <ID>9b271456-16a6-42b7-af04-79a9b7f4d66d</ID>
+                <Name>IN</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>d5bbc169-b837-40bc-bb8a-506e71bd0664</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataIn>
+              <DataOut>
+                <ID>eca45697-9e10-4934-938d-265cfee3c1ce</ID>
+                <Name>OUT</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>0c1fc189-6259-4ebf-9d74-679c8fe6e309</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataOut>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>5d69f8f9-1cf3-46f9-9b66-c0576283977e</ID>
+              <ObjectID>5df8fefb-3964-4a53-a89e-cae359a6af8d</ObjectID>
+              <ObjectRootParentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+              <IsGlobal>false</IsGlobal>
+              <DataIn>
+                <ID>f0a24394-6235-4341-884b-10f008904878</ID>
+                <Name>IN</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>339be9bb-e4e0-4109-bd8b-f75e28b33b38</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataIn>
+              <DataOut>
+                <ID>be09735e-6e4a-442e-a5a0-3575c0949899</ID>
+                <Name>OUT</Name>
+                <Visibility>true</Visibility>
+                <AllowDelete>true</AllowDelete>
+                <Validations />
+                <Type>
+                  <ID>fcd2bdcd-5f70-4115-aca9-b2050801c151</ID>
+                  <Name>Object</Name>
+                  <FullName>System.Object</FullName>
+                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+                </Type>
+                <IsTypeEditable>false</IsTypeEditable>
+                <IsNameEditable>false</IsNameEditable>
+                <IsValueEditable>true</IsValueEditable>
+                <ShowTypeLabel>false</ShowTypeLabel>
+                <ShowNameLabel>true</ShowNameLabel>
+                <DataSensitive>false</DataSensitive>
+                <ValueSourceType>Connection</ValueSourceType>
+                <AllowOverridePopup>false</AllowOverridePopup>
+              </DataOut>
+            </AutxObjectReference>
+          </Items>
+        </DesignItem>
+        <DesignItem xsi:type="AutxMethod">
+          <ID>08dcb024-f279-4bc5-8292-f4f69973074a</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>1503.3333333333333</X>
+          <Y>367.66666666666663</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5007</Order>
+          <CommentConnectionPort>
+            <ID>623f31e6-377d-41e8-a3a7-121fb74c4b7a</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <Name>SendMail</Name>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>7e221144-a476-4e9a-8b25-e25d0fa18c52</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>dc384c11-02b7-4d7b-a56e-66ef85beb540</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <ReturnDataPort>
+            <ID>7aee7413-1cc3-4e7a-a474-c52179394e3a</ID>
+            <Name>Return</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>e5cdfb5f-7720-49aa-9e1a-69164b9fbdb0</ID>
+              <Name>Void</Name>
+              <FullName>System.Void</FullName>
+              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>false</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>true</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Connection</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+          </ReturnDataPort>
+          <MethodName>SendMail</MethodName>
+          <ObjectID>9fe9d21a-8ae9-43a8-ab65-fa845b123ad6</ObjectID>
+          <ObjectRootParentID />
+          <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+          <Params>
+            <AutxDataInPort>
+              <ID>442b63aa-0cf5-4ce1-a636-7020418bc53d</ID>
+              <Name>ToAddress</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>f053db4e-9903-4f6e-b2d2-7f4c322cf228</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>093d9717-274f-4621-a304-acf90abdd92c</ID>
+              <Name>CC</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>c60d9040-c282-47ea-927d-f18bb7adbf80</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>9b93b282-17c8-4a91-a58d-33f138c0fb98</ID>
+              <Name>BCC</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>cd0a3be7-b36b-44de-8a31-37dc46b9b3fa</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>2cfdde21-6f92-490c-bba9-5eeba4de0b5f</ID>
+              <Name>Subject</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>6cb0e522-5f71-44a2-8c05-ca228f5869f0</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+              <StaticValue>Some Entity Thresholds Were Not Reached</StaticValue>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>f129edd6-702c-40bb-a8e9-02875c183c73</ID>
+              <Name>Body</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>a3741cf2-066c-4e6e-a8c1-b08d40ca3458</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>c5e550dc-fac0-41ce-b331-dc3c98da19ae</ID>
+              <Name>IsHtmlBody</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>6fcd6588-3c5e-406f-b1a9-0f50d7a00aa6</ID>
+                <Name>Boolean</Name>
+                <FullName>System.Boolean</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>false</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+              <StaticValue>False</StaticValue>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>dc594862-2932-4eca-9210-e6ce9ce08364</ID>
+              <Name>Attachments</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>93661b8d-c6f8-4f20-b814-41967b18573c</ID>
+                <Name>String</Name>
+                <FullName>System.String</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Static</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+          </Params>
+          <OutParams />
+          <MEStatics />
+          <MEInputs />
+          <MEOutputs />
+          <MECtrlOutputs />
+        </DesignItem>
+        <DesignItem xsi:type="LogWriter">
+          <ID>79abf383-c2fa-4093-9eb5-5dbc979743df</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>1668.9999999999996</X>
+          <Y>457.33333333333326</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5008</Order>
+          <CommentConnectionPort>
+            <ID>645d47db-b701-4294-bc40-09c5799c8283</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>3f890ee8-3a6d-4af4-b096-0c8ef6c87d8a</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>e1536ffa-d274-4c1d-9914-5c1e6f29c170</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <MessagePort>
+            <ID>65b5bc61-6817-4b43-8fbc-671d8ab5b322</ID>
+            <Name>Message</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>058d22f9-2260-4ed7-87f4-aacba0212682</ID>
+              <Name>String</Name>
+              <FullName>System.String</FullName>
+              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>false</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>false</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Static</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+            <StaticValue>Files successfully uploaded and mail has been sent!</StaticValue>
+          </MessagePort>
+          <LogMode>Verbose</LogMode>
+        </DesignItem>
+        <DesignItem xsi:type="LogWriter">
+          <ID>b6246297-6b85-44a3-9b2c-00e1a1fdcda7</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>1667.6666666666667</X>
+          <Y>282.33333333333326</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5009</Order>
+          <CommentConnectionPort>
+            <ID>ead945cc-b69b-477a-b021-9032565f5b67</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>ba257a73-eb8e-490d-8227-1ea05236dc5c</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>7c2a2ecf-312f-4fab-a519-1beac3dc048b</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <MessagePort>
+            <ID>220b78e6-90a8-47ad-b737-cb919852330f</ID>
+            <Name>Message</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>ab742883-fef8-4bfb-9675-90df4f14235d</ID>
+              <Name>String</Name>
+              <FullName>System.String</FullName>
+              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>false</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>false</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Static</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+            <StaticValue>Files succesfully uploaded!</StaticValue>
+          </MessagePort>
+          <LogMode>Verbose</LogMode>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>becc9c46-a1aa-4ce0-af1e-f5d334120485</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>60e9bc6b-d16a-402b-a988-296ba6504358</SourceComponentID>
+          <SourcePortID>94be32a9-5ab8-4383-80af-3490ef9fde59</SourcePortID>
+          <SinkComponentID>08dcb024-f279-4bc5-8292-f4f69973074a</SinkComponentID>
+          <SinkPortID>7e221144-a476-4e9a-8b25-e25d0fa18c52</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>28a434b3-0854-47b3-961a-8b7dee1ab706</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>08dcb024-f279-4bc5-8292-f4f69973074a</SourceComponentID>
+          <SourcePortID>dc384c11-02b7-4d7b-a56e-66ef85beb540</SourcePortID>
+          <SinkComponentID>79abf383-c2fa-4093-9eb5-5dbc979743df</SinkComponentID>
+          <SinkPortID>3f890ee8-3a6d-4af4-b096-0c8ef6c87d8a</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>f1f29b77-6fd1-451f-9a0d-ce646770da96</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>79abf383-c2fa-4093-9eb5-5dbc979743df</SourceComponentID>
+          <SourcePortID>e1536ffa-d274-4c1d-9914-5c1e6f29c170</SourcePortID>
+          <SinkComponentID>ebc1d29b-55e8-4522-b12c-bf7b81470418</SinkComponentID>
+          <SinkPortID>fd41d5ab-4f4b-43c6-977b-bd16aeae62ef</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>97177204-0cf0-4be3-87e7-916507b64168</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>60e9bc6b-d16a-402b-a988-296ba6504358</SourceComponentID>
+          <SourcePortID>e0276637-5543-43d5-aa37-5b5d38eb3d1d</SourcePortID>
+          <SinkComponentID>b6246297-6b85-44a3-9b2c-00e1a1fdcda7</SinkComponentID>
+          <SinkPortID>ba257a73-eb8e-490d-8227-1ea05236dc5c</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>57db3194-e8e9-4d63-8c06-73d3dc3471e0</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>b6246297-6b85-44a3-9b2c-00e1a1fdcda7</SourceComponentID>
+          <SourcePortID>7c2a2ecf-312f-4fab-a519-1beac3dc048b</SourcePortID>
+          <SinkComponentID>ebc1d29b-55e8-4522-b12c-bf7b81470418</SinkComponentID>
+          <SinkPortID>fd41d5ab-4f4b-43c6-977b-bd16aeae62ef</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>f631c678-dcc3-4f6e-b810-207cfe2cf17d</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>96fdbf13-f017-4448-a156-bfc571694747</SourceComponentID>
+          <SourcePortID>33ce667a-4b41-4522-982d-52c0f53e783a</SourcePortID>
+          <SinkComponentID>3c1889e1-0e71-47cd-b49a-77c4e17137d1</SinkComponentID>
+          <SinkPortID>b35a6e8f-9ae6-4ad1-9cdd-0c51b0c4cea4</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>4319fc92-287f-4827-b212-064515eb0b30</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>3c1889e1-0e71-47cd-b49a-77c4e17137d1</SourceComponentID>
+          <SourcePortID>e0dbc31a-3a30-4805-b1af-4d767355ea77</SourcePortID>
+          <SinkComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SinkComponentID>
+          <SinkPortID>25a0e4c3-54af-4afb-93f4-1f3b93f15a1c</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>8d52b9a3-7b1f-4c45-9216-68d5af0b74c5</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SourceComponentID>
+          <SourcePortID>29bcd5e5-6ba3-4efa-9338-a0d02b9601fe</SourcePortID>
+          <SinkComponentID>d1f84e74-644d-447a-81ca-04caba86370c</SinkComponentID>
+          <SinkPortID>21fd4e75-3d74-46e8-9444-87caf8f87cba</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>0b8ffecf-43b9-466c-845e-0f867b7f27f6</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SourceComponentID>
+          <SourcePortID>140a6415-4b68-4087-bb43-1e790368f41d</SourcePortID>
+          <SinkComponentID>d1f84e74-644d-447a-81ca-04caba86370c</SinkComponentID>
+          <SinkPortID>c57ced95-e9ff-4b44-88fa-8c0c190b0cd1</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>a78c08e4-fc67-4fe0-811b-b039f847da94</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SourceComponentID>
+          <SourcePortID>b317fb12-51b6-4e98-9cd8-ccac9cca79d8</SourcePortID>
+          <SinkComponentID>d1f84e74-644d-447a-81ca-04caba86370c</SinkComponentID>
+          <SinkPortID>cf2bdfad-4561-4e86-89b1-16e55778c053</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>ff173f70-f09f-4185-a410-c2acb4dc1336</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SourceComponentID>
+          <SourcePortID>a4611b75-73d6-4065-bf1a-739aa3a061f8</SourcePortID>
+          <SinkComponentID>d1f84e74-644d-447a-81ca-04caba86370c</SinkComponentID>
+          <SinkPortID>fdc08c5d-28b8-4118-a495-ee91a50d6202</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxMethod">
+          <ID>56dd1869-8fc2-4543-96b4-410e57bb4cee</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>686.33333333333314</X>
+          <Y>213.99999999999989</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5025</Order>
+          <CommentConnectionPort>
+            <ID>8996d54d-fdaf-4391-965d-d4901c590973</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <Name>SetTable</Name>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>b74ea4b3-8de5-40fd-a4b2-8c4c3648fdde</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>df354fba-6728-450a-a796-03a87b3f14db</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <ReturnDataPort>
+            <ID>54b9f519-f3db-4517-8c8f-813cc8baef10</ID>
+            <Name>Return</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>8b3a4572-9995-420b-b7b0-f2a88ff57a86</ID>
+              <Name>Void</Name>
+              <FullName>System.Void</FullName>
+              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>false</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>true</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Connection</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+          </ReturnDataPort>
+          <MethodName>SetTable</MethodName>
+          <ObjectID>d556e2af-3cb9-4277-8430-f37c6760441b</ObjectID>
+          <ObjectRootParentID />
+          <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+          <Params>
+            <AutxDataInPort>
+              <ID>7648b4b6-e6ee-4859-b895-7b9742f24ec5</ID>
+              <Name>table</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>6aef7036-9d40-448e-bf58-5937dae01039</ID>
+                <Name>DataTable</Name>
+                <FullName>System.Data.DataTable</FullName>
+                <Assembly>System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>false</IsTypeEditable>
+              <IsNameEditable>false</IsNameEditable>
+              <IsValueEditable>false</IsValueEditable>
+              <ShowTypeLabel>true</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+          </Params>
+          <OutParams />
+          <MEStatics />
+          <MEInputs />
+          <MEOutputs />
+          <MECtrlOutputs />
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>ed385665-b689-43f8-aeaa-fb60bfa8ba71</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d1f84e74-644d-447a-81ca-04caba86370c</SourceComponentID>
+          <SourcePortID>79471d4b-393c-4a4f-bd20-7a2a94b3814a</SourcePortID>
+          <SinkComponentID>56dd1869-8fc2-4543-96b4-410e57bb4cee</SinkComponentID>
+          <SinkPortID>7648b4b6-e6ee-4859-b895-7b9742f24ec5</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>63f6bdd1-b086-4339-8fc1-065a13c2bc1e</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SourceComponentID>
+          <SourcePortID>825835b7-b98a-4a49-af88-6145b3058bcc</SourcePortID>
+          <SinkComponentID>08dcb024-f279-4bc5-8292-f4f69973074a</SinkComponentID>
+          <SinkPortID>442b63aa-0cf5-4ce1-a636-7020418bc53d</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>5cc3404f-772a-4352-81f1-58770b320dd1</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>3c1889e1-0e71-47cd-b49a-77c4e17137d1</SourceComponentID>
+          <SourcePortID>9dcb7521-e360-4e5b-a5fa-3413303ccd59</SourcePortID>
+          <SinkComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SinkComponentID>
+          <SinkPortID>400d2da7-8ab4-4a04-8b07-a51191d1903c</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>1913a57e-2281-4975-9503-b8ee1c85e574</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</SourceComponentID>
+          <SourcePortID>97604070-0066-4071-a92d-6d9bb1b952e0</SourcePortID>
+          <SinkComponentID>d1f84e74-644d-447a-81ca-04caba86370c</SinkComponentID>
+          <SinkPortID>a56c51b0-4685-4722-967a-7a946ef01160</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>f7fa6d90-68eb-44c4-82f8-ebefaf0110df</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>d1f84e74-644d-447a-81ca-04caba86370c</SourceComponentID>
+          <SourcePortID>f87c78f6-813c-424f-ac30-ec329bc43599</SourcePortID>
+          <SinkComponentID>56dd1869-8fc2-4543-96b4-410e57bb4cee</SinkComponentID>
+          <SinkPortID>b74ea4b3-8de5-40fd-a4b2-8c4c3648fdde</SinkPortID>
+        </DesignItem>
+      </Items>
+      <Name>Main</Name>
+      <Variables>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>88db3191-3000-4602-9b74-bb583da69aad</ID>
+          <Name>files</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>d9d052d8-f8ab-439b-9683-7d6f239faec2</ID>
+            <Name>List</Name>
+            <FullName>System.Collections.ArrayList</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>f45ea447-4e9b-4c65-a491-24f8f240c7cd</ID>
+          <Name>bearerToken</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+            <Name>String</Name>
+            <FullName>System.String</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>0a0c6c00-60ad-4046-84c8-a65cfbc4df85</ID>
+          <Name>organisationId</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+            <Name>String</Name>
+            <FullName>System.String</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>3cfe95fb-ac0b-4442-bada-81219aa53ff4</ID>
+          <Name>projectId</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+            <Name>String</Name>
+            <FullName>System.String</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>c9c752f2-908e-41f6-b436-920ebff659eb</ID>
+          <Name>to</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+            <Name>String</Name>
+            <FullName>System.String</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>823f4c6b-d3dd-41ed-bafd-52ba1e34e422</ID>
+          <Name>email</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>28a94e53-b763-40a8-ba19-f5b26a912eb2</ID>
+            <Name>String</Name>
+            <FullName>System.String</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>aee493df-a320-42e3-bc3f-d65d35927c55</ID>
+          <Name>Variable</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>fb2b0e2d-35a4-4dfe-9683-cc840f504a22</ID>
+            <Name>Object</Name>
+            <FullName>System.Object</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+        <AutxObject xsi:type="AutxVariable">
+          <ID>5df8fefb-3964-4a53-a89e-cae359a6af8d</ID>
+          <Name>password</Name>
+          <ActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</ActivityID>
+          <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+          <Items />
+          <RootPath />
+          <Type>
+            <ID>5fb6979a-c146-45d8-a469-2aacb05c24e8</ID>
+            <Name>Secure String</Name>
+            <FullName>System.Security.SecureString</FullName>
+            <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+          </Type>
+        </AutxObject>
+      </Variables>
+      <IsOpen>true</IsOpen>
+      <OnErrorAction>Stop</OnErrorAction>
+      <MaxRetries>1</MaxRetries>
+      <RetryDelay>0</RetryDelay>
+      <GoToFlagID />
+      <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+      <GoToFlagIDAfterRetry />
+      <IsSelected>false</IsSelected>
+      <RootPath>Activities</RootPath>
+    </AutxActivity>
+  </Activities>
+  <Variables>
+    <AutxObject xsi:type="UTL.RPA.CONNECTORS.AutxEmail">
+      <ID>9fe9d21a-8ae9-43a8-ab65-fa845b123ad6</ID>
+      <Name>Email</Name>
+      <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+      <Items />
+      <RootPath />
+    </AutxObject>
+    <AutxObject xsi:type="UTL.RPA.CONNECTORS.AutxRestApiClient">
+      <ID>7cac6642-02a5-4d45-b7c8-b5bc6e9e75ea</ID>
+      <Name>RestApiClient</Name>
+      <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+      <Items />
+      <RootPath />
+    </AutxObject>
+    <AutxObject xsi:type="AutxTable">
+      <ID>d556e2af-3cb9-4277-8430-f37c6760441b</ID>
+      <Name>DataTableModel</Name>
+      <ProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ProcessID>
+      <Items />
+      <RootPath />
+    </AutxObject>
+  </Variables>
+  <Name>SendFilesWorkflow</Name>
+  <Description>The Automation of the SendFiles process</Description>
+  <CreatedBy>LAPTOP-PPV10B9A\Mout Pessemier</CreatedBy>
+  <ModifiedBy>LAPTOP-PPV10B9A\Mout Pessemier</ModifiedBy>
+  <CreatedAt>2020-03-26T10:58:08.2354307+01:00</CreatedAt>
+  <ModifiedAt>2020-03-26T10:58:08.2354307+01:00</ModifiedAt>
+  <Version>0</Version>
+  <StartupActivityID>d6547d57-ef13-4f71-a04f-8a56278647b3</StartupActivityID>
+</AutxProcess>
