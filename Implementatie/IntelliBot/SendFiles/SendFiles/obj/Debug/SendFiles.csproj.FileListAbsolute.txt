@@ -1,0 +1,8 @@
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\bin\Debug\SendFiles.dll
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\bin\Debug\SendFiles.pdb
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\bin\Debug\Newtonsoft.Json.dll
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\bin\Debug\Newtonsoft.Json.xml
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\obj\Debug\SendFiles.csproj.CoreCompileInputs.cache
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\obj\Debug\SendFiles.csproj.CopyComplete
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\obj\Debug\SendFiles.dll
+D:\BachelorProef\Implementatie\IntelliBot\SendFiles\SendFiles\obj\Debug\SendFiles.pdb
