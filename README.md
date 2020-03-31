@@ -5,6 +5,12 @@ Deze bachelorproef gaat over Robotic Process Automation, een technologie die geb
 ### Onderzoeksvragen
 Hoe makkelijk of juist hoe moeilijk is het om een RPA workflow te integreren met een eigen webapplicatie? Welke RPA provider maakt deze taak het makkelijkst en hoe zit het dan met de tijd en kost nodig voor zo een workflow uit te werken?
 
+### Onderzochte RPA Providers
+- [UiPath](https://www.uipath.com/)
+- [Automation Anywhere](https://www.automationanywhere.com/)
+- [WorkFusion](https://www.workfusion.com/)
+- [IntelliBot](https://intellibot.io/)
+- [Microsoft Flow](https://flow.microsoft.com/)
 
 ## Het Voorstel
 Om het voorstel te lezen, onderneem volgende stappen:
