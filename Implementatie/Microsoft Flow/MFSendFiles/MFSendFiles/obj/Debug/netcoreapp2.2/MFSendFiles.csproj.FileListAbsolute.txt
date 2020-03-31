@@ -1,0 +1,14 @@
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\bin\Debug\netcoreapp2.2\MFSendFiles.deps.json
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\bin\Debug\netcoreapp2.2\MFSendFiles.runtimeconfig.json
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\bin\Debug\netcoreapp2.2\MFSendFiles.runtimeconfig.dev.json
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\bin\Debug\netcoreapp2.2\MFSendFiles.dll
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.csprojAssemblyReference.cache
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.csproj.CoreCompileInputs.cache
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.RazorAssemblyInfo.cache
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.RazorAssemblyInfo.cs
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.AssemblyInfoInputs.cache
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.AssemblyInfo.cs
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.RazorTargetAssemblyInfo.cache
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\bin\Debug\netcoreapp2.2\MFSendFiles.pdb
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.dll
+D:\BachelorProef\Implementatie\Microsoft Flow\MFSendFiles\MFSendFiles\obj\Debug\netcoreapp2.2\MFSendFiles.pdb

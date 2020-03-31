@@ -1,6 +1,6 @@
 ﻿/*
- Based on:
- https://intellibot.io/forum/thread/developing-user-plugins/?order=all#comment-1ccdebf4-f15e-4e5f-a40a-a91b012c6acf
+ Based upon the official Microsoft docs about:
+ https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase?view=aspnetcore-3.1
  https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/how-to-make-multiple-web-requests-in-parallel-by-using-async-and-await
  https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient.postasync?view=netframework-4.8
  https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpresponsemessage?view=netframework-4.8
@@ -8,42 +8,51 @@
  https://docs.microsoft.com/en-us/dotnet/api/system.net.http.streamcontent?view=netframework-4.8
  https://docs.microsoft.com/en-us/dotnet/api/system.io.filestream?view=netframework-4.8
  https://docs.microsoft.com/en-us/dotnet/api/system.io.bufferedstream?view=netframework-4.8
- https://github.com/MoutPessemier/DigitizedApi/blob/master/DigitizedApi/Controllers/ContactController.cs
  */
 
-using Newtonsoft.Json;
 using System;
-using System.AddIn;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net.Mail;
 using System.Runtime.ExceptionServices;
 using System.Threading;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using MFSendFiles.Domain;
 
-namespace SendFiles
+namespace MFSendFiles.Controllers
 {
-    [AddIn("MetaMaze", Description = "The interactions with the metamaze platform", Publisher = "Mout Pessemier", Version ="1.0.0")]
-    public class SendFiles
+    [Route("api/[controller]")]
+    [Produces("application/json")]
+    [ApiConventionType(typeof(DefaultApiConventions))]
+    [ApiController]
+    public class FilesController : ControllerBase
     {
-        private static readonly HttpClient client = new HttpClient();
+        private readonly HttpClient client = new HttpClient();
 
-        public static DataTable Execute(string bearerToken, string organisationId, string projectId, IList<string> files)
+        /// <summary>
+        /// Sends Files to MetaMaze and waits for a response. Parses that response into a data table.
+        /// </summary>
+        /// <param name="files">A collection of paths to files</param>
+        /// <param name="organisationId">The id of the organisation</param>
+        /// <param name="projectId">The id of the project</param>
+        /// <param name="bearerToken">Your account's bearer token</param>
+        /// <returns></returns>
+        [HttpPost]
+        public void SendFiles(SendFilesInput input)
         {
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
-            string url = "https://adp.faktion.com/gql/api/organisations/" + organisationId + "/projects/" + projectId + "/process";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", input.BearerToken);
+            string url = "https://adp.faktion.com/gql/api/organisations/" + input.OrganisationId + "/projects/" + input.ProjectId + "/process";
             string response = null;
             bool succesfullRequest = false;
             MultipartFormDataContent formdata = new MultipartFormDataContent();
             try
             {
-                foreach (var filePath in files)
+                foreach (var filePath in input.Files)
                 {
                     // create filestream content
-                    FileStream fs = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                    FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
                     HttpContent content = new StreamContent(fs);
                     string name = GetFileName(filePath);
                     content.Headers.Add("Content-Type", GetFileType(name));
@@ -134,9 +143,8 @@ namespace SendFiles
                     }
                 }
 
-                return dataTable;
+                //return dataTable;
             }
-            // again, I absolutely want to catch every exception and pass these along to the workflow
             catch (Exception ex)
             {
                 ExceptionDispatchInfo.Capture(ex.InnerException).Throw();
@@ -144,50 +152,14 @@ namespace SendFiles
             }
         }
 
-        public static void SendMail(string email, string password, string toEmail, string subject, string body)
-        {
-            // setup where to send the mail to and who it's from
-            MailAddress from = new MailAddress(email);
-            MailAddress to = new MailAddress(toEmail);
-            
-            // build out mail
-            MailMessage mail = new MailMessage(from, to);
-            mail.Subject = subject;
-            mail.Body = body;
-
-            // I'm using a SMTP client to send the mail with the gmail smtp server.
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(email, password);
-            client.EnableSsl = true;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-            // to prevent memory leaks, close both mail and client after a successfull send
-            client.SendCompleted += (s, e) =>
-            {
-                client.Dispose();
-                mail.Dispose();
-            };
-
-            // try and send the mail
-            try
-            {
-                client.Send(mail);
-            } catch (Exception e)
-            {
-                ExceptionDispatchInfo.Capture(e.InnerException).Throw();
-            }
-        }
-
-
-        private static string GetFileName(string path)
+        private string GetFileName(string path)
         {
             char[] charSeparators = new char[] { '\\' };
             var splitPath = path.Split(charSeparators);
             return splitPath[splitPath.Length - 1];
         }
 
-        private static string GetFileType(string name)
+        private string GetFileType(string name)
         {
             char[] charSeparators = new char[] { '.' };
             var splitName = name.Split(charSeparators);
@@ -215,50 +187,5 @@ namespace SendFiles
                     return "";
             }
         }
-    }
-
-    class UploadResponse
-    {
-        [JsonProperty("uploadId")]
-        public string UploadId { get; set; }
-    }
-
-    class ProcessResponse
-    {
-        [JsonProperty("status")]
-        public string Status { get; set; }
-
-        [JsonProperty("documents")]
-        public Document[] Documents { get; set; }
-    }
-
-    class Document
-    {
-        [JsonProperty("entities")]
-        public Entity[] Entities { get; set; }
-
-        [JsonProperty("documentType")]
-        public DocumentType DocumentType { get; set; }
-    }
-
-    class DocumentType
-    {
-        [JsonProperty("threshold")]
-        public double Threshold { get; set; }
-    }
-
-    class Entity
-    {
-        [JsonProperty("confidence")]
-        public double Confidence { get; set; }
-
-        [JsonProperty("entityType")]
-        public EntityType Type { get; set; }
-    }
-
-    class EntityType
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; }
     }
 }
