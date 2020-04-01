@@ -2,6 +2,12 @@
 
 Deze bachelorproef gaat over Robotic Process Automation, een technologie die gebruikt kan worden om repetitieve taken en systemen te automatiseren zodat werknemers hun tijd aan belangrijke zaken kunnen spenderen.
 
+### HoGent, Faculteit Bedrijf en Organisatie
+Promotor: Johan Decorte
+
+Co-Promotor: Laurens Lavaert ([Faktion](http://faktion.com/))
+
+
 ### Onderzoeksvragen
 Hoe makkelijk of juist hoe moeilijk is het om een RPA workflow te integreren met een eigen webapplicatie? Welke RPA provider maakt deze taak het makkelijkst en hoe zit het dan met de tijd en kost nodig voor zo een workflow uit te werken?
 
