@@ -11,7 +11,7 @@
 %% mogelijke manier toegepast hebt om een antwoord te vinden op de
 %% onderzoeksvraag.
 
-Aan de hand van verchillende RPA providers zal een concreet proces geautomatiseerd worden op Metamaze, het automated document processing platform bij Faktion zelf. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}.
+Aan de hand van verschillende RPA providers zal een concreet proces geautomatiseerd worden op Metamaze, het automated document processing (ADP) platform bij Faktion zelf. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
 
 
 \section{Voorbereiding}
@@ -61,6 +61,47 @@ Financiële criteria
 Dit komt uit op een totale score van 37.
 
 \section{Implementatie}
+Voor de implementatie op elk platform is eenzelfde werkwijze gehanteerd geweest. Eerst werd de workflow opgebouwd rond de zelfgeschreven activiteit, nadien werd deze geïmplementeerd in de achterliggende programmeertaal van elk platform. Eens deze geschreven was, werd uitgezocht hoe deze activiteiten dan gebruikt konden worden binnen de verschillende workflows.
+
+Voor de uitwerking van de zelfgeschreven activiteit werd eerst via pseudocode een basis uitwerking beschreven die nadien tot realisatie werd gebracht in de respectievelijke talen.
+
+\subsection{Pseudocode}
+\begin{lstlisting}
+Invoer: een organisatie ID: organisationId, een project ID: projectId,
+	een vector van paden naar verschillende bestanden om te 
+	versturen: files en een bearer token om te authoriseren: 
+	bearerToken.
+	
+Uitvoer: de resulterende JSON.
+
+1: function SendFiles(organisationId, projectId, files, bearerToken):
+2:  client <-- HttpClient()
+3:  client.authorisation <-- "Bearer " + bearerToken
+4:  url <-- "https://x.y.z/organisationId/projectId"
+5:  multiformData <-- MultiformData()
+6:  foreach filePath in files do:
+7:   filestream <-- fromFile(filePath)
+8:   multiformData.add(filestream)
+9:  end foreach
+10:  try:
+11:   result <-- client.post(url, multiformData)
+12:  catch (exception):
+13:   log(exception)
+14:  end try-catch
+15:  while (!response) do:
+16:   try:
+17:    response <-- client.get(url + result.id)
+18:   catch(exception):
+19:    log(exception)
+20:   end try-catch
+21:   end while
+22:   return response
+23: end function
+\end{lstlisting}
+
+Eens het de pseudocode uitgedacht was, was het slechts opzoek werk voor de juiste klassen te vinden en het proces te implementeren. Aangezien de meeste RPA providers C\# gebruiken als achterliggende taal, kon over het algemeen veel code hergebruikt worden doorheen de verschillende implementaties. De basisklassen van welke overgeërfd werd kan dan wel verschillen maar de algemene logica voor het versturen van een POST request en het ophalen van het resultaat met een GET request blijft hetzelfde.
+
+Tijdens het implementeren werd natuurlijk rekening gehouden met de verschillende criteria, vooral de technische dan, die vooraf vastgelegd waren.
 
 \section{Beoordeling}
 \subsection{UiPath}
