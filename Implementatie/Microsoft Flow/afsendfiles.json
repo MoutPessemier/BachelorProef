@@ -1,0 +1,48 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AFSendFiles",
+    "version": "1.0",
+    "description": "Send Files to MetaMaze and return the result"
+  },
+  "host": "afsendfiles-apim.azure-api.net",
+  "basePath": "/AFSendFiles",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyHeader": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    },
+    "apiKeyQuery": {
+      "type": "apiKey",
+      "name": "subscription-key",
+      "in": "query"
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/SendFiles": {
+      "post": {
+        "description": "Sends the files",
+        "operationId": "post-sendfiles",
+        "summary": "SendFiles",
+        "responses": {
+          "200": {
+            "description": "successfully sent the files to metamaze"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
