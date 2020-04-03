@@ -5,12 +5,33 @@
 
 \documentclass{bachproef-tin}
 
-\usepackage{hogent-thesis-titlepage} % Titelpagina conform aan HOGENT huisstijl
+\usepackage{hogent-thesis-titlepage}
 \usepackage{graphicx}
 \graphicspath{{../Assets/}}
 \usepackage{url}
 \usepackage{makecell}
 \usepackage{listings}
+\usepackage{rotating}
+\usepackage[acronym]{glossaries}
+
+\makeglossaries
+
+\newacronym{rpa}{RPA}{Robotic Process Automation}
+\newacronym{ai}{AI}{Artificiële Inteliggentie}
+\newacronym{ml}{ML}{Machine Learning}
+\newacronym{ipa}{IPA}{Intelligent Process Automation}
+\newacronym{bpa}{BPA}{Business Process Automation}
+\newacronym{hr}{HR}{Human Resources}
+\newacronym{bpm}{BPM}{Business Process Management}
+\newacronym{ui}{UI}{User Interface}
+\newacronym{gui}{GUI}{Grafische User Interface}
+\newacronym{fifo}{FIFO}{First-In-First-Out}
+\newacronym{smtp}{SMTP}{Simple Mail Transfer Protocol}
+\newacronym{adp}{ADP}{Automated Document Processing}
+\newacronym{json}{JSON}{JavaScript Object Notation}
+\newacronym{ocr}{OCR}{Optical Character Recognition}
+\newacronym{nlp}{NLP}{Natural Language Processing}
+\newacronym{cmp}{CMP}{Cognitive Modeling Platform}
 
 %%---------- Documenteigenschappen ---------------------------------------------
 
@@ -43,50 +64,21 @@
 \input{samenvatting}
 
 %---------- Inhoudstafel -------------------------------------------------------
-\pagestyle{empty} % Geen hoofding
-\tableofcontents  % Voeg de inhoudstafel toe
-\cleardoublepage  % Zorg dat volgende hoofstuk op een oneven pagina begint
-\pagestyle{fancy} % Zet hoofding opnieuw aan
+\pagestyle{empty}
+\tableofcontents
+\cleardoublepage
+\pagestyle{fancy}
 
 %---------- Lijst figuren, afkortingen, ... ------------------------------------
-
-% Indien gewenst kan je hier een lijst van figuren/tabellen opgeven. Geef in
-% dat geval je figuren/tabellen altijd een korte beschrijving:
-%
-%  \caption[korte beschrijving]{uitgebreide beschrijving}
-%
-% De korte beschrijving wordt gebruikt voor deze lijst, de uitgebreide staat bij
-% de figuur of tabel zelf.
-
 \listoffigures
 \listoftables
-
-% Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
-% hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
-% https://www.overleaf.com/learn/latex/Glossaries
+%\printacronyms
+\printglossary[type=\acronymtype]
 
 %---------- Kern ---------------------------------------------------------------
-
-% De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
-% het onderwerp, literatuurstudie en verantwoording methodologie.
-% Aarzel niet om een meer beschrijvende titel aan deze hoofstukken te geven of
-% om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
-% te verspreiden!
-
 \input{inleiding}
 \input{standvanzaken}
-%-- aangezien niet alleen UiPath gebruikt zal worden kan dit hele deel wegvallen
-%\input{implementatie}
 \input{methodologie}
-
-% Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
-% vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
-% elke fase in je onderzoek in een apart hoofdstuk bespreken.
-
-%\input{...}
-%\input{...}
-%...
-
 \input{conclusie}
 
 %%=============================================================================
