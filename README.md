@@ -24,11 +24,18 @@ Om het voorstel te lezen, onderneem volgende stappen:
 2. Open het `Pessemier_Mout_voorstel.tex` bestand onder de map `Voorstel` in een Latex editor.
 3. Compileer dit bestand.
 
-
 ## De Proef
 Om het voorstel te lezen, onderneem volgende stappen:
 1. Clone deze repository
 2. Open het `bachproef-tin.tex` bestand onder de map `BachProef` in een Latex editor.
 3. Compileer dit bestand.
+
+Als de acroniemenlijst niet getoond wordt:
+1. Voer `cd BachProef/` uit in een terminal
+2. Voer `makeglossaries bachproef-tin` uit in een terminal
+3. Compileer het bestand
+
+## De Poster
+TBA
 
 © Mout Pessemier 2019 - 2020

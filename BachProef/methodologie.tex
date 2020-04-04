@@ -11,27 +11,28 @@
 %% mogelijke manier toegepast hebt om een antwoord te vinden op de
 %% onderzoeksvraag.
 
-Aan de hand van verschillende RPA providers zal een concreet proces geautomatiseerd worden op Metamaze, het automated document processing (ADP) platform bij Faktion zelf. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
+Aan de hand van verschillende \acrshort{rpa} providers zal een concreet proces geautomatiseerd worden op Metamaze, het automated document processing (ADP) platform bij Faktion zelf. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
 
 
 \section{Voorbereiding}
-%Ter voorbereiding van het te automatiseren proces bij Faktion heb ik mij eerst ingewerkt op het platform waar dit proces zich voordoet. Ook heb ik de volledige 'RPA Developer Essentials' cursus aangeboden door UiPath gevolgd om een algemene basiskennis rond RPA te beheersen. Daarna is de afweging gemaakt welke RPA software providers nu zullen vergelijken worden. Hieruit zijn 5 kandidaten naar boven gekomen. Als 2 grote providers zal gekeken worden naar UiPath en Automation Anywhere. Voor de kleinere providers wordt gekeken naar AutomationEdge en WorkFusion.
-
-%Ondertussen werd het te automatiseren proces uitgewerkt. Dit proces zal worden geïmplementeerd op de verschillende  platformen. Het gaat hier over het schrijven van een eigen activiteit die in verschillende workflows kan gebruikt worden om te werken met het Metamaze platform.
-
 Eerst en vooral is het MetaMaze platform, gebouwd door Faktion, gronding geëxploreerd geweest. Zo werd een nieuw project aangemaakt, werden er documenten geüpload en gelabeld om een model te kunnen trainen. Nadien werd dit model dan gebruikt om voorspellingen te doen op nieuwe, soortgelijke documenten. Hierbij werd soms expres een verkeerd document geüpload om ook de 'manual intervention' te testen en kijken hoe dit eventueel in een proces kan gegoten worden. Op basis hiervan is een algemeen voorbeeld proces ineen gestoken geweest.
 
+Als tweede stap is de afweging gemaakt welke providers vergeleken gingen worden. Hierbij werd rekening gehouden dat er best twee grote, twee kleine en één iets ander concept pakken. De kandidaten die hieruit gekomen zijn, zijn UiPath, Automation Anywhere, WorkFusion, IntelliBot en Microsoft Flow. Hierbij zijn Uipath en Automation Anywhere de grote providers, WorkFusion en IntelliBot de kleine en Microsoft Flow het ander concept.
+
+Nadien is door de verschillende platformen hun cursus gegaan om met elk familiair te worden en een eerste gevoel te krijgen hoe het ineen zit. Ondertussen is een demo proces bedacht geweest. De uitwerking hiervan is te zien in figuur ~\ref{fig:exampleProcess}.
+
 \begin{figure}[h]
-	\includegraphics{exampleProcess.png}
-	\caption{Voorbeeldproces dat gebruik maakt van de custom Send Files activiteit.}
+	\includegraphics[width=\linewidth]{exampleProcess.png}
+	\caption[Te automatiseren demoproces]{Voorbeeldproces dat gebruik maakt van de custom Send Files activiteit.}
+	\label{fig:exampleProcess}
 \end{figure}
 
-Het algemeen proces dat zal geautomatiseerd worden op de verschillende RPA solutions gaat als volgt te werk: Eerst wordt vanuit een bepaald punt (folder op de computer, OneDrive, DropBox, SharePoint) een aantal files opgehaald. Deze files worden doorgegeven aan een zelfgeschreven activiteit. In deze activiteit zullen deze files verstuurd worden naar de MetaMaze API. Nadien wordt er gewacht tot een antwoord terug komt van de server met de resultaten van de upload. Deze resultaten worden terug gegeven naar de volgende stap in de workflow. Door verder te weken met de resulterende JSON kan gekeken worden of de zekerheid waarmee een bepaalde entity dat uit een document is gehaald, onder de minimum zekerheid (threshold) zit of niet. Als er geen onder de threshold zitten wordt het proces afgesloten met een gepaste melding. Als er 1 of meerdere confidence scores onder de threshold zitten zal eerst een mail verstuurd worden naar de klant om te laten weten welke entities de minimum niet gehaald hebben voor dat het proces eindigt met een gepaste melding.
+Het algemeen proces dat zal geautomatiseerd worden op de verschillende \acrshort{rpa} solutions gaat als volgt te werk: Eerst wordt vanuit een bepaald punt (folder op de computer, OneDrive, DropBox, SharePoint) een aantal files opgehaald. Deze files worden doorgegeven aan een zelfgeschreven activiteit. In deze activiteit zullen deze files verstuurd worden naar de MetaMaze \acrshort{api}. Nadien wordt er gewacht tot een antwoord terug komt van de server met de resultaten van de upload. Deze resultaten worden terug gegeven naar de volgende stap in de workflow. Door verder te weken met de resulterende JSON kan gekeken worden of de zekerheid waarmee een bepaalde entity dat uit een document is gehaald, onder de minimum zekerheid (threshold) zit of niet. Als er geen onder de threshold zitten wordt het proces afgesloten met een gepaste melding. Als er 1 of meerdere confidence scores onder de threshold zitten zal eerst een mail verstuurd worden naar de klant om te laten weten welke entities de minimum niet gehaald hebben voor dat het proces eindigt met een gepaste melding.
 
 \subsection{Criteria}
 De criteria die onderzocht zijn kunnen opgedeeld worden in 3 categorieën: technische criteria, bedrijfscriteria en financiële criteria. Onder de technische criteria valt de mogelijkheid om gemakkelijk zelfgeschreven activiteiten toe te voegen, of stukken workflow gemakkelijk te hergebruiken zijn, hoe het zit met de tools om de workflow te maken en de bots te managen en als laatste punt hoe het zit met de IPA capaciteiten. Onder bedrijfscriteria vinden we het feit of er een grote onderneming achter het platform staat, hoe actief de community is van het platform, hoe de klantservice is. Tot slot valt onder de financiële categorie natuurlijk de prijs van een enterprise versie maar daarnaast ook of er een mogelijkheid is om een community editie te gebruiken en hoe uitgebreid deze versie is.
 
-De nadruk wordt hier gelegd op een integratie met een eigen API, op een eigen webplatform.
+De nadruk wordt hier gelegd op een integratie met een eigen \acrshort{api}, op een eigen webplatform.
 
 De verschillende criteria hebben elk een zwaarte toegekend gekregen. Hierop worden ze gescoord en op het einde worden alle punten opgeteld.
 
@@ -67,16 +68,17 @@ Voor de uitwerking van de zelfgeschreven activiteit werd eerst via pseudocode ee
 
 \subsection{Pseudocode}
 \begin{lstlisting}
-Invoer: een organisatie ID: organisationId, een project ID: projectId,
-	een vector van paden naar verschillende bestanden om te 
-	versturen: files en een bearer token om te authoriseren: 
-	bearerToken.
+Invoer: een organisatie ID: organisationId, 
+	een project ID: projectId,
+	een vector van paden naar verschillende 
+	bestanden om te versturen: files en een 
+	bearer token om te authoriseren: bearer.
 	
 Uitvoer: de resulterende JSON.
 
-1: function SendFiles(organisationId, projectId, files, bearerToken):
+1: function SendFiles(organisationId,projectId,files,bearer):
 2:  client <-- HttpClient()
-3:  client.authorisation <-- "Bearer " + bearerToken
+3:  client.authorisation <-- "Bearer " + bearer
 4:  url <-- "https://x.y.z/organisationId/projectId"
 5:  multiformData <-- MultiformData()
 6:  foreach filePath in files do:
@@ -99,7 +101,7 @@ Uitvoer: de resulterende JSON.
 23: end function
 \end{lstlisting}
 
-Eens het de pseudocode uitgedacht was, was het slechts opzoek werk voor de juiste klassen te vinden en het proces te implementeren. Aangezien de meeste RPA providers C\# gebruiken als achterliggende taal, kon over het algemeen veel code hergebruikt worden doorheen de verschillende implementaties. De basisklassen van welke overgeërfd werd kan dan wel verschillen maar de algemene logica voor het versturen van een POST request en het ophalen van het resultaat met een GET request blijft hetzelfde.
+Eens het de pseudocode uitgedacht was, was het slechts opzoek werk voor de juiste klassen te vinden en het proces te implementeren. Aangezien de meeste \acrshort{rpa} providers C\# gebruiken als achterliggende taal, kon over het algemeen veel code hergebruikt worden doorheen de verschillende implementaties. De basisklassen van welke overgeërfd werd kan dan wel verschillen maar de algemene logica voor het versturen van een POST request en het ophalen van het resultaat met een GET request blijft hetzelfde.
 
 Tijdens het implementeren werd natuurlijk rekening gehouden met de verschillende criteria, vooral de technische dan, die vooraf vastgelegd waren.
 
@@ -134,13 +136,13 @@ De herbruikbaarheid [...] (/3)
 
 De tools die gebruikt worden om een workflow te implementeren zijn allemaal cloud-based. Op de site wordt de flow opgebouwd en nadien wordt verbinding gemaakt met het lokaal apparaat waarop de workflow getest kan worden. De tool is over het algemeen begrijpbaar maar voor eenzelfde stap in UiPath, zijn geregeld meerdere stappen nodig in Automation Anywhere. Er is ook een mogelijkheid om de workflow te debuggen. (4/5)
 
-Voor de bots te managen moet bij Automation Anywhere niet ver gegaan worden. Dit zit namelijk in het zelfde webplatform als het maken van de robots. Hier kunnen robots gestart worden om taken uit te voeren op bepaalde machines. Er zijn geen verschillende typen van bots. [explore further!] (1.5/3)
+Voor de bots te managen moet bij Automation Anywhere niet ver gegaan worden. Dit zit namelijk in het zelfde webplatform als het maken van de robots. Hier kunnen robots gestart worden om taken uit te voeren op bepaalde machines. Er zijn geen verschillende typen van bots. [...explore further!] (1.5/3)
 
 Voor het maken van AI en ML bots kan beroep gedaan worden op de IQBot van Automation Anywhere. Hier wordt de focus gelegd op automated document processing (ADP) wat exact hetzelfde is als MetaMaze. Dit getrainde model kan dan gebruik worden in een gewone flow. Daarnaast zijn er ook nog enkele standaard activiteiten die werken met NLP en OCR. (2.5/3)
 
 De community achter Automation Anywhere is groot en actief al worden er geen updates gepost door Automation Anywhere zelf. Ook hier wordt gebruik gemaakt van duidelijke subcategorieën om de posts in op te delen. (4.5/3) 
 
-Er is een zeer ruim aanbod aan lessen voor verschillende onderdelen van het RPA development proces. Dit gaat van de voorbereiding tot het verstaan van de business needs en het implementeren van een proces. De video's zijn duidelijk opgebouwd in een cursus structuur en zijn makkelijk te volgen. (3/3)
+Er is een zeer ruim aanbod aan lessen voor verschillende onderdelen van het \acrshort{rpa} development proces. Dit gaat van de voorbereiding tot het verstaan van de business needs en het implementeren van een proces. De video's zijn duidelijk opgebouwd in een cursus structuur en zijn makkelijk te volgen. (3/3)
 
 Support zit zeer goed. Contact via mail of telefoon is rap gelegd en er wordt een inspanning geleverd om zo goed en snel mogelijk hulp te bieden op de verschillende vragen of problemen. (3/3)
 
@@ -166,25 +168,25 @@ De community is klein en inactief. Er gebeurd niet veel op het forum en de weini
 
 Er worden online lessen aangeboden maar deze zijn beperkt en niet altijd even diepgaand. Het is een start maar er mag zeker nog meer/uitgebreid worden. (1/3)
 
-[Support]
+Support is zwak. Naast het forum dat geen ondersteuning aanbiedt wordt ook zeer traag tot niet op mails gereageerd. (0.5/3)
 
 [PRIJS]
 
 De community edition van WorkFusion bevat enkel de ide, geen toegang tot de Contorl Tower. Daarnaast geeft een premium versie ook een credential manager, task scheduler, meerdere parallel lopende bots, ML capaciteit en geavanceerde analytics. (2.5/5)
 
-Alles opgeteld komt dit uit op 11.5/37 voor WorkFusion.
+Alles opgeteld komt dit uit op 12/37 voor WorkFusion.
 
 \subsection{Intellibot}
 
 Custom activities zijn zeer gemakelijk te schrijven voor IntelliBot en dit alles dan ook nog eens binnen de community editie. Er moet niet gebuild en gepubliceerd worden tot een package, de .dll file kan rechtstreeks gebruikt worden. Daarnaast is er ook nog eens de mogelijkheid om een script toe te voegen als een volledige class library niet nodig is. (5/5)
 
-[Herbruikbaarheid] Er is de mogelijkheid om een activiteit aan te roepen vanuit een workflow. Dit staat toe om workflows te gaan hergebruiken. (1/3)
+Er is de mogelijkheid om een activiteit aan te roepen vanuit een workflow. Dit staat toe om workflows te gaan hergebruiken. Er is geen soort markt waar klanten workflows op kunnen zetten voor anderen maar het is wel mogelijk om workflows op te slaan en te gebruiken. (1.5/3)
 
 De tools gebruikt om een workflow te bouwen in IntelliBot is hun eigen ide, IntelliBot Studio. Hierin kan niet geprogrammeerd worden. Het opbouwen van de workflow is totaal anders als de rest. Bij de andere providers was het altijd in sequentie op te bouwen en was het duidelijk welke activiteit volgt uit welke. Bij IntelliBot is dit een pak minder overzichtelijk. Hier wordt gebruik gemaakt van lijnen om activiteiten met elkaar te verbinden en zo de workflow op te bouwen. Van zodra een activiteit met veel input en output gebruikt wordt, dan wordt het rap een warboel van lijnen die door elkaar getrokken worden. Hierdoor is het makkelijk om het overzicht te verliezen. (3/5)
 
 Ook IntelliBot heeft zoals UiPath een web platform, de Orchestrator, waarop het managen van de bots plaats vindt. Beide platformen lijken op elkaar, al is die van UiPath uitgebreider en ook iets beter ineen gestoken. (2/3)
 
-De AI capaciteiten van IntelliBot zitten verweven in hun Cognitive Modelling Platform (CMP). Deze legt vooral de focus op het automatisch verwerken van documenten, zoals MetaMaze. Daarnaast zijn ook computer vision en enkele cognitieve activiteiten zoals sentiment analyse beschikbaar. (2/3)
+De AI capaciteiten van IntelliBot zitten verweven in hun \acrfull{cmp}. Deze legt vooral de focus op het automatisch verwerken van documenten, zoals MetaMaze. Daarnaast zijn ook computer vision en enkele cognitieve activiteiten zoals sentiment analyse beschikbaar. (2/3)
 
 De IntelliBot community is net zoals WorkFusion beperkt maar in tegenstelling tot WorkFusion is deze wel actief. De werknemers van IntelliBot volgen het forum op en antwoorden ook op de verschillende vragen. (3.5/5)
 
@@ -196,11 +198,11 @@ De support is zeer goed bij IntelliBot. Ze focussen zich op de individuele klant
 
 De community editie bevat voor de IntelliBot Studio bijna elke feature. Het enigste wat vergrendeld zit achter de enterprise edition, is het maken van chatbots. Aan de andere kant is de orchestrator wel onderhevig aan grote wijzigingen. Zo kan je een bot alleen lokaal draaien in de comunity editie. Voor het inplannen van taken en het toekennen van jobs aan bots moet een premium license gekocht worden. Zelf raden ze aan om de community editie te gebruiken voor het maken en testen van robots en de enterprise editie te kopen van zodra ze naar productie moeten. (3.5/5) 
 
-Intellibot scoort 25/37.
+Intellibot scoort 25.5/37.
 
 \subsection{Microsoft Flow}
 
-Custom connectors kunnen geschreven worden als een API die de OpenAIPI standaarden volgt of als een Azure Function. Uit deze definitie kan dan de custom connector gemaakt worden en gebruikt worden in de verschillende workflows. (2.5/5)
+Custom connectors kunnen geschreven worden als een \acrshort{api} die de OpenAPI standaarden volgt of als een Azure Function. Uit deze definitie kan dan de custom connector gemaakt worden en gebruikt worden in de verschillende workflows. (2.5/5)
 
 De custom connectors kunnen gebruikt worden in meerdere flows. [...] (1/3)
 
@@ -225,16 +227,14 @@ Microsoft Flow behaalt een score van 15.5/37
 
 
 \subsubsection{Algemene opmerking}
-Waar sommige RPA providers punten verloren hebben op bepaalde aspecten omdat ze nog klein zijn in schaal of community, wilt niet zeggen dat ze daarom slecht zijn. Ze hebben grote concurrenten om tegen op te boksen en met genoeg tijd kan hun platform ook uitgroeien tot een van de grote/beste.
+Waar sommige \acrshort{rpa} providers punten verloren hebben op bepaalde aspecten omdat ze nog klein zijn in schaal of community, wilt niet zeggen dat ze daarom slecht zijn. Ze hebben grote concurrenten om tegen op te boksen en met genoeg tijd kan hun platform ook uitgroeien tot een van de grote/beste providers.
 
-%Hierin worden geen scores gegeven, dit is een korte samenvattende tabel. De punten worden in detail besproken onder elk deel en zo zullen de punten gegeven worden.
-% Tools needs changing but still need to mention the type of RPA used!
-\subsubsection{Samenvatting}
-\begin{table}[h!]
+\subsection{Samenvattende Tabel}
+\begin{sidewaystable}[h!]
 	\centering
 	\begin{tabular}{|c||c|c|c|c|c|}
 		\hline
-		& UiPath & \makecell{Automation\\Anywhere} & WorkFusion & IntelliBot & \makecell{Microsoft\\Flow} \\
+		& \textbf{UiPath} & \textbf{\makecell{Automation\\Anywhere}} & \textbf{WorkFusion} & \textbf{IntelliBot} & \textbf{\makecell{Microsoft\\Flow}} \\
 		\hline
 		\hline
 		Custom Activities & community & enterprise & community & community & community \\
@@ -243,11 +243,11 @@ Waar sommige RPA providers punten verloren hebben op bepaalde aspecten omdat ze 
 		\hline
 		Tools & \makecell{UiPath\\Studio} & \makecell{Web\\platform} & \makecell{Workfusion\\Intelligent\\Automation\\Cloud} & \makecell{IntelliBot\\Studio} & \makecell{Web\\platform} \\
 		\hline
-		Type RPA & \makecell{Low-code\\visual based} & Script based & No-code & No-code & No-code \\
+		Type \acrshort{rpa} & \makecell{Low-code\\visual based} & Script based & No-code & No-code & No-code \\
 		\hline
 		Bot management & Orchestrator & \makecell{All-in-on\\webplatform} & Control Tower & Orchestrator & \makecell{All-in-on\\webplatform} \\
 		\hline
-		IPA capaciteiten & AI Fabric & IQBot & \makecell{enkele\\activiteiten} & CMP & AI Builder   \\
+		IPA capaciteiten & AI Fabric & IQBot & \makecell{enkele\\activiteiten} & \acrshort{cmp} & AI Builder   \\
 		\hline
 		Community & \makecell{Groot \&\\actief} & \makecell{Groot \&\\actief} & \makecell{Klein \&\\inactief} & \makecell{Klein \&\\actief} & \makecell{Groot \&\\actief} \\
 		\hline
@@ -262,9 +262,9 @@ Waar sommige RPA providers punten verloren hebben op bepaalde aspecten omdat ze 
 		\makecell{Onderliggende\\Technologie} & C\# & C\#/Java & Groovy & C\# & C\# \\
 		\hline
 		\hline
-		Score & 30.5 & 25 & 9.5 & 25 & 15.5 \\
+		Score & 30.5/37 & 25/37 & 12/37 & 25.5/37 & 15.5/37 \\
 		\hline
 	\end{tabular}
-	\caption{Vergelijking van de verschillende RPA Providers.}
+	\caption{Vergelijking van de verschillende \acrshort{rpa} Providers.}
 	\label{Vergelijking}
-\end{table}
+\end{sidewaystable}
