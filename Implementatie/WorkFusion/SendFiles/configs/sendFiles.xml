@@ -39,6 +39,10 @@
                 
                 // custom imports
                 import groovy.json.JsonSlurper
+                import org.apache.http.entity.mime.MultipartEntityBuilder
+                
+                // Important: this script does not work. It describes what should happen and uses pieces of code that should work but with
+				// the basic groovy without adding extra jars and libraries
  
 				// Mapping the variables
 				@CustomScriptAction(
@@ -61,32 +65,30 @@
 				    http.setRequestProperty("Content-Type", "multipart/form-data")
 				    http.setDoOutput(true)
 				    http.setRequestMethod('POST')
-				    // TODO: create multipart and send as content
-				    def multipart
+				    MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+				    builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
 				    // add each file as a filestream to the multipart
-				    try{
+				    try {
 				        files.each {
 				            //
 				            def content = new FileInputStream(new File(it))
 				            def name = getName(it)
 				            content.setRequestProperty(getContentType(name))
-				            multipart.addBinaryBody("files", content , name)
+				            builder.addBinaryBody("files", content, name)
 				        }
-				        // TODO: write away the multipartContent as bytestream?
 				        http.getOutputStream().write(multipart)
 				        def responseCode = http.getResponseCode()
 				        // check if succesfull, if not throw error and catch inside recording
-				        if(responseCode >= 200 && responseCode < 300) {
+				        if (responseCode >= 200 && responseCode < 300) {
 				            response = http.getInputStream().getText()
 				        } else {
 				            json = "Something went wrong during the upload process"
 				            throw new Exception("Something went wrong during the upload process")
 				        }
-				    } catch(exception) {
+				    } catch (exception) {
 				        json = exception.message
 				        throw new Exception(exception.message)
 				    }
-				    // TODO: parse uploadId (don't have any experience with slurper)
 				    String upload_id = slurper.parseText(response).uploadId
 				    // start polling for the result of the get request
 				    def polling = true
@@ -97,9 +99,8 @@
 				    do {
 				        getResponse = getConnection.getInputStream().getText()
 				        def responseCode = getConnection.get
-				        // TODO: parse response (slurper <--> class based)?
 				        parsedJson = slurper.parseText(getResponse)
-				        switch(parsedJson.status) {
+				        switch (parsedJson.status) {
 				            case "DONE":
 				                polling = false;
 				                break
@@ -114,9 +115,9 @@
 				                Thread.sleep(7000)
 				                break
 				        }
-				    } while(polling && counter <= 150)
+				    } while (polling && counter <= 150)
 				    // put json into table variable
-				    String[] columnNames = new String[] {"EntityName", "Confidence", "Theshold"}
+				    String[] columnNames = new String[]{"EntityName", "Confidence", "Theshold"}
 				    List<Object[]> temp = new ArrayList();
 				    parsedJson.documents.each {
 				        def threshold = it.documentType.threshold
