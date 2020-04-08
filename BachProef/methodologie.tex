@@ -11,7 +11,7 @@
 %% mogelijke manier toegepast hebt om een antwoord te vinden op de
 %% onderzoeksvraag.
 
-Aan de hand van verschillende \acrshort{rpa} providers zal een concreet proces geautomatiseerd worden op Metamaze, het automated document processing (ADP) platform bij Faktion zelf. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
+Aan de hand van verschillende \acrshort{rpa} providers zal een concreet proces geautomatiseerd worden op Metamaze, het \acrfull{adp} platform bij Faktion zelf. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
 
 
 \section{Voorbereiding}
@@ -109,7 +109,7 @@ Tijdens het implementeren werd natuurlijk rekening gehouden met de verschillende
 \subsection{UiPath}
 Bij UiPath is het mogelijk om in de community edition custom activities toe te voegen. Hiervoor moet een C\# Class Library gemaakt worden. Van dit project moet nadien een NuGet Package gemaakt worden en lokaal toegevoegd worden aan UiPath om toegang te krijgen tot deze activiteit. Het nadeel hierbij is dat elke wijziging in code een nieuwe versie van de package voorstelt die opnieuw moet worden gepubliceerd. Daarnaast kan ook een VB script uitgevoerd worden. (4.5/5)
 
-Voor de herbruikbaarheid van custom activities en workflows kan gebruikt worden van de orchestrator in combinatie met de market place. Packages kunnen gepubliceerd worden naar de orchestrator en deze kunnen op die manier ter beschikking gesteld worden op de market zodat anderen deze package kunnen hergebruiken. Het is ook mogelijk om workflow bestanden te gaan aanroepen binnen andere workflows. (3/3) 
+Voor de herbruikbaarheid van custom activities en workflows kan gebruikt worden van de Orchestrator\footnote{https://platform.uipath.com/} in combinatie met de market place. Packages kunnen gepubliceerd worden naar de orchestrator en deze kunnen op die manier ter beschikking gesteld worden op de market zodat anderen deze package kunnen hergebruiken. Het is ook mogelijk om workflow bestanden te gaan aanroepen binnen andere workflows. (3/3) 
 
 De beschikbare tool voor het implementeren van een workflow is UiPath Stuido, een ide die zich focust op het ontwerpen en uitwerken van een workflow. Hierbinnen kan niet geprogrammeerd worden, daarvoor moet beroep gedaan worden op een C\# ide zoals Visual Studio. De tool zelf voelt heel intuïtief aan en zit logisch ineen. Het is makkelijk om een workflow op te bouwen en er zijn ook features aanwezig om de workflow te debuggen. (5/5)
 
@@ -132,11 +132,11 @@ Dit brengt de totale score van UiPath op 30.5/37.
 \subsection{Automation Anywhere}
 Automation Anywhere staat niet toe om een custom activity te gebruiken in de community edition. Alles moet geautomatiseerd worden met de standaard activiteiten. Het aanbod van deze reeds voorziene activiteiten is wel uitgebreider dan bij UiPath. Voor het implementeren van een custom activiteit kan gebruik gemaakt worden van een C\# Class Library. (3/5)
 
-De herbruikbaarheid [...] (/3)
+De herbruikbaarheid bij Automation Anywhere is terug te vinden in hun BotStore\footnote{https://botstore.automationanywhere.com/}. Hier kunnen bots geupload en download worden om nadien te configureren en te gebruiken. [...] (1.5/3)
 
 De tools die gebruikt worden om een workflow te implementeren zijn allemaal cloud-based. Op de site wordt de flow opgebouwd en nadien wordt verbinding gemaakt met het lokaal apparaat waarop de workflow getest kan worden. De tool is over het algemeen begrijpbaar maar voor eenzelfde stap in UiPath, zijn geregeld meerdere stappen nodig in Automation Anywhere. Er is ook een mogelijkheid om de workflow te debuggen. (4/5)
 
-Voor de bots te managen moet bij Automation Anywhere niet ver gegaan worden. Dit zit namelijk in het zelfde webplatform als het maken van de robots. Hier kunnen robots gestart worden om taken uit te voeren op bepaalde machines. Er zijn geen verschillende typen van bots. [...explore further!] (1.5/3)
+Voor de bots te managen moet bij Automation Anywhere niet ver gegaan worden. Dit zit namelijk in het zelfde webplatform als het maken van de robots. Hier kunnen robots gestart worden om taken uit te voeren op bepaalde machines. Er zijn geen verschillende typen van bots. Ook de analytics zijn zichtbaar op dit platform. (1.5/3)
 
 Voor het maken van AI en ML bots kan beroep gedaan worden op de IQBot van Automation Anywhere. Hier wordt de focus gelegd op automated document processing (ADP) wat exact hetzelfde is als MetaMaze. Dit getrainde model kan dan gebruik worden in een gewone flow. Daarnaast zijn er ook nog enkele standaard activiteiten die werken met NLP en OCR. (2.5/3)
 
@@ -144,19 +144,19 @@ De community achter Automation Anywhere is groot en actief al worden er geen upd
 
 Er is een zeer ruim aanbod aan lessen voor verschillende onderdelen van het \acrshort{rpa} development proces. Dit gaat van de voorbereiding tot het verstaan van de business needs en het implementeren van een proces. De video's zijn duidelijk opgebouwd in een cursus structuur en zijn makkelijk te volgen. (3/3)
 
-Support zit zeer goed. Contact via mail of telefoon is rap gelegd en er wordt een inspanning geleverd om zo goed en snel mogelijk hulp te bieden op de verschillende vragen of problemen. (3/3)
+Support is lastig om in te schatten. In begin was contact via mail of telefoon is rap gelegd en er werd een inspanning geleverd om zo goed en snel mogelijk hulp te bieden op de verschillende vragen of problemen. Naargelang de tijd vorderde, verwaterde ook het contact. Dit kan natuurlijk te maken hebben met de COVID-19 crisis. (2/3)
 
 [PRIJS]
 
 De community edition van Automation Anywhere is uitgebreid genoeg tot het punt waar de beslissing om voor dit platform te kiezen kan gemaakt worden maar langs de andere kant steekt ook veel weg achter de premium versie. Zo valt heel de BotStore weg en zit veel van het platform en de capaciteiten om bots te gaan inplannen en taken toe te voegen, vast achter een enterprise license. (3.5/5)
 
-Dit levert Automation Anywhere een score op van 25/37.
+Dit levert Automation Anywhere een score op van 25.5/37.
 
 \subsection{WorkFusion}
 
 Er is geen mogelijkheid om een custom activity toe te voegen in beide versies. Wel kan een custom script geschreven worden dat code kan uitvoeren. Dit script is geschreven in Groovy en kan alleen gebruik maken van de basic Groovy onderdelen. Geen andere jars kunnen toegevoegd worden wat resulteert in zeer beperkte mogelijkheden om een eigen iets te gebruiken. (1.5/5)
 
-Herbruikbaarheid bij WorkFusion kan gevonden worden in de recordings. Deze kunnen hergebruikt worden waarbij alleen de parameters moeten/kunnen aangepast worden. [...] (1.5/3)
+Herbruikbaarheid bij WorkFusion kan gevonden worden in de recordings. Deze kunnen hergebruikt worden waarbij alleen de parameters moeten/kunnen aangepast worden. Ook kunnen functions en custom scripts hergebruikt worden doorheen verschillende recordings. (1.5/3)
 
 De WorkFusion tools om een recording te maken bestaat uit een dedicated ide waar zowel in kan geprogrammeerd worden als een recording opgebouwd worden. Het grootste probleem bij het programmeer gedeelte is dat er geen syntax highlighting of autocomplete is. Er moet dus feitelijk blind geprogrammeerd worden. Daarom dat meestal andere ide's gebruikt worden zoals IntelliJ. Langs de recorder kant ziet de ide er zeer droog uit. De UI is niet aantrekkelijk en er zijn ook maar een beperkt aantal standaard activiteiten voorzien. (1/5)
 
@@ -180,11 +180,11 @@ Alles opgeteld komt dit uit op 12/37 voor WorkFusion.
 
 Custom activities zijn zeer gemakelijk te schrijven voor IntelliBot en dit alles dan ook nog eens binnen de community editie. Er moet niet gebuild en gepubliceerd worden tot een package, de .dll file kan rechtstreeks gebruikt worden. Daarnaast is er ook nog eens de mogelijkheid om een script toe te voegen als een volledige class library niet nodig is. (5/5)
 
-Er is de mogelijkheid om een activiteit aan te roepen vanuit een workflow. Dit staat toe om workflows te gaan hergebruiken. Er is geen soort markt waar klanten workflows op kunnen zetten voor anderen maar het is wel mogelijk om workflows op te slaan en te gebruiken. (1.5/3)
+Er is de mogelijkheid om een activiteit aan te roepen vanuit een workflow. Dit staat toe om workflows te gaan hergebruiken. Er is geen soort markt waar klanten workflows op kunnen zetten voor anderen maar het is wel mogelijk om workflows op te slaan en te gebruiken. (1/3)
 
 De tools gebruikt om een workflow te bouwen in IntelliBot is hun eigen ide, IntelliBot Studio. Hierin kan niet geprogrammeerd worden. Het opbouwen van de workflow is totaal anders als de rest. Bij de andere providers was het altijd in sequentie op te bouwen en was het duidelijk welke activiteit volgt uit welke. Bij IntelliBot is dit een pak minder overzichtelijk. Hier wordt gebruik gemaakt van lijnen om activiteiten met elkaar te verbinden en zo de workflow op te bouwen. Van zodra een activiteit met veel input en output gebruikt wordt, dan wordt het rap een warboel van lijnen die door elkaar getrokken worden. Hierdoor is het makkelijk om het overzicht te verliezen. (3/5)
 
-Ook IntelliBot heeft zoals UiPath een web platform, de Orchestrator, waarop het managen van de bots plaats vindt. Beide platformen lijken op elkaar, al is die van UiPath uitgebreider en ook iets beter ineen gestoken. (2/3)
+Ook IntelliBot heeft zoals UiPath een web platform, de Orchestrator\footnote{http://orchestrator.intellibot.io/}, waarop het managen van de bots plaats vindt. Beide platformen lijken op elkaar, al is die van UiPath uitgebreider en ook iets beter ineen gestoken. (2/3)
 
 De AI capaciteiten van IntelliBot zitten verweven in hun \acrfull{cmp}. Deze legt vooral de focus op het automatisch verwerken van documenten, zoals MetaMaze. Daarnaast zijn ook computer vision en enkele cognitieve activiteiten zoals sentiment analyse beschikbaar. (2/3)
 
@@ -204,7 +204,7 @@ Intellibot scoort 25.5/37.
 
 Custom connectors kunnen geschreven worden als een \acrshort{api} die de OpenAPI standaarden volgt of als een Azure Function. Uit deze definitie kan dan de custom connector gemaakt worden en gebruikt worden in de verschillende workflows. (2.5/5)
 
-De custom connectors kunnen gebruikt worden in meerdere flows. [...] (1/3)
+Custom Connectors kunnen herbruikt worden binnen meerdere flows. Ook kunnen ze verspreid worden naar andere klanten door de connector te publishen. Hiervoor moet door een validatie proces gegaan worden waarbij de custom connector getest moet worden en nadien gepubliceerd wordt. (2/3)
 
 De tool gebruikt om de workflow te maken is het web platform. Hierbinnen kunnen verschillende triggers en connectoren gebruikt worden om een flow op te bouwen. De layout is zeer proper, alles is duidelijk en zit logisch ineen. (4/5)
 
@@ -220,9 +220,9 @@ Het is nog steeds een Microsoft product. Support is zeer zwak, zelfs de premium 
 
 [PRIJS]
 
-De community edition is extreem beperkt. Bijna elke connector vereist een premium account en bij de gratis connectoren zitter er vele tussen die gebruik maken van een gateway of andere feature waarvoor je opnieuw een premium account nodig hebt. Zonder premium is het praktisch onmogelijk om een proces succesvol te automatiseren (0/5)
+De community editie is extreem beperkt. Bijna elke connector vereist een premium account en bij de gratis connectoren zitter er vele tussen die gebruik maken van een gateway of andere feature waarvoor je opnieuw een premium account nodig hebt. Zonder premium is het praktisch onmogelijk om een proces succesvol te automatiseren (0/5)
 
-Microsoft Flow behaalt een score van 15.5/37
+Microsoft Flow behaalt een score van 16.5/37
 %Heel Microsoft Flow zit sterk verweven in de Microsoft Suite. Het logisch om het te gebruiken als je al in deze suite zit. Om het stand-alone te gebruiken zou ik het nooit aanraden.
 
 
@@ -239,7 +239,7 @@ Waar sommige \acrshort{rpa} providers punten verloren hebben op bepaalde aspecte
 		\hline
 		Custom Activities & community & enterprise & community & community & community \\
 		\hline
-		Herbruikbaarheid & \makecell{NuGet package \&\\Orchestrator}  & ? & \makecell{Recordings zijn\\herbruikbaar} & ? & ? \\
+		Herbruikbaarheid & \makecell{NuGet package \&\\Orchestrator}  & BotStore & \makecell{Recordings zijn\\herbruikbaar} & \makecell{invokeren\\van workflows} & \makecell{publiceer\\connectors} \\
 		\hline
 		Tools & \makecell{UiPath\\Studio} & \makecell{Web\\platform} & \makecell{Workfusion\\Intelligent\\Automation\\Cloud} & \makecell{IntelliBot\\Studio} & \makecell{Web\\platform} \\
 		\hline
@@ -253,7 +253,7 @@ Waar sommige \acrshort{rpa} providers punten verloren hebben op bepaalde aspecte
 		\hline
 		Weblessen & ja & ja & ja & ja & nee \\
 		\hline
-		Support & Goed & Zeer sterk & ? & Zeer sterk & Zeer zwak \\
+		Support & Goed & Goed & Zeer zwak & Zeer sterk & Zeer zwak \\
 		\hline
 		Prijs &  &  &  &  & \\
 		\hline
@@ -262,7 +262,7 @@ Waar sommige \acrshort{rpa} providers punten verloren hebben op bepaalde aspecte
 		\makecell{Onderliggende\\Technologie} & C\# & C\#/Java & Groovy & C\# & C\# \\
 		\hline
 		\hline
-		Score & 30.5/37 & 25/37 & 12/37 & 25.5/37 & 15.5/37 \\
+		Score & 30.5/37 & 25.5/37 & 12/37 & 25/37 & 16.5/37 \\
 		\hline
 	\end{tabular}
 	\caption{Vergelijking van de verschillende \acrshort{rpa} Providers.}
