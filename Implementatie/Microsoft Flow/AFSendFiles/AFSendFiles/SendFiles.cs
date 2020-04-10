@@ -7,10 +7,10 @@ using System.Net;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
-using System.IO;
+// using System.IO;
 using System;
 using System.Threading;
-using Microsoft.SharePoint.Client;
+// using Microsoft.SharePoint.Client;
 
 namespace AFSendFiles
 {
@@ -24,7 +24,8 @@ namespace AFSendFiles
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequestMessage req,
             ILogger log)
         {
-            log.LogInformation("Work with SharePoint");
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("SendFiles Triggered");
 
             //ClientContext context = new ClientContext("https://factionxyz0.sharepoint.com/sites/faktion-devs");
             
@@ -52,15 +53,15 @@ namespace AFSendFiles
                     //context.ExecuteQuery();
 
                     //var tempfile = Path.GetTempFileName();
-                    FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                    //FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
                     //if(crstream.Value != null)
                     //{
                     //    crstream.Value.CopyTo(fs);
                     //}
-                    HttpContent content = new StreamContent(fs);
+                    //HttpContent content = new StreamContent(fs);
                     string name = GetFileName(filePath);
-                    content.Headers.Add("Content-Type", GetFileType(name));
-                    formdata.Add(content, "files", name);
+                    //content.Headers.Add("Content-Type", GetFileType(name));
+                    //formdata.Add(content, "files", name);
                     //File.Decrypt(tempfile);
                 }
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", input.BearerToken);
