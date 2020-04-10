@@ -20,30 +20,47 @@ Hoe makkelijk of juist hoe moeilijk is het om een RPA workflow te integreren met
 - [IntelliBot](https://intellibot.io/)
 - [Microsoft Flow](https://flow.microsoft.com/)
 
-## Het Voorstel
+### Lezen van de proef
 
-Om het voorstel te lezen, onderneem volgende stappen:
+Om het voorstel, de poster of de bachelorproef zelf te lezen moeten enkele stappen genomen worden:
 
-1. Clone deze repository
-2. Open het `Pessemier_Mout_voorstel.tex` bestand onder de map `Voorstel` in een Latex editor.
-3. Compileer dit bestand.
+1. Clone deze repository:
+```bash
+git clone https://github.com/MoutPessemier/BachelorProef.git
+```
 
-## De Proef
+2. Open de root directory:
+```bash
+cd BachelorProef/
+```
 
-Om de bachelorproef te lezen, onderneem volgende stappen:
+3. Geef het compileer bestand uitvoer rechten:
+```bash
+chmod +x compileAll.sh
+```
 
-1. Clone deze repository
-2. Open het `bachproef-tin.tex` bestand onder de map `BachProef` in een Latex editor.
-3. Compileer dit bestand.
+4. Voer het script uit:
+```bash
+./compileAll.sh
+```
+Als dit niet werkt gebruik dan:
+```bash
+bash compileAll.sh
+```
 
-Als de acroniemenlijst niet getoond wordt:
+5. De gegenereerde PDF bestanden zijn terug te vinden in de submappen. Om deze bestanden te openen kan gebruikt gemaakt worden van:
+> Mac OS
+```
+open BachProef/bachproef-tin.pdf
+open Voorstel/Pessemier_Mout_voorstel.pdf
+open Poster/conference_poster.pdf
+```
 
-1. Voer `cd BachProef/` uit in een terminal
-2. Voer `makeglossaries bachproef-tin` uit in een terminal
-3. Compileer het bestand
-
-## De Poster
-
-WIP
+> Windows OS
+```
+xdg-open BachProef/bachproef-tin.pdf
+xdg-open Voorstel/Pessemier_Mout_voorstel.pdf
+xdg-open Poster/conference_poster.pdf
+```
 
 © Mout Pessemier 2019 - 2020
