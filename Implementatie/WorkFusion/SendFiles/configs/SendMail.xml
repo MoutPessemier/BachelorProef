@@ -29,10 +29,11 @@
  
 				// Mapping the variables
 				@CustomScriptAction(
-					input = ['email', 'password', 'to', 'from']
+					input = ['email', 'password', 'to', 'from'],
+					output = 'NoClueYet'
 				)
  				
- 				// Sending a mail
+ 				// Sending the files
  				def customScript() {
 					String host = "smtp.gmail.com"
 					String port = "587"
