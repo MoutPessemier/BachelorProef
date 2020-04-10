@@ -9,8 +9,8 @@ using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.IO;
 using System;
-using System.Runtime.ExceptionServices;
 using System.Threading;
+using Microsoft.SharePoint.Client;
 
 namespace AFSendFiles
 {
@@ -21,53 +21,63 @@ namespace AFSendFiles
 
         [FunctionName("SendFiles")]
         public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequestMessage req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequestMessage req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("Work with SharePoint");
 
+            //ClientContext context = new ClientContext("https://factionxyz0.sharepoint.com/sites/faktion-devs");
+            
             string jsonInput = req.Content.ReadAsStringAsync().Result;
             SendFilesInput input = JsonConvert.DeserializeObject<SendFilesInput>(jsonInput);
 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", input.BearerToken);
             string url = "https://adp.faktion.com/gql/api/organisations/" + input.OrganisationId + "/projects/" + input.ProjectId + "/process";
             string response = null;
             bool succesfullRequest = false;
             MultipartFormDataContent formdata = new MultipartFormDataContent();
+            log.LogInformation("Adding files to MultiPartFormData and sending the files");
             try
             {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSIsImtpZCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSJ9.eyJhdWQiOiJodHRwczovL2ZhY3Rpb254eXowLW15LnNoYXJlcG9pbnQuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMzhiMmNjZjEtMjliYS00Nzc0LWJmM2QtZDFkODE1M2M2OWVlLyIsImlhdCI6MTU4NjUwNzEyNCwibmJmIjoxNTg2NTA3MTI0LCJleHAiOjE1ODY1MTEwMjQsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84UEFBQUFyN1pMU0pxOTBKREp4bnpOU0dMTVdDbk1CV3UvYVFtN3RLWUdtSGhMeklVPSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiU2hhcmVQb2ludCBPbmxpbmUgV2ViIENsaWVudCBFeHRlbnNpYmlsaXR5IiwiYXBwaWQiOiIwOGUxODg3Ni02MTc3LTQ4N2UtYjhiNS1jZjk1MGMxZTU5OGMiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlBlc3NlbWllciIsImdpdmVuX25hbWUiOiJNb3V0IiwiaXBhZGRyIjoiNzguMjMuODAuMzUiLCJuYW1lIjoiTW91dCBQZXNzZW1pZXIiLCJvaWQiOiI1MGRkMDI2My02NDlkLTQ4OWEtOTUzMS1hNjM2NTg3N2U1YzYiLCJwdWlkIjoiMTAwMzIwMDA5QjkwRkU3NCIsInNjcCI6IkZpbGVzLlJlYWRXcml0ZS5BbGwgU2l0ZXMuRnVsbENvbnRyb2wuQWxsIFNpdGVzLlJlYWRXcml0ZS5BbGwgVGVybVN0b3JlLlJlYWRXcml0ZS5BbGwiLCJzaWQiOiI2ZDFiMTAyMi05OWZmLTRmZjAtOTVhZC04ZWRkYTI1Njk0OTAiLCJzdWIiOiJVYlh1RTNpUzhFaGFmclVWS0xfZ1NOYkdSMEx0Y0g3Uzc4eWR6OEgxMXZJIiwidGlkIjoiMzhiMmNjZjEtMjliYS00Nzc0LWJmM2QtZDFkODE1M2M2OWVlIiwidW5pcXVlX25hbWUiOiJtLnBlc3NlbWllckBmYWt0aW9uLmNvbSIsInVwbiI6Im0ucGVzc2VtaWVyQGZha3Rpb24uY29tIiwidXRpIjoiekVRNE1HQ3lIazY2M3k5elJjZ2VBQSIsInZlciI6IjEuMCJ9.LOhTUiZihPeW8UFLpp1us7C3acp5jAnCFQ_koDDkbnGiih7j0ZQJIDx66K-WjFP2HPWB0OaCKCzc7MA0JqNRlszfahuog5TDg4BrPpKbI_doQmIIw1inNAh8UB4jQ6c-s5W1sFoM20B3Clg5BN03C_MYkf-rjzEgob-IljTNaQ97fMpFSj7LyvCf8sbZI0ow5H1yo3Gqv2pfVsH4dNpDilN2UESQS497GlPjoi-dG1224F-cbMj_0IzPSDICekzWxBOBF6p4lsJ7Z-OO8rYb7CzjA8Lnt_kTojqmex47UEaGAlJU1uRNfes0sY6aT_t69Gcc-xRodNUwhP4ULniSWA");
                 foreach (var filePath in input.Files)
                 {
                     // create filestream content
+                    //var res = await client.GetAsync("https://factionxyz0.sharepoint.com/sites/faktion-devs" + "/" + filePath);
+                    //var stream = await res.Content.ReadAsStreamAsync();
+                    //var tempfile = Path.GetTempFileName();
+
+                    //Microsoft.SharePoint.Client.File temp = context.Web.GetFileByServerRelativeUrl(filePath);
+                    //ClientResult<Stream> crstream = temp.OpenBinaryStream();
+                    //context.Load(temp);
+                    //context.ExecuteQuery();
+
+                    //var tempfile = Path.GetTempFileName();
                     FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                    //if(crstream.Value != null)
+                    //{
+                    //    crstream.Value.CopyTo(fs);
+                    //}
                     HttpContent content = new StreamContent(fs);
                     string name = GetFileName(filePath);
                     content.Headers.Add("Content-Type", GetFileType(name));
                     formdata.Add(content, "files", name);
+                    //File.Decrypt(tempfile);
                 }
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", input.BearerToken);
                 // send content to the backend and parse result
                 var resultPost = client.PostAsync(url, formdata).Result;
                 response = resultPost.Content.ReadAsStringAsync().Result;
                 succesfullRequest = resultPost.IsSuccessStatusCode;
             }
-            catch (TimeoutException e)
-            {
-                req.CreateResponse(HttpStatusCode.BadRequest, e.InnerException);
-                ExceptionDispatchInfo.Capture(e.InnerException).Throw();
-                throw;
-            }
             // I absolutely want to catch every exception and pass these along to the workflow
             catch (Exception ex)
             {
-                req.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException);
-                ExceptionDispatchInfo.Capture(ex.InnerException).Throw();
-                throw;
+                req.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
             // if something went wrong in the backend, throw an error
             if (!succesfullRequest)
             {
-                req.CreateResponse(HttpStatusCode.BadRequest, "Something went wrong during the upload process");
-                throw new Exception("Something went wrong during the upload process");
+                req.CreateErrorResponse(HttpStatusCode.BadRequest, "Something went wrong during the upload process");
             }
 
             UploadResponse r = JsonConvert.DeserializeObject<UploadResponse>(response);
@@ -80,6 +90,7 @@ namespace AFSendFiles
             string jsonString = "";
             ProcessResponse pr;
             succesfullRequest = false;
+            log.LogInformation("Polling...");
             do
             {
                 result = client.GetAsync(url + "/" + r.UploadId).Result;
@@ -104,16 +115,14 @@ namespace AFSendFiles
                 }
                 // check status every 7 seconds
                 Thread.Sleep(7000);
-            } while (polling && counter <= 150);
-            if (counter == 150)
+            } while (polling && counter <= 50);
+            if (counter == 50)
             {
-                req.CreateResponse(HttpStatusCode.BadRequest, "Request Timeout: try again later.");
-                throw new Exception("Request Timeout: try again later.");
+                req.CreateErrorResponse(HttpStatusCode.BadRequest, "Request Timeout: try again later.");
             }
             if (!succesfullRequest)
             {
-                req.CreateResponse(HttpStatusCode.BadRequest, "Something went wrong when asking for the result of the pipeline");
-                throw new Exception("Something went wrong when asking for the result of the pipeline");
+                req.CreateErrorResponse(HttpStatusCode.BadRequest, "Something went wrong when asking for the result of the pipeline");
             }
 
             return req.CreateResponse(HttpStatusCode.OK, pr);
