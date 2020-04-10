@@ -161,12 +161,6 @@
             <AllowOverridePopup>true</AllowOverridePopup>
             <MappedVariable>
               <ID>018c37a0-f8e0-402a-abf8-8a1edbeb2b8e</ID>
-              <ObjectID>88db3191-3000-4602-9b74-bb583da69aad</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>7e6d1b2a-f81c-44fe-aba6-c60d87feea8b</ID>
                 <Name>IN</Name>
@@ -188,6 +182,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>true</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>204b8f87-82b3-4767-84ee-cd00c81811a8</ID>
                 <Name>OUT</Name>
@@ -209,6 +204,11 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>true</AllowOverridePopup>
               </DataOut>
+              <ObjectID>88db3191-3000-4602-9b74-bb583da69aad</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </MappedVariable>
             <DataTransform xsi:type="ScriptTransform">
               <ID>e477c165-e62a-403f-b9ab-4b5adfb28e8f</ID>
@@ -366,7 +366,7 @@
               <AllowOverridePopup>true</AllowOverridePopup>
             </AutxDataInPort>
           </Items>
-          <ExpressionText>count &gt; 0</ExpressionText>
+          <ExpressionText>count = 0</ExpressionText>
         </DesignItem>
         <DesignItem xsi:type="AutxVariableContainer">
           <ID>d4813cc3-c029-4707-b17f-9d06a6e9ca93</ID>
@@ -408,12 +408,6 @@
           <Items>
             <AutxObjectReference>
               <ID>28d879f9-cf1f-4935-ae93-cd5632e8b6eb</ID>
-              <ObjectID>88db3191-3000-4602-9b74-bb583da69aad</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>25a0e4c3-54af-4afb-93f4-1f3b93f15a1c</ID>
                 <Name>IN</Name>
@@ -435,6 +429,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>140a6415-4b68-4087-bb43-1e790368f41d</ID>
                 <Name>OUT</Name>
@@ -456,15 +451,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>336403dd-6b8b-468f-b34e-7180db84282e</ID>
-              <ObjectID>f45ea447-4e9b-4c65-a491-24f8f240c7cd</ObjectID>
+              <ObjectID>88db3191-3000-4602-9b74-bb583da69aad</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>336403dd-6b8b-468f-b34e-7180db84282e</ID>
               <DataIn>
                 <ID>d57aa218-a8ad-4b68-ad0e-99ee6ea0674a</ID>
                 <Name>IN</Name>
@@ -487,6 +481,7 @@
                 <AllowOverridePopup>false</AllowOverridePopup>
                 <StaticValue />
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>29bcd5e5-6ba3-4efa-9338-a0d02b9601fe</ID>
                 <Name>OUT</Name>
@@ -508,15 +503,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>89354ef8-0cef-4f5a-b35b-96ec81c00291</ID>
-              <ObjectID>0a0c6c00-60ad-4046-84c8-a65cfbc4df85</ObjectID>
+              <ObjectID>f45ea447-4e9b-4c65-a491-24f8f240c7cd</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>89354ef8-0cef-4f5a-b35b-96ec81c00291</ID>
               <DataIn>
                 <ID>9c6bb377-37f1-4114-b3e1-1c22bce700e0</ID>
                 <Name>IN</Name>
@@ -539,6 +533,7 @@
                 <AllowOverridePopup>false</AllowOverridePopup>
                 <StaticValue>5ccad715074ce2b850f646d5</StaticValue>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>b317fb12-51b6-4e98-9cd8-ccac9cca79d8</ID>
                 <Name>OUT</Name>
@@ -560,15 +555,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>b5681a1c-27e6-41a6-b884-fa773ce7353b</ID>
-              <ObjectID>3cfe95fb-ac0b-4442-bada-81219aa53ff4</ObjectID>
+              <ObjectID>0a0c6c00-60ad-4046-84c8-a65cfbc4df85</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>b5681a1c-27e6-41a6-b884-fa773ce7353b</ID>
               <DataIn>
                 <ID>7510b8f0-44aa-4fef-a85d-738fce567a25</ID>
                 <Name>IN</Name>
@@ -591,6 +585,7 @@
                 <AllowOverridePopup>false</AllowOverridePopup>
                 <StaticValue>5e7354bd2a053952c30fc6d7</StaticValue>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>a4611b75-73d6-4065-bf1a-739aa3a061f8</ID>
                 <Name>OUT</Name>
@@ -612,15 +607,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>b3af1d8d-ac61-494e-9c10-e179f862b413</ID>
-              <ObjectID>c9c752f2-908e-41f6-b436-920ebff659eb</ObjectID>
+              <ObjectID>3cfe95fb-ac0b-4442-bada-81219aa53ff4</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>b3af1d8d-ac61-494e-9c10-e179f862b413</ID>
               <DataIn>
                 <ID>ef6751c0-99a5-4c16-b3d8-6b712914f951</ID>
                 <Name>IN</Name>
@@ -642,6 +636,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>825835b7-b98a-4a49-af88-6145b3058bcc</ID>
                 <Name>OUT</Name>
@@ -663,15 +658,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>404f056a-d5ba-4279-8605-acf0a38a2e36</ID>
-              <ObjectID>823f4c6b-d3dd-41ed-bafd-52ba1e34e422</ObjectID>
+              <ObjectID>c9c752f2-908e-41f6-b436-920ebff659eb</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>404f056a-d5ba-4279-8605-acf0a38a2e36</ID>
               <DataIn>
                 <ID>9b271456-16a6-42b7-af04-79a9b7f4d66d</ID>
                 <Name>IN</Name>
@@ -693,6 +687,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>eca45697-9e10-4934-938d-265cfee3c1ce</ID>
                 <Name>OUT</Name>
@@ -714,15 +709,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>5d69f8f9-1cf3-46f9-9b66-c0576283977e</ID>
-              <ObjectID>5df8fefb-3964-4a53-a89e-cae359a6af8d</ObjectID>
+              <ObjectID>823f4c6b-d3dd-41ed-bafd-52ba1e34e422</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>5d69f8f9-1cf3-46f9-9b66-c0576283977e</ID>
               <DataIn>
                 <ID>f0a24394-6235-4341-884b-10f008904878</ID>
                 <Name>IN</Name>
@@ -744,6 +738,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>be09735e-6e4a-442e-a5a0-3575c0949899</ID>
                 <Name>OUT</Name>
@@ -765,14 +760,19 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>5df8fefb-3964-4a53-a89e-cae359a6af8d</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
         <DesignItem xsi:type="LogWriter">
           <ID>79abf383-c2fa-4093-9eb5-5dbc979743df</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>6616.74285714282</X>
-          <Y>808.190476190476</Y>
+          <X>6621.74285714282</X>
+          <Y>737.190476190476</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5008</Order>
@@ -832,8 +832,8 @@
         <DesignItem xsi:type="LogWriter">
           <ID>b6246297-6b85-44a3-9b2c-00e1a1fdcda7</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>6590.409523809486</X>
-          <Y>626.190476190476</Y>
+          <X>6613.409523809486</X>
+          <Y>537.190476190476</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5009</Order>
@@ -2071,12 +2071,6 @@
           <Items>
             <AutxObjectReference>
               <ID>8206cd96-8ec3-4c69-92a1-98f38e730ef3</ID>
-              <ObjectID>c8f12ac0-70e8-47d3-b7a5-c2ac00d3a33a</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>92fa7b94-6f7d-4cef-8ad9-85edc1d395f2</ID>
                 <Name>IN</Name>
@@ -2099,6 +2093,7 @@
                 <AllowOverridePopup>false</AllowOverridePopup>
                 <StaticValue>0</StaticValue>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>8293fe5f-c926-425a-92a8-f9ce27a99a63</ID>
                 <Name>OUT</Name>
@@ -2120,15 +2115,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>20df04b6-dd3a-4858-a15d-9c67b50e9712</ID>
-              <ObjectID>3f814cc0-e3ad-4612-a7f2-864c8324097f</ObjectID>
+              <ObjectID>c8f12ac0-70e8-47d3-b7a5-c2ac00d3a33a</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>20df04b6-dd3a-4858-a15d-9c67b50e9712</ID>
               <DataIn>
                 <ID>41d60519-3733-484b-bb42-adc9c573f353</ID>
                 <Name>IN</Name>
@@ -2150,6 +2144,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>15976882-54fb-4cfc-96a7-e52f8a136df7</ID>
                 <Name>OUT</Name>
@@ -2171,15 +2166,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>44f88597-d45a-42cb-b157-715fee952fcc</ID>
-              <ObjectID>34649ba4-4a77-42f1-ba1c-a2c5fcbbd687</ObjectID>
+              <ObjectID>3f814cc0-e3ad-4612-a7f2-864c8324097f</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>44f88597-d45a-42cb-b157-715fee952fcc</ID>
               <DataIn>
                 <ID>33788561-f437-4143-9bac-e2adeefdc505</ID>
                 <Name>IN</Name>
@@ -2201,6 +2195,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>167abfee-571d-4b26-8473-2e3382086983</ID>
                 <Name>OUT</Name>
@@ -2222,15 +2217,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>134bf2d7-247a-4962-b6ad-058e6f72c355</ID>
-              <ObjectID>abe21fb6-8380-4224-a4ae-aeca062a1cf8</ObjectID>
+              <ObjectID>34649ba4-4a77-42f1-ba1c-a2c5fcbbd687</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>134bf2d7-247a-4962-b6ad-058e6f72c355</ID>
               <DataIn>
                 <ID>a3b3642a-2a09-427b-a67b-b2f3406b658e</ID>
                 <Name>IN</Name>
@@ -2252,6 +2246,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>93570b43-f80a-4402-8502-f2327963f755</ID>
                 <Name>OUT</Name>
@@ -2273,15 +2268,14 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
-            </AutxObjectReference>
-            <AutxObjectReference>
-              <ID>06d566f2-ec88-43b4-95cb-b7bdefbb6d66</ID>
-              <ObjectID>6740b334-e16b-4b37-9074-0243c4fe087f</ObjectID>
+              <ObjectID>abe21fb6-8380-4224-a4ae-aeca062a1cf8</ObjectID>
               <ObjectRootParentID />
               <ObjectComponentID />
               <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
               <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
+            </AutxObjectReference>
+            <AutxObjectReference>
+              <ID>06d566f2-ec88-43b4-95cb-b7bdefbb6d66</ID>
               <DataIn>
                 <ID>7283dc18-05ba-4def-87c8-b80d13e00c90</ID>
                 <Name>IN</Name>
@@ -2303,6 +2297,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>e685c28c-6aad-4d77-8092-cdc7e7380719</ID>
                 <Name>OUT</Name>
@@ -2324,6 +2319,11 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>6740b334-e16b-4b37-9074-0243c4fe087f</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -2399,12 +2399,6 @@
           <Items>
             <AutxObjectReference>
               <ID>be255582-e26a-4bf0-9a7c-f85fc1b4f4eb</ID>
-              <ObjectID>c8f12ac0-70e8-47d3-b7a5-c2ac00d3a33a</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>ac4ebdf1-25e9-430c-a47f-fc75dc03ec2a</ID>
                 <Name>IN</Name>
@@ -2426,6 +2420,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>15e7cc9f-63e8-4bdc-adde-34d312d95fcd</ID>
                 <Name>OUT</Name>
@@ -2447,6 +2442,11 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>c8f12ac0-70e8-47d3-b7a5-c2ac00d3a33a</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -2981,12 +2981,6 @@
           <Items>
             <AutxObjectReference>
               <ID>3e40ab2f-80cc-449c-8669-1065657b46c7</ID>
-              <ObjectID>3f814cc0-e3ad-4612-a7f2-864c8324097f</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>e4bfb16a-a359-4413-bdbf-871004cdb878</ID>
                 <Name>IN</Name>
@@ -3008,6 +3002,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>aa37aa6e-461a-4f40-86b1-bdf3c2128950</ID>
                 <Name>OUT</Name>
@@ -3029,6 +3024,11 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>3f814cc0-e3ad-4612-a7f2-864c8324097f</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -3096,12 +3096,6 @@
           <Items>
             <AutxObjectReference>
               <ID>6bc19b0f-ce45-4d1f-b95d-8e6ec2a6164a</ID>
-              <ObjectID>34649ba4-4a77-42f1-ba1c-a2c5fcbbd687</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>9d16777e-e818-4053-a51d-8370d2cd9a46</ID>
                 <Name>IN</Name>
@@ -3123,6 +3117,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>0dc40a5d-d40b-4538-9688-f6d58e9a3d1b</ID>
                 <Name>OUT</Name>
@@ -3150,6 +3145,11 @@
                   <ScriptLanguage>VB.NET</ScriptLanguage>
                 </DataTransform>
               </DataOut>
+              <ObjectID>34649ba4-4a77-42f1-ba1c-a2c5fcbbd687</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -3217,12 +3217,6 @@
           <Items>
             <AutxObjectReference>
               <ID>9358e4ed-b530-42a0-8f05-f85fe92b6d6d</ID>
-              <ObjectID>abe21fb6-8380-4224-a4ae-aeca062a1cf8</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>c8d28044-a5db-4b1d-82c5-43802698c14d</ID>
                 <Name>IN</Name>
@@ -3244,6 +3238,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>bf901b24-adc2-4d7d-80a4-a8ad61fe0283</ID>
                 <Name>OUT</Name>
@@ -3271,6 +3266,11 @@
                   <ScriptLanguage>VB.NET</ScriptLanguage>
                 </DataTransform>
               </DataOut>
+              <ObjectID>abe21fb6-8380-4224-a4ae-aeca062a1cf8</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -3293,8 +3293,8 @@
         <DesignItem xsi:type="Decision">
           <ID>8a8967d0-f684-4817-b507-a7f47d9ab7c4</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>3879.8095238095239</X>
-          <Y>811.095238095238</Y>
+          <X>4008.8095238095239</X>
+          <Y>885.095238095238</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5077</Order>
@@ -3306,7 +3306,7 @@
           </CommentConnectionPort>
           <BeforeDelay>0</BeforeDelay>
           <AfterDelay>0</AfterDelay>
-          <BreakPoint>true</BreakPoint>
+          <BreakPoint>false</BreakPoint>
           <OnErrorAction>Inherit</OnErrorAction>
           <MaxRetries>1</MaxRetries>
           <RetryDelay>0</RetryDelay>
@@ -3335,34 +3335,13 @@
           </ControlNo>
           <Items>
             <AutxDataInPort>
-              <ID>22525af1-3e7e-40f0-bd94-e17283129d9a</ID>
-              <Name>confidence</Name>
+              <ID>2998bdc6-b19d-4930-b982-44024c8baddb</ID>
+              <Name>underThreshold</Name>
               <Visibility>true</Visibility>
               <AllowDelete>true</AllowDelete>
               <Validations />
               <Type>
-                <ID>1558c4ee-b095-49cc-95fc-f1c1c81bb9f8</ID>
-                <Name>Object</Name>
-                <FullName>System.Object</FullName>
-                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
-              </Type>
-              <IsTypeEditable>true</IsTypeEditable>
-              <IsNameEditable>false</IsNameEditable>
-              <IsValueEditable>true</IsValueEditable>
-              <ShowTypeLabel>false</ShowTypeLabel>
-              <ShowNameLabel>true</ShowNameLabel>
-              <DataSensitive>false</DataSensitive>
-              <ValueSourceType>Connection</ValueSourceType>
-              <AllowOverridePopup>true</AllowOverridePopup>
-            </AutxDataInPort>
-            <AutxDataInPort>
-              <ID>6ef0a337-1b31-4a5c-bc43-96e0b5015ce9</ID>
-              <Name>threshold</Name>
-              <Visibility>true</Visibility>
-              <AllowDelete>true</AllowDelete>
-              <Validations />
-              <Type>
-                <ID>948d2104-cb5d-43e3-9eb8-f56170615dcc</ID>
+                <ID>7cd8440c-b940-451e-805b-798f5c9ba531</ID>
                 <Name>Object</Name>
                 <FullName>System.Object</FullName>
                 <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
@@ -3377,37 +3356,13 @@
               <AllowOverridePopup>true</AllowOverridePopup>
             </AutxDataInPort>
           </Items>
-          <ExpressionText>confidence &lt; threshold</ExpressionText>
-        </DesignItem>
-        <DesignItem xsi:type="AutxControlConnection">
-          <ID>50242807-b1fc-4729-b2fa-80b7a9de5e3c</ID>
-          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <SourceComponentID>74a53114-8bab-4dbb-8653-682a45611820</SourceComponentID>
-          <SourcePortID>2537f0be-0ddc-4aa4-a087-901599bf7558</SourcePortID>
-          <SinkComponentID>8a8967d0-f684-4817-b507-a7f47d9ab7c4</SinkComponentID>
-          <SinkPortID>649a2a2f-147e-4a98-aa47-42b2871c1927</SinkPortID>
-        </DesignItem>
-        <DesignItem xsi:type="AutxDataConnection">
-          <ID>8f8e7444-7f52-40a8-a3d3-776dc0b30a61</ID>
-          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <SourceComponentID>0f2a9209-e14b-4ad4-81a5-a19c80d5107b</SourceComponentID>
-          <SourcePortID>0dc40a5d-d40b-4538-9688-f6d58e9a3d1b</SourcePortID>
-          <SinkComponentID>8a8967d0-f684-4817-b507-a7f47d9ab7c4</SinkComponentID>
-          <SinkPortID>22525af1-3e7e-40f0-bd94-e17283129d9a</SinkPortID>
-        </DesignItem>
-        <DesignItem xsi:type="AutxDataConnection">
-          <ID>3bb93194-58ab-4842-bee8-24793307d734</ID>
-          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <SourceComponentID>74a53114-8bab-4dbb-8653-682a45611820</SourceComponentID>
-          <SourcePortID>bf901b24-adc2-4d7d-80a4-a8ad61fe0283</SourcePortID>
-          <SinkComponentID>8a8967d0-f684-4817-b507-a7f47d9ab7c4</SinkComponentID>
-          <SinkPortID>6ef0a337-1b31-4a5c-bc43-96e0b5015ce9</SinkPortID>
+          <ExpressionText>underThreshold</ExpressionText>
         </DesignItem>
         <DesignItem xsi:type="AutxMethod">
           <ID>10d0e9ae-39cd-4cd2-9049-78f42925a02d</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>4151.4761904761908</X>
-          <Y>643.57142857142878</Y>
+          <X>4150.4761904761908</X>
+          <Y>661.57142857142878</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5082</Order>
@@ -3988,8 +3943,8 @@
         <DesignItem xsi:type="AutxStaticMethod">
           <ID>641980a6-0f38-4185-b86c-d87e17e1dbc1</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>6362.6666666666652</X>
-          <Y>770.333333333333</Y>
+          <X>6401.6666666666652</X>
+          <Y>681.333333333333</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5095</Order>
@@ -4002,7 +3957,7 @@
           <Name>SendMail</Name>
           <BeforeDelay>0</BeforeDelay>
           <AfterDelay>0</AfterDelay>
-          <BreakPoint>true</BreakPoint>
+          <BreakPoint>false</BreakPoint>
           <OnErrorAction>Inherit</OnErrorAction>
           <MaxRetries>1</MaxRetries>
           <RetryDelay>0</RetryDelay>
@@ -4216,12 +4171,6 @@
           <Items>
             <AutxObjectReference>
               <ID>5d9e4b46-08c4-4773-b191-a78e9fb31f08</ID>
-              <ObjectID>c9c752f2-908e-41f6-b436-920ebff659eb</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>3c8df8e9-852c-470e-adc2-2a4edebd9b5d</ID>
                 <Name>IN</Name>
@@ -4243,6 +4192,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>9729fd01-2a01-400d-8afb-865cd9733fdc</ID>
                 <Name>OUT</Name>
@@ -4264,6 +4214,11 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>c9c752f2-908e-41f6-b436-920ebff659eb</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -4307,12 +4262,6 @@
           <Items>
             <AutxObjectReference>
               <ID>c12e1c60-dcef-4c39-a9b4-87be597e9777</ID>
-              <ObjectID>823f4c6b-d3dd-41ed-bafd-52ba1e34e422</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>e953d72b-30fb-4550-8096-bbebe0d578d1</ID>
                 <Name>IN</Name>
@@ -4334,6 +4283,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>744105e7-a72c-47be-b3a6-253b4f17b2ae</ID>
                 <Name>OUT</Name>
@@ -4355,6 +4305,11 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>823f4c6b-d3dd-41ed-bafd-52ba1e34e422</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -4398,12 +4353,6 @@
           <Items>
             <AutxObjectReference>
               <ID>e67a8970-f96b-4618-9a29-0de2a4b736a8</ID>
-              <ObjectID>5df8fefb-3964-4a53-a89e-cae359a6af8d</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>c3c1fbdf-84db-4023-bb99-a905ea31d55d</ID>
                 <Name>IN</Name>
@@ -4425,6 +4374,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>ff9ae279-92cc-4eac-91ff-7f739d015e60</ID>
                 <Name>OUT</Name>
@@ -4446,6 +4396,11 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>5df8fefb-3964-4a53-a89e-cae359a6af8d</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
@@ -4492,8 +4447,8 @@
         <DesignItem xsi:type="AutxVariableContainer">
           <ID>6df8f191-3166-4e7b-ab1d-b7e384239a47</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>5828.3333333333339</X>
-          <Y>644.33333333333508</Y>
+          <X>5833.3333333333339</X>
+          <Y>632.33333333333508</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5108</Order>
@@ -4529,12 +4484,6 @@
           <Items>
             <AutxObjectReference>
               <ID>36e1f86a-2e16-4f85-9a3b-323645504c7c</ID>
-              <ObjectID>1f07d178-785f-41fb-9366-45b009518180</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
               <DataIn>
                 <ID>20b0025e-02c8-4bb6-85cc-2b05e73786e0</ID>
                 <Name>IN</Name>
@@ -4556,6 +4505,7 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataIn>
+              <IsGlobal>false</IsGlobal>
               <DataOut>
                 <ID>ae28c70e-5cc0-465b-9e42-e8082ec1631a</ID>
                 <Name>OUT</Name>
@@ -4577,14 +4527,19 @@
                 <ValueSourceType>Connection</ValueSourceType>
                 <AllowOverridePopup>false</AllowOverridePopup>
               </DataOut>
+              <ObjectID>1f07d178-785f-41fb-9366-45b009518180</ObjectID>
+              <ObjectRootParentID />
+              <ObjectComponentID />
+              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
+              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
             </AutxObjectReference>
           </Items>
         </DesignItem>
         <DesignItem xsi:type="AutxStaticMethod">
           <ID>246e476c-6fb2-4e94-b2f1-7ed13d354150</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>5629.333333333333</X>
-          <Y>606.33333333333462</Y>
+          <X>5593.333333333333</X>
+          <Y>613.33333333333462</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5112</Order>
@@ -4667,59 +4622,8 @@
               <ShowTypeLabel>true</ShowTypeLabel>
               <ShowNameLabel>true</ShowNameLabel>
               <DataSensitive>false</DataSensitive>
-              <ValueSourceType>Variable</ValueSourceType>
+              <ValueSourceType>Connection</ValueSourceType>
               <AllowOverridePopup>true</AllowOverridePopup>
-              <MappedVariable>
-                <ID>989e62a9-49c7-495b-9db8-85f90fde2444</ID>
-                <ObjectID>6740b334-e16b-4b37-9074-0243c4fe087f</ObjectID>
-                <ObjectRootParentID />
-                <ObjectComponentID />
-                <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-                <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-                <IsGlobal>false</IsGlobal>
-                <DataIn>
-                  <ID>099135a3-06ff-44a0-a9c0-dc2796804ef9</ID>
-                  <Name>IN</Name>
-                  <Visibility>true</Visibility>
-                  <AllowDelete>true</AllowDelete>
-                  <Validations />
-                  <Type>
-                    <ID>ef6ce3e6-6df7-45e1-8c13-f458598132ad</ID>
-                    <Name>Object</Name>
-                    <FullName>System.Object</FullName>
-                    <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
-                  </Type>
-                  <IsTypeEditable>false</IsTypeEditable>
-                  <IsNameEditable>false</IsNameEditable>
-                  <IsValueEditable>true</IsValueEditable>
-                  <ShowTypeLabel>false</ShowTypeLabel>
-                  <ShowNameLabel>true</ShowNameLabel>
-                  <DataSensitive>false</DataSensitive>
-                  <ValueSourceType>Connection</ValueSourceType>
-                  <AllowOverridePopup>true</AllowOverridePopup>
-                </DataIn>
-                <DataOut>
-                  <ID>129db7ac-472f-4def-94b6-60e359810730</ID>
-                  <Name>OUT</Name>
-                  <Visibility>true</Visibility>
-                  <AllowDelete>true</AllowDelete>
-                  <Validations />
-                  <Type>
-                    <ID>feab29c5-f347-47af-8f93-868e3000a980</ID>
-                    <Name>Object</Name>
-                    <FullName>System.Object</FullName>
-                    <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
-                  </Type>
-                  <IsTypeEditable>false</IsTypeEditable>
-                  <IsNameEditable>false</IsNameEditable>
-                  <IsValueEditable>true</IsValueEditable>
-                  <ShowTypeLabel>false</ShowTypeLabel>
-                  <ShowNameLabel>true</ShowNameLabel>
-                  <DataSensitive>false</DataSensitive>
-                  <ValueSourceType>Connection</ValueSourceType>
-                  <AllowOverridePopup>true</AllowOverridePopup>
-                </DataOut>
-              </MappedVariable>
             </AutxDataInPort>
             <AutxDataInPort>
               <ID>ef0ecd7d-4f7b-4f4b-bf56-2fdcf5e374e4</ID>
@@ -4766,137 +4670,6 @@
           <SinkComponentID>6df8f191-3166-4e7b-ab1d-b7e384239a47</SinkComponentID>
           <SinkPortID>2e54c9a0-c00c-4429-9b13-09b8a58ba22b</SinkPortID>
         </DesignItem>
-        <DesignItem xsi:type="AutxMethod">
-          <ID>fd23951c-765e-421e-962c-edda2f1c3599</ID>
-          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>5438.3333333333339</X>
-          <Y>585.00000000000136</Y>
-          <Width>0</Width>
-          <Height>0</Height>
-          <Order>5110</Order>
-          <CommentConnectionPort>
-            <ID>e5622a39-033d-4f9f-8ff8-464f98a3751d</ID>
-            <Name />
-            <Visibility>true</Visibility>
-            <AllowDelete>true</AllowDelete>
-          </CommentConnectionPort>
-          <Name>ToArray</Name>
-          <BeforeDelay>0</BeforeDelay>
-          <AfterDelay>0</AfterDelay>
-          <BreakPoint>false</BreakPoint>
-          <OnErrorAction>Inherit</OnErrorAction>
-          <MaxRetries>1</MaxRetries>
-          <RetryDelay>0</RetryDelay>
-          <GoToFlagID />
-          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
-          <GoToFlagIDAfterRetry />
-          <EnableTimeout>false</EnableTimeout>
-          <Timeout>60</Timeout>
-          <ControlIn>
-            <ID>adb192fa-aad3-4d8a-8ec1-68ff236ab6cf</ID>
-            <Name />
-            <Visibility>true</Visibility>
-            <AllowDelete>true</AllowDelete>
-          </ControlIn>
-          <ControlOut>
-            <ID>68e5e427-1a83-46a2-9460-f1e49e8e8aeb</ID>
-            <Name />
-            <Visibility>true</Visibility>
-            <AllowDelete>true</AllowDelete>
-          </ControlOut>
-          <ReturnDataPort>
-            <ID>659375e0-033d-42f3-b5ab-6d460a8efe96</ID>
-            <Name>Return</Name>
-            <Visibility>true</Visibility>
-            <AllowDelete>true</AllowDelete>
-            <Validations />
-            <Type>
-              <ID>faea5f9b-238d-48fd-b58f-a2fede2985ef</ID>
-              <Name>Object[]</Name>
-              <FullName>System.Object[]</FullName>
-              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
-            </Type>
-            <IsTypeEditable>false</IsTypeEditable>
-            <IsNameEditable>false</IsNameEditable>
-            <IsValueEditable>true</IsValueEditable>
-            <ShowTypeLabel>true</ShowTypeLabel>
-            <ShowNameLabel>true</ShowNameLabel>
-            <DataSensitive>false</DataSensitive>
-            <ValueSourceType>Variable</ValueSourceType>
-            <AllowOverridePopup>true</AllowOverridePopup>
-            <MappedVariable>
-              <ID>dd48dfbc-5e81-4f0e-83a3-88e86c429129</ID>
-              <ObjectID>6740b334-e16b-4b37-9074-0243c4fe087f</ObjectID>
-              <ObjectRootParentID />
-              <ObjectComponentID />
-              <ObjectDocumentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ObjectDocumentID>
-              <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-              <IsGlobal>false</IsGlobal>
-              <DataIn>
-                <ID>5a00d4fe-9d74-470b-89da-39ad14de3de6</ID>
-                <Name>IN</Name>
-                <Visibility>true</Visibility>
-                <AllowDelete>true</AllowDelete>
-                <Validations />
-                <Type>
-                  <ID>c07fdf4b-a043-4697-b1cb-77542f83a78a</ID>
-                  <Name>Object</Name>
-                  <FullName>System.Object</FullName>
-                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
-                </Type>
-                <IsTypeEditable>false</IsTypeEditable>
-                <IsNameEditable>false</IsNameEditable>
-                <IsValueEditable>true</IsValueEditable>
-                <ShowTypeLabel>false</ShowTypeLabel>
-                <ShowNameLabel>true</ShowNameLabel>
-                <DataSensitive>false</DataSensitive>
-                <ValueSourceType>Connection</ValueSourceType>
-                <AllowOverridePopup>true</AllowOverridePopup>
-              </DataIn>
-              <DataOut>
-                <ID>0418fab1-ce62-409e-a9b1-415d4371aa0d</ID>
-                <Name>OUT</Name>
-                <Visibility>true</Visibility>
-                <AllowDelete>true</AllowDelete>
-                <Validations />
-                <Type>
-                  <ID>3fb0682f-dcdb-4ad3-af31-da7e69d0f371</ID>
-                  <Name>Object</Name>
-                  <FullName>System.Object</FullName>
-                  <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
-                </Type>
-                <IsTypeEditable>false</IsTypeEditable>
-                <IsNameEditable>false</IsNameEditable>
-                <IsValueEditable>true</IsValueEditable>
-                <ShowTypeLabel>false</ShowTypeLabel>
-                <ShowNameLabel>true</ShowNameLabel>
-                <DataSensitive>false</DataSensitive>
-                <ValueSourceType>Connection</ValueSourceType>
-                <AllowOverridePopup>true</AllowOverridePopup>
-              </DataOut>
-            </MappedVariable>
-          </ReturnDataPort>
-          <MethodName>ToArray</MethodName>
-          <ObjectID>48150289-9cef-4dd1-878a-b17c10e58496</ObjectID>
-          <ObjectRootParentID />
-          <ObjectComponentID />
-          <ObjectDocumentID />
-          <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
-          <Params />
-          <OutParams />
-          <MEStatics />
-          <MEInputs />
-          <MEOutputs />
-          <MECtrlOutputs />
-        </DesignItem>
-        <DesignItem xsi:type="AutxControlConnection">
-          <ID>8d291af2-3100-4214-b154-637c3e9fca64</ID>
-          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <SourceComponentID>e634d9a6-dd25-480f-80e0-1abd3b53b531</SourceComponentID>
-          <SourcePortID>85656fa3-222d-4878-b139-1023c2df1097</SourcePortID>
-          <SinkComponentID>fd23951c-765e-421e-962c-edda2f1c3599</SinkComponentID>
-          <SinkPortID>adb192fa-aad3-4d8a-8ec1-68ff236ab6cf</SinkPortID>
-        </DesignItem>
         <DesignItem xsi:type="AutxDataConnection">
           <ID>05890b47-6dd2-4c52-906e-ccb0ce3a8fed</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
@@ -4905,19 +4678,11 @@
           <SinkComponentID>641980a6-0f38-4185-b86c-d87e17e1dbc1</SinkComponentID>
           <SinkPortID>0cb94baa-a0d9-43b1-87c1-e823a355c5ae</SinkPortID>
         </DesignItem>
-        <DesignItem xsi:type="AutxControlConnection">
-          <ID>657350ff-3ebb-4d82-9e16-315c30de80e9</ID>
-          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <SourceComponentID>fd23951c-765e-421e-962c-edda2f1c3599</SourceComponentID>
-          <SourcePortID>68e5e427-1a83-46a2-9460-f1e49e8e8aeb</SourcePortID>
-          <SinkComponentID>246e476c-6fb2-4e94-b2f1-7ed13d354150</SinkComponentID>
-          <SinkPortID>fdaffa34-313a-4387-8eee-5002033a9654</SinkPortID>
-        </DesignItem>
         <DesignItem xsi:type="Expression">
           <ID>b74be412-05f0-4ea9-93b4-718939c7162e</ID>
           <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
-          <X>6102.9999999999991</X>
-          <Y>673.33333333333462</Y>
+          <X>6137.9999999999991</X>
+          <Y>663.33333333333462</Y>
           <Width>0</Width>
           <Height>0</Height>
           <Order>5111</Order>
@@ -4992,7 +4757,7 @@
               <DataSensitive>false</DataSensitive>
               <ValueSourceType>Static</ValueSourceType>
               <AllowOverridePopup>true</AllowOverridePopup>
-              <StaticValue>Hi there, this is your MetaMaze upload report: some entitiues were not extracted with a high enough certainity threshold: </StaticValue>
+              <StaticValue>Hi there, this is your MetaMaze upload report: some entities were not extracted with a high enough certainity threshold: </StaticValue>
             </AutxDataInPort>
             <AutxDataInPort>
               <ID>9b5b338d-230f-4283-8e09-f320ea7a9c75</ID>
@@ -5049,6 +4814,250 @@
           <SourcePortID>f0397b5a-7b25-4627-b4c7-69a5a75cf669</SourcePortID>
           <SinkComponentID>641980a6-0f38-4185-b86c-d87e17e1dbc1</SinkComponentID>
           <SinkPortID>5526ff4a-6c6b-4e2a-81e9-85748b28de90</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxMethod">
+          <ID>6d30658d-1b2d-42c6-a57b-833b11a9fdaa</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>5404.586396654222</X>
+          <Y>586</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5114</Order>
+          <CommentConnectionPort>
+            <ID>ac99ddf9-2d74-4615-8e74-ba38330c5d32</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <Name>GetList</Name>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>8ccc4df2-679d-4514-909e-8f0de3b8545d</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>17978f83-9341-4f66-b489-f0a9d3abbfcc</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <ReturnDataPort>
+            <ID>ee3585f4-5267-4be0-a2ff-b146944eb6d0</ID>
+            <Name>Return</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>932df448-8682-4be6-b1b6-91d9d315781d</ID>
+              <Name>ArrayList</Name>
+              <FullName>System.Collections.ArrayList</FullName>
+              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>false</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>true</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Connection</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+            <DataTransform xsi:type="ScriptTransform">
+              <ID>a52fa7f2-3bd8-4298-86c5-f8093066e1a1</ID>
+              <Enabled>true</Enabled>
+              <Script>Return Value.ToArray(Type.GetType("System.String"))</Script>
+              <ScriptLanguage>VB.NET</ScriptLanguage>
+            </DataTransform>
+          </ReturnDataPort>
+          <MethodName>GetList</MethodName>
+          <ObjectID>48150289-9cef-4dd1-878a-b17c10e58496</ObjectID>
+          <ObjectRootParentID />
+          <ObjectProcessID>c06bb968-2aa5-4064-aa90-b92b843af99f</ObjectProcessID>
+          <Params />
+          <OutParams />
+          <MEStatics />
+          <MEInputs />
+          <MEOutputs />
+          <MECtrlOutputs />
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>c6d933a6-4a9e-45b5-9b5d-d398eb6c11fe</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>e634d9a6-dd25-480f-80e0-1abd3b53b531</SourceComponentID>
+          <SourcePortID>85656fa3-222d-4878-b139-1023c2df1097</SourcePortID>
+          <SinkComponentID>6d30658d-1b2d-42c6-a57b-833b11a9fdaa</SinkComponentID>
+          <SinkPortID>8ccc4df2-679d-4514-909e-8f0de3b8545d</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>aa141a97-2081-4d85-b7f1-1cb0af856b27</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>6d30658d-1b2d-42c6-a57b-833b11a9fdaa</SourceComponentID>
+          <SourcePortID>ee3585f4-5267-4be0-a2ff-b146944eb6d0</SourcePortID>
+          <SinkComponentID>246e476c-6fb2-4e94-b2f1-7ed13d354150</SinkComponentID>
+          <SinkPortID>716faf35-2307-41b4-b754-5e2df191281f</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>60a700dc-8985-43b3-9454-638f0e5a0a31</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>6d30658d-1b2d-42c6-a57b-833b11a9fdaa</SourceComponentID>
+          <SourcePortID>17978f83-9341-4f66-b489-f0a9d3abbfcc</SourcePortID>
+          <SinkComponentID>246e476c-6fb2-4e94-b2f1-7ed13d354150</SinkComponentID>
+          <SinkPortID>fdaffa34-313a-4387-8eee-5002033a9654</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="ScriptBlock">
+          <ID>41953d78-2e01-484b-ba90-a6250e746dc1</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <X>3852</X>
+          <Y>866</Y>
+          <Width>0</Width>
+          <Height>0</Height>
+          <Order>5116</Order>
+          <CommentConnectionPort>
+            <ID>93c737c1-a088-4ea6-a0db-eaf63cabc6f4</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </CommentConnectionPort>
+          <BeforeDelay>0</BeforeDelay>
+          <AfterDelay>0</AfterDelay>
+          <BreakPoint>false</BreakPoint>
+          <OnErrorAction>Inherit</OnErrorAction>
+          <MaxRetries>1</MaxRetries>
+          <RetryDelay>0</RetryDelay>
+          <GoToFlagID />
+          <OnErrorActionAfterRetry>Inherit</OnErrorActionAfterRetry>
+          <GoToFlagIDAfterRetry />
+          <EnableTimeout>false</EnableTimeout>
+          <Timeout>60</Timeout>
+          <ControlIn>
+            <ID>d0e95420-0697-433b-8b0f-4afa7223b225</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlIn>
+          <ControlOut>
+            <ID>45b7e82e-b890-47fa-94bb-7c17b97bde7f</ID>
+            <Name />
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+          </ControlOut>
+          <DataOut>
+            <ID>e7f01517-7142-42a0-b998-271fb3d52883</ID>
+            <Name>Return</Name>
+            <Visibility>true</Visibility>
+            <AllowDelete>true</AllowDelete>
+            <Validations />
+            <Type>
+              <ID>8397b58a-c01c-4b19-8093-802949fe0cf6</ID>
+              <Name>Boolean</Name>
+              <FullName>System.Boolean</FullName>
+              <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+            </Type>
+            <IsTypeEditable>true</IsTypeEditable>
+            <IsNameEditable>false</IsNameEditable>
+            <IsValueEditable>true</IsValueEditable>
+            <ShowTypeLabel>false</ShowTypeLabel>
+            <ShowNameLabel>true</ShowNameLabel>
+            <DataSensitive>false</DataSensitive>
+            <ValueSourceType>Connection</ValueSourceType>
+            <AllowOverridePopup>true</AllowOverridePopup>
+          </DataOut>
+          <Code>return confidence &lt; threshold</Code>
+          <Items>
+            <AutxDataInPort>
+              <ID>30210bd4-a7a3-47f1-b858-ed102a4c51ce</ID>
+              <Name>confidence</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>29bea4be-80d2-4ee0-9718-d5e4457d2af4</ID>
+                <Name>Double</Name>
+                <FullName>System.Double</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>true</IsTypeEditable>
+              <IsNameEditable>true</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>false</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+            <AutxDataInPort>
+              <ID>d5c30717-9afd-4fa3-becf-89c4c1695ac5</ID>
+              <Name>threshold</Name>
+              <Visibility>true</Visibility>
+              <AllowDelete>true</AllowDelete>
+              <Validations />
+              <Type>
+                <ID>29bea4be-80d2-4ee0-9718-d5e4457d2af4</ID>
+                <Name>Double</Name>
+                <FullName>System.Double</FullName>
+                <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+              </Type>
+              <IsTypeEditable>true</IsTypeEditable>
+              <IsNameEditable>true</IsNameEditable>
+              <IsValueEditable>true</IsValueEditable>
+              <ShowTypeLabel>false</ShowTypeLabel>
+              <ShowNameLabel>true</ShowNameLabel>
+              <DataSensitive>false</DataSensitive>
+              <ValueSourceType>Connection</ValueSourceType>
+              <AllowOverridePopup>true</AllowOverridePopup>
+            </AutxDataInPort>
+          </Items>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>85a65af5-c9b3-4a84-a446-960e2af10a25</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>74a53114-8bab-4dbb-8653-682a45611820</SourceComponentID>
+          <SourcePortID>2537f0be-0ddc-4aa4-a087-901599bf7558</SourcePortID>
+          <SinkComponentID>41953d78-2e01-484b-ba90-a6250e746dc1</SinkComponentID>
+          <SinkPortID>d0e95420-0697-433b-8b0f-4afa7223b225</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxControlConnection">
+          <ID>8387e0a5-da40-4b7f-a19f-15ae76ffc6a4</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>41953d78-2e01-484b-ba90-a6250e746dc1</SourceComponentID>
+          <SourcePortID>45b7e82e-b890-47fa-94bb-7c17b97bde7f</SourcePortID>
+          <SinkComponentID>8a8967d0-f684-4817-b507-a7f47d9ab7c4</SinkComponentID>
+          <SinkPortID>649a2a2f-147e-4a98-aa47-42b2871c1927</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>b67ef020-f967-41fe-a351-771ccef7e8f1</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>74a53114-8bab-4dbb-8653-682a45611820</SourceComponentID>
+          <SourcePortID>bf901b24-adc2-4d7d-80a4-a8ad61fe0283</SourcePortID>
+          <SinkComponentID>41953d78-2e01-484b-ba90-a6250e746dc1</SinkComponentID>
+          <SinkPortID>d5c30717-9afd-4fa3-becf-89c4c1695ac5</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>ec8d7567-1b70-4fcc-b0fd-225a5bd6c325</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>0f2a9209-e14b-4ad4-81a5-a19c80d5107b</SourceComponentID>
+          <SourcePortID>0dc40a5d-d40b-4538-9688-f6d58e9a3d1b</SourcePortID>
+          <SinkComponentID>41953d78-2e01-484b-ba90-a6250e746dc1</SinkComponentID>
+          <SinkPortID>30210bd4-a7a3-47f1-b858-ed102a4c51ce</SinkPortID>
+        </DesignItem>
+        <DesignItem xsi:type="AutxDataConnection">
+          <ID>4b7b3363-dd40-4384-a440-fbbb5b184239</ID>
+          <ParentID>d6547d57-ef13-4f71-a04f-8a56278647b3</ParentID>
+          <SourceComponentID>41953d78-2e01-484b-ba90-a6250e746dc1</SourceComponentID>
+          <SourcePortID>e7f01517-7142-42a0-b998-271fb3d52883</SourcePortID>
+          <SinkComponentID>8a8967d0-f684-4817-b507-a7f47d9ab7c4</SinkComponentID>
+          <SinkPortID>2998bdc6-b19d-4930-b982-44024c8baddb</SinkPortID>
         </DesignItem>
       </Items>
       <Name>Main</Name>
