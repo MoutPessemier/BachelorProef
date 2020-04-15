@@ -12,9 +12,13 @@
 \usepackage{makecell}
 \usepackage{listings}
 \usepackage{rotating}
-\usepackage[acronym]{glossaries}
+\usepackage{glossaries}
 
 \makeglossaries
+
+\newglossaryentry{no_code_rpa}{name={No-Code RPA},description={Een manier voor het implementeren van processen, gebruik makend van RPA maar zonder iets te coderen}}
+
+\newglossaryentry{low_code_rpa}{name={Low-Code RPA},description={Een manier voor het implementeren van processen, gebruik makend van RPA waarbij een minimum aan code geschreven wordt. Dit gaat meestal over een aantal if-statements of een loop conditie}}
 
 \newacronym{rpa}{RPA}{Robotic Process Automation}
 \newacronym{ai}{AI}{Artificiële Inteligentie}
@@ -70,8 +74,7 @@
 %---------- Lijst figuren, afkortingen, ... ------------------------------------
 \listoffigures
 \listoftables
-%\printacronyms
-\printglossary[type=\acronymtype]
+\printglossaries
 
 %---------- Kern ---------------------------------------------------------------
 \input{inleiding}
