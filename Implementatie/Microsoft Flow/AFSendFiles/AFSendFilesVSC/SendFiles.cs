@@ -1,24 +1,21 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using Dropbox.Api;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace MetaMaze {
+namespace AFSendFiles {
     public static class SendFiles {
 
         private static readonly HttpClient client = new HttpClient ();
 
-        [HttpPost]
         [FunctionName ("SendFiles")]
         public static async Task<HttpResponseMessage> Run (
             [HttpTrigger (AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequestMessage req,
@@ -26,38 +23,40 @@ namespace MetaMaze {
             log.LogInformation ("C# HTTP trigger function processed a request.");
             log.LogInformation ("SendFiles Triggered");
 
-            string jsonInput = req.Content.ReadAsStringAsync ().Result;
+            var token = Environment.GetEnvironmentVariable("DropboxKey");
+
+            DropboxClient dropbox = new DropboxClient (token);
+
+            string jsonInput = await req.Content.ReadAsStringAsync ();
             SendFilesInput input = JsonConvert.DeserializeObject<SendFilesInput> (jsonInput);
 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue ("Bearer", input.BearerToken);
             string url = "https://adp.faktion.com/gql/api/organisations/" + input.OrganisationId + "/projects/" + input.ProjectId + "/process";
             string response = null;
             bool succesfullRequest = false;
             MultipartFormDataContent formdata = new MultipartFormDataContent ();
+            log.LogInformation ("Adding files to MultiPartFormData and sending the files");
             try {
                 foreach (var filePath in input.Files) {
-                    FileStream fs = new FileStream (filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                    HttpContent content = new StreamContent (fs);
+                    // create filestream content
                     string name = GetFileName (filePath);
+                    var res = await dropbox.Files.DownloadAsync (filePath);
+                    HttpContent content = new StreamContent (await res.GetContentAsStreamAsync ());
                     content.Headers.Add ("Content-Type", GetFileType (name));
                     formdata.Add (content, "files", name);
                 }
-                var resultPost = client.PostAsync (url, formdata).Result;
-                response = resultPost.Content.ReadAsStringAsync ().Result;
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue ("Bearer", input.BearerToken);
+                // send content to the backend and parse result
+                var resultPost = await client.PostAsync (url, formdata);
+                response = await resultPost.Content.ReadAsStringAsync ();
                 succesfullRequest = resultPost.IsSuccessStatusCode;
-            } catch (TimeoutException e) {
-                req.CreateResponse (HttpStatusCode.BadRequest, e.InnerException);
-                ExceptionDispatchInfo.Capture (e.InnerException).Throw ();
-                throw;
-            } catch (Exception ex) {
-                req.CreateResponse (HttpStatusCode.BadRequest, ex.InnerException);
-                ExceptionDispatchInfo.Capture (ex.InnerException).Throw ();
-                throw;
+            }
+            // I absolutely want to catch every exception and pass these along to the workflow
+            catch (Exception ex) {
+                return req.CreateErrorResponse (HttpStatusCode.BadRequest, ex);
             }
             // if something went wrong in the backend, throw an error
             if (!succesfullRequest) {
-                req.CreateResponse (HttpStatusCode.BadRequest, "Something went wrong during the upload process");
-                throw new Exception ("Something went wrong during the upload process");
+                return req.CreateErrorResponse (HttpStatusCode.BadRequest, "Something went wrong during the upload process");
             }
 
             UploadResponse r = JsonConvert.DeserializeObject<UploadResponse> (response);
@@ -70,9 +69,10 @@ namespace MetaMaze {
             string jsonString = "";
             ProcessResponse pr;
             succesfullRequest = false;
+            log.LogInformation ("Polling...");
             do {
-                result = client.GetAsync (url + "/" + r.UploadId).Result;
-                jsonString = result.Content.ReadAsStringAsync ().Result;
+                result = await client.GetAsync (url + "/" + r.UploadId);
+                jsonString = await result.Content.ReadAsStringAsync ();
                 pr = JsonConvert.DeserializeObject<ProcessResponse> (jsonString);
                 switch (pr.Status) {
                     case "DONE":
@@ -81,32 +81,28 @@ namespace MetaMaze {
                         break;
                     case "DOCUMENT_CLASSIFICATION_INTERVENTION":
                     case "ENTITY_EXTRACTION_INTERVENTION":
-                        req.CreateResponse (HttpStatusCode.BadRequest, "Intervention");
-                        throw new Exception ("Intervention");
+                        return req.CreateResponse (HttpStatusCode.BadRequest, "Intervention");
                     case "FAILED":
-                        req.CreateResponse (HttpStatusCode.BadRequest, "Something went wrong during the processing process");
-                        throw new Exception ("Something went wrong during the processing process");
+                        return req.CreateResponse (HttpStatusCode.BadRequest, "Something went wrong during the processing process");
                     default:
                         counter++;
+                        // check status every 7 seconds
+                        Thread.Sleep (7000);
                         break;
                 }
-                // check status every 7 seconds
-                Thread.Sleep (7000);
-            } while (polling && counter <= 150);
-            if (counter == 150) {
-                req.CreateResponse (HttpStatusCode.BadRequest, "Request Timeout: try again later.");
-                throw new Exception ("Request Timeout: try again later.");
+            } while (polling && counter <= 50);
+            if (counter == 50) {
+                return req.CreateErrorResponse (HttpStatusCode.BadRequest, "Request Timeout: try again later.");
             }
             if (!succesfullRequest) {
-                req.CreateResponse (HttpStatusCode.BadRequest, "Something went wrong when asking for the result of the pipeline");
-                throw new Exception ("Something went wrong when asking for the result of the pipeline");
+                return req.CreateErrorResponse (HttpStatusCode.BadRequest, "Something went wrong when asking for the result of the pipeline");
             }
 
             return req.CreateResponse (HttpStatusCode.OK, pr);
         }
 
         private static string GetFileName (string path) {
-            char[] charSeparators = new char[] { '\\' };
+            char[] charSeparators = new char[] { '/' };
             var splitPath = path.Split (charSeparators);
             return splitPath[splitPath.Length - 1];
         }
@@ -138,6 +134,7 @@ namespace MetaMaze {
             }
         }
     }
+
     class SendFilesInput {
         [JsonProperty ("files")]
         public IEnumerable<string> Files { get; set; }

@@ -26,9 +26,11 @@ namespace AFSendFiles
             log.LogInformation("C# HTTP trigger function processed a request.");
             log.LogInformation("SendFiles Triggered");
 
-            DropboxClient dropbox = new DropboxClient("token");
+            var token = Environment.GetEnvironmentVariable("DropboxKey");
 
-            string jsonInput = req.Content.ReadAsStringAsync().Result;
+            DropboxClient dropbox = new DropboxClient(token);
+
+            string jsonInput = await req.Content.ReadAsStringAsync();
             SendFilesInput input = JsonConvert.DeserializeObject<SendFilesInput>(jsonInput);
 
             string url = "https://adp.faktion.com/gql/api/organisations/" + input.OrganisationId + "/projects/" + input.ProjectId + "/process";
@@ -46,12 +48,11 @@ namespace AFSendFiles
                     HttpContent content = new StreamContent(await res.GetContentAsStreamAsync());
                     content.Headers.Add("Content-Type", GetFileType(name));
                     formdata.Add(content, "files", name);
-                    // System.IO.File.Delete(tempfile); at this point, we still are using the file for some reason and so I can't delete it
                 }
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", input.BearerToken);
                 // send content to the backend and parse result
-                var resultPost = client.PostAsync(url, formdata).Result;
-                response = resultPost.Content.ReadAsStringAsync().Result;
+                var resultPost = await client.PostAsync(url, formdata);
+                response = await resultPost.Content.ReadAsStringAsync();
                 succesfullRequest = resultPost.IsSuccessStatusCode;
             }
             // I absolutely want to catch every exception and pass these along to the workflow
@@ -78,8 +79,8 @@ namespace AFSendFiles
             log.LogInformation("Polling...");
             do
             {
-                result = client.GetAsync(url + "/" + r.UploadId).Result;
-                jsonString = result.Content.ReadAsStringAsync().Result;
+                result = await client.GetAsync(url + "/" + r.UploadId);
+                jsonString = await result.Content.ReadAsStringAsync();
                 pr = JsonConvert.DeserializeObject<ProcessResponse>(jsonString);
                 switch (pr.Status)
                 {
@@ -109,14 +110,6 @@ namespace AFSendFiles
             }
 
             return req.CreateResponse(HttpStatusCode.OK, pr);
-        }
-
-        private static string getTempFilePath(string tempfile, string name)
-        {
-            char[] charSeparators = new char[] { '\\' };
-            var splitPath = tempfile.Split(charSeparators);
-            splitPath[splitPath.Length - 1] = name;
-            return String.Join("\\", splitPath);
         }
 
         private static string GetFileName(string path)
