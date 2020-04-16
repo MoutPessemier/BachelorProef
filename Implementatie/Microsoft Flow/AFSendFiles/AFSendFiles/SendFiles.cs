@@ -7,10 +7,9 @@ using System.Net;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
-// using System.IO;
 using System;
 using System.Threading;
-// using Microsoft.SharePoint.Client;
+using Dropbox.Api;
 
 namespace AFSendFiles
 {
@@ -27,8 +26,8 @@ namespace AFSendFiles
             log.LogInformation("C# HTTP trigger function processed a request.");
             log.LogInformation("SendFiles Triggered");
 
-            //ClientContext context = new ClientContext("https://factionxyz0.sharepoint.com/sites/faktion-devs");
-            
+            DropboxClient dropbox = new DropboxClient("token");
+
             string jsonInput = req.Content.ReadAsStringAsync().Result;
             SendFilesInput input = JsonConvert.DeserializeObject<SendFilesInput>(jsonInput);
 
@@ -39,30 +38,15 @@ namespace AFSendFiles
             log.LogInformation("Adding files to MultiPartFormData and sending the files");
             try
             {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "");
                 foreach (var filePath in input.Files)
                 {
                     // create filestream content
-                    //var res = await client.GetAsync("https://factionxyz0.sharepoint.com/sites/faktion-devs" + "/" + filePath);
-                    //var stream = await res.Content.ReadAsStreamAsync();
-                    //var tempfile = Path.GetTempFileName();
-
-                    //Microsoft.SharePoint.Client.File temp = context.Web.GetFileByServerRelativeUrl(filePath);
-                    //ClientResult<Stream> crstream = temp.OpenBinaryStream();
-                    //context.Load(temp);
-                    //context.ExecuteQuery();
-
-                    //var tempfile = Path.GetTempFileName();
-                    //FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                    //if(crstream.Value != null)
-                    //{
-                    //    crstream.Value.CopyTo(fs);
-                    //}
-                    //HttpContent content = new StreamContent(fs);
                     string name = GetFileName(filePath);
-                    //content.Headers.Add("Content-Type", GetFileType(name));
-                    //formdata.Add(content, "files", name);
-                    //File.Decrypt(tempfile);
+                    var res = await dropbox.Files.DownloadAsync(filePath);
+                    HttpContent content = new StreamContent(await res.GetContentAsStreamAsync());
+                    content.Headers.Add("Content-Type", GetFileType(name));
+                    formdata.Add(content, "files", name);
+                    // System.IO.File.Delete(tempfile); at this point, we still are using the file for some reason and so I can't delete it
                 }
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", input.BearerToken);
                 // send content to the backend and parse result
@@ -73,12 +57,12 @@ namespace AFSendFiles
             // I absolutely want to catch every exception and pass these along to the workflow
             catch (Exception ex)
             {
-                req.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
             // if something went wrong in the backend, throw an error
             if (!succesfullRequest)
             {
-                req.CreateErrorResponse(HttpStatusCode.BadRequest, "Something went wrong during the upload process");
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Something went wrong during the upload process");
             }
 
             UploadResponse r = JsonConvert.DeserializeObject<UploadResponse>(response);
@@ -105,33 +89,39 @@ namespace AFSendFiles
                         break;
                     case "DOCUMENT_CLASSIFICATION_INTERVENTION":
                     case "ENTITY_EXTRACTION_INTERVENTION":
-                        req.CreateResponse(HttpStatusCode.BadRequest, "Intervention");
-                        throw new Exception("Intervention");
+                        return req.CreateResponse(HttpStatusCode.BadRequest, "Intervention");
                     case "FAILED":
-                        req.CreateResponse(HttpStatusCode.BadRequest, "Something went wrong during the processing process");
-                        throw new Exception("Something went wrong during the processing process");
+                        return req.CreateResponse(HttpStatusCode.BadRequest, "Something went wrong during the processing process");
                     default:
                         counter++;
+                        // check status every 7 seconds
+                        Thread.Sleep(7000);
                         break;
                 }
-                // check status every 7 seconds
-                Thread.Sleep(7000);
             } while (polling && counter <= 50);
             if (counter == 50)
             {
-                req.CreateErrorResponse(HttpStatusCode.BadRequest, "Request Timeout: try again later.");
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Request Timeout: try again later.");
             }
             if (!succesfullRequest)
             {
-                req.CreateErrorResponse(HttpStatusCode.BadRequest, "Something went wrong when asking for the result of the pipeline");
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Something went wrong when asking for the result of the pipeline");
             }
 
             return req.CreateResponse(HttpStatusCode.OK, pr);
         }
 
-        private static string GetFileName(string path)
+        private static string getTempFilePath(string tempfile, string name)
         {
             char[] charSeparators = new char[] { '\\' };
+            var splitPath = tempfile.Split(charSeparators);
+            splitPath[splitPath.Length - 1] = name;
+            return String.Join("\\", splitPath);
+        }
+
+        private static string GetFileName(string path)
+        {
+            char[] charSeparators = new char[] { '/' };
             var splitPath = path.Split(charSeparators);
             return splitPath[splitPath.Length - 1];
         }

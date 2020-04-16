@@ -4,8 +4,8 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Dropbox.Api" Version="4.9.4" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.31" />
-    <PackageReference Include="Microsoft.SharePoint.Client" Version="14.0.4762.1000" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
