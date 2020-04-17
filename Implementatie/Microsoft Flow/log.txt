@@ -16,3 +16,7 @@
 2020-04-14T07:20:18.6919450Z: Something went wrong whilst getting the files.
 2020-04-16T09:10:57.9688772Z: Something went wrong whilst getting the files.
 2020-04-16T09:13:11.4558767Z: Something went wrong whilst getting the files.
+2020-04-16T15:07:28.8843491Z: Something went wrong whilst getting the files.
+2020-04-16T15:08:50.3849416Z: Something went wrong whilst getting the files: {"statusCode":401,"message":"Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API."}
+2020-04-17T09:03:54.3086892Z: Something went wrong whilst getting the files: {"statusCode":404,"message":"Resource not found"}
+2020-04-17T09:31:59.7399014Z: Something went wrong whilst getting the files: {"statusCode":404,"message":"Resource not found"}

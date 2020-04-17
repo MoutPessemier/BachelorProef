@@ -63,4 +63,8 @@ xdg-open Voorstel/Pessemier_Mout_voorstel.pdf
 xdg-open Poster/conference_poster.pdf
 ```
 
+### Presentatie
+
+De link naar mijn Prezi presentatie kan [hier](https://prezi.com/p/490z0bt4qhf4/?present=1) terug gevonden worden. [WIP]
+
 © Mout Pessemier 2019 - 2020
