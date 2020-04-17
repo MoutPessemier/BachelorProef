@@ -6,7 +6,7 @@ Deze bachelorproef gaat over Robotic Process Automation, een technologie die geb
 
 Promotor: Johan Decorte
 
-Co-Promotor: Laurens Lavaert ([Faktion](http://faktion.com/))
+Co-Promotor: Laurens Lavaert (<a href="http://faktion.com/" target="_blank">Faktion</a>)
 
 ### Onderzoeksvragen
 
@@ -14,11 +14,11 @@ Hoe makkelijk of juist hoe moeilijk is het om een RPA workflow te integreren met
 
 ### Onderzochte RPA Providers
 
-- [UiPath](https://www.uipath.com/)
-- [Automation Anywhere](https://www.automationanywhere.com/)
-- [WorkFusion](https://www.workfusion.com/)
-- [IntelliBot](https://intellibot.io/)
-- [Microsoft Flow](https://flow.microsoft.com/)
+- <a href="https://www.uipath.com/" target="_blank">UiPath</a>
+- <a href="https://www.automationanywhere.com/" target="_blank">Automation Anywhere</a>
+- <a href="https://www.workfusion.com/" target="_blank">WorkFusion</a>
+- <a href="https://intellibot.io/" target="_blank">IntelliBot</a>
+- <a href="https://flow.microsoft.com/" target="_blank">Microsoft Flow</a>
 
 ### Lezen van de proef
 
@@ -65,6 +65,6 @@ xdg-open Poster/conference_poster.pdf
 
 ### Presentatie
 
-De link naar mijn Prezi presentatie kan [hier](https://prezi.com/p/490z0bt4qhf4/?present=1) terug gevonden worden. [WIP]
+De link naar mijn Prezi presentatie kan <a href="https://prezi.com/p/490z0bt4qhf4/?present=1" target="_blank">hier</a> terug gevonden worden. [WIP]
 
 © Mout Pessemier 2019 - 2020
