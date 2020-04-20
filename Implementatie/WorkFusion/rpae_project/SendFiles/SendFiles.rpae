@@ -10,7 +10,8 @@
     <variable name="to" type="SECRET" value="emails.KEY"/>
     <variable name="from" type="SECRET" value="emails.VALUE"/>
     <variable name="send_mail" type="STRING" value="False"/>
-    <variable name="gt" type="TABLE" value="[('', '', '');('', '', '');('', '', '');('', '', '');('', '', '');('', '', '');('', '', '')]"/>
+    <variable name="json" type="TABLE" value="[]"/>
+    <variable name="uncertain_entities" type="STRING" value=""/>
   </variables>
   <actions xsi:type="recorder:FileCreateAction" active="true" actionDetails="('D:\BachelorProef\Implementatie\WorkFusion\Output\Output.txt', skip if present)" delay="0" path="D:\BachelorProef\Implementatie\WorkFusion\Output\Output.txt" resolution="SKIP" encoding="UTF-8" createFolder="false"/>
   <actions xsi:type="recorder:FileListFolderAction" active="true" actionDetails="('C:\Users\Mout Pessemier\Des...' to ${files})" delay="0" targetVariable="files" path="C:\Users\Mout Pessemier\Desktop\temp" type="FILES" includeSubFolders="false" filterBySize="false" filterByDates="false" dateFilterType="FIXED" from="2020-03-20 14:37:24" dateFormat="yyyy-MM-dd HH:mm:ss" unit="DAYS" filterByPattern="false" pattern=""/>
@@ -22,7 +23,8 @@
       <actions xsi:type="recorder:FileWriteAction" active="true" actionDetails="('&quot;[${date}]: Something went ...' to 'D:\BachelorPro...ut\Output.txt')" delay="0" path="D:\BachelorProef\Implementatie\WorkFusion\Output\Output.txt" content="&quot;[${date}]: Something went wrong when sending the files to Metamaze. \n&quot;" overwrite="false" encoding="UTF-8"/>
     </catchBlock>
   </actions>
-  <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(send_mail = &quot;True&quot;)" delay="0" leftOperand="${send_mail}" rightOperand="True" leftOperandType="VARIABLE" rightOperandType="STRING">
+  <actions xsi:type="recorder:CustomScriptAction" active="true" actionDetails="(BuildUp UncertainEntities)" delay="0" name="BuildUp UncertainEntities" script="&#x9;&#x9;&#x9;&#x9;// Mapping the variables&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;@CustomScriptAction(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;input = ['json'],&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;output= 'uncertainEntites'&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;)&#xD;&#xA; &#x9;&#x9;&#x9;&#x9;&#xD;&#xA; &#x9;&#x9;&#x9;&#x9;// Sending the mail&#xD;&#xA; &#x9;&#x9;&#x9;&#x9;def customScript() {&#xD;&#xA; &#x9;&#x9;&#x9;&#x9;&#x9;def list = new ArrayList&lt;String>()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;for(int i = 0; i &lt; json.length; i++){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;def name = json[i][0]&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;def confidence = json[i][1]&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;def threshold = json[i][2]&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(confidence &lt; threshold) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;list.add(name)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;uncertainEntities = list.join(&quot;, &quot;)&#xD;&#xA; &#x9;&#x9;&#x9;&#x9;}"/>
+  <actions xsi:type="recorder:IfElseAction" active="true" actionDetails="(uncertain_entities is NOT empty)" delay="0" leftOperand="${uncertain_entities}" rightOperand="0" operator="IS_NOT_EMPTY" leftOperandType="VARIABLE" rightOperandType="STRING">
     <ifBlock active="true">
       <actions xsi:type="recorder:TryCatchAction" active="true" actionDetails="" delay="0">
         <tryBlock active="true">

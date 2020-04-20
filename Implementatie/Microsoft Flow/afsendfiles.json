@@ -36,6 +36,16 @@
         "description": "Sends the files",
         "operationId": "post-sendfiles",
         "summary": "SendFiles",
+        "parameters": [
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header",
+            "type": "string",
+            "enum": [
+              "EGXarJEW80PIScJ68PIXK9799Hl35Tzko2BKJ6kHxLnWmF8NIb3P8Q=="
+            ]
+          }
+        ],
         "responses": {
           "200": {
             "description": "successfully sent the files to metamaze"

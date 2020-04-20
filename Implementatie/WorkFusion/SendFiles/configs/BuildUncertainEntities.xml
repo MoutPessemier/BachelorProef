@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config
+	xmlns="http://web-harvest.sourceforge.net/schema/1.0/config"
+	scriptlang="groovy">
+	<robotics-flow>
+		<robot driver="universal" close-on-completion="true"
+			start-in-private="true">
+			<capability name="SEARCH_ALL_WINDOWS" value="true" />
+			<script><![CDATA[
+                import com.workfusion.studio.rpa.recorder.api.internal.representation.*
+                import com.workfusion.studio.rpa.recorder.api.*
+                import com.workfusion.studio.rpa.recorder.api.types.*
+                import com.workfusion.studio.rpa.recorder.api.custom.*
+                import static com.workfusion.studio.rpa.recorder.api.RandomValues.CharacterSet.*
+                
+				// Mapping the variables
+				@CustomScriptAction(
+					input = ['json'],
+					output= 'uncertainEntites'
+				)
+ 				
+ 				// Sending the mail
+ 				def customScript() {
+ 					def list = new ArrayList<String>()
+					for(int i = 0; i < json.length; i++){
+						def name = json[i][0]
+						def confidence = json[i][1]
+						def threshold = json[i][2]
+						
+						if(confidence < threshold) {
+							list.add(name)
+						}
+					}
+					uncertainEntities = list.join(", ")
+ 				}
+  
+            ]]></script>
+		</robot>
+	</robotics-flow>
+	<export include-original-data="true" />
+</config>

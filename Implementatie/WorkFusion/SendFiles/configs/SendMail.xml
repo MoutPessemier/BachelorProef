@@ -29,7 +29,7 @@
  
 				// Mapping the variables
 				@CustomScriptAction(
-					input = ['email', 'password', 'to', 'from']'
+					input = ['email', 'password', 'to', 'from']
 				)
  				
  				// Sending the mail
