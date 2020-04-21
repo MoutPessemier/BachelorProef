@@ -1,0 +1,4 @@
+2020-04-21T13:26:48.1235495Z: Something wnet wrong when sending the documents: {"statusCode":500,"message":"Internal server error"}
+2020-04-21T13:29:25.2549512Z: Something wnet wrong when sending the documents: {"statusCode":500,"message":"Internal server error"}
+2020-04-21T13:31:36.3635028Z: Succesfully uploaded files.
+2020-04-21T13:34:07.1271889Z: Succesfully sent mail and files
