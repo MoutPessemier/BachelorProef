@@ -33,10 +33,10 @@ namespace MetaMaze {
             try {
                 foreach (var sharepointFile in input.Files) {
                     // create filestream content
-                    var bytes = Convert.FromBase64String(sharepointFile.Content);
-                    HttpContent content = new StreamContent (new MemoryStream(bytes));
-                    content.Headers.Add ("Content-Type",sharepointFile.ContentType);
-                    formdata.Add (content, "files", "Invoice2.pdf");
+                    var bytes = Convert.FromBase64String (sharepointFile.Content.Base64String);
+                    HttpContent content = new StreamContent (new MemoryStream (bytes));
+                    content.Headers.Add ("Content-Type", sharepointFile.Content.ContentType);
+                    formdata.Add (content, "files", sharepointFile.Name);
                 }
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue ("Bearer", input.BearerToken);
                 // send content to the backend and parse result
@@ -98,7 +98,7 @@ namespace MetaMaze {
 
     class SendFilesInput {
         [JsonProperty ("files")]
-        public IEnumerable<SharePointFileContent> Files { get; set; }
+        public IEnumerable<SharePointFile> Files { get; set; }
 
         [JsonProperty ("bearerToken")]
         public string BearerToken { get; set; }
@@ -110,12 +110,20 @@ namespace MetaMaze {
         public string ProjectId { get; set; }
     }
 
+    class SharePointFile {
+        [JsonProperty ("name")]
+        public string Name { get; set; }
+
+        [JsonProperty ("content")]
+        public SharePointFileContent Content { get; set; }
+    }
+
     class SharePointFileContent {
         [JsonProperty ("$content-type")]
         public string ContentType { get; set; }
 
         [JsonProperty ("$content")]
-        public string Content { get; set; }
+        public string Base64String { get; set; }
     }
 
     class ProcessResponse {

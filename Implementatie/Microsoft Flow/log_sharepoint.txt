@@ -2,3 +2,15 @@
 2020-04-21T13:29:25.2549512Z: Something wnet wrong when sending the documents: {"statusCode":500,"message":"Internal server error"}
 2020-04-21T13:31:36.3635028Z: Succesfully uploaded files.
 2020-04-21T13:34:07.1271889Z: Succesfully sent mail and files
+2020-04-23T07:11:24.4278456Z: Succesfully sent mail and files
+2020-04-23T07:26:15.5119896Z: Succesfully sent mail and files
+2020-04-23T07:37:50.7400016Z: Succesfully sent mail and files
+2020-04-23T07:40:57.9690305Z: Succesfully sent mail and files
+2020-04-23T07:56:55.3687608Z: Succesfully sent mail and files
+2020-04-23T07:57:24.3849742Z: Succesfully sent mail and files
+2020-04-23T08:13:37.0168529Z: Succesfully uploaded files.
+2020-04-23T08:20:33.1108740Z: Succesfully sent mail and files
+2020-04-23T08:47:31.7896746Z: Something wnet wrong when sending the documents: {"Message":"An error has occurred."}
+2020-04-23T08:51:09.5147266Z: Something wnet wrong when sending the documents: {"Message":"An error has occurred."}
+2020-04-23T08:56:08.8957832Z: Succesfully sent mail and files
+2020-04-23T10:19:25.5875487Z: Succesfully sent mail and files
