@@ -1,1 +1,2 @@
 2020-04-23T10:17:39.7603896Z:  An error occurred when sending the files to the MetaMaze backend. {"Message":"An error has occurred."}
+2020-04-23T10:19:25.5875487Z: Succesfully sent mail and files
