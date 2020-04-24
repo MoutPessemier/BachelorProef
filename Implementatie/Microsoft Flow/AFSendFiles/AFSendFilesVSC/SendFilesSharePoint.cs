@@ -84,8 +84,8 @@ namespace MetaMaze {
                         Thread.Sleep (7000);
                         break;
                 }
-            } while (polling && counter <= 50);
-            if (counter == 50) {
+            } while (polling && counter <= 75); // 7 sec * 75 = 525 seconds = 8:45 min
+            if (counter == 75) {
                 return req.CreateErrorResponse (HttpStatusCode.BadRequest, "Request Timeout: try again later.");
             }
             if (!succesfullRequest) {

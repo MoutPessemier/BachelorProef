@@ -124,8 +124,8 @@ namespace SendFiles
                         Thread.Sleep(7000);
                         break;
                 }
-            } while (polling && counter <= 150);
-            if (counter == 150)
+            } while (polling && counter <= 75); // 7 sec * 75 = 525 seconds = 8:45 min
+            if (counter == 75)
             {
                 throw new Exception("Request Timeout: try again later.");
             }
