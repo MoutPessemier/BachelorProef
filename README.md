@@ -65,6 +65,6 @@ xdg-open Poster/conference_poster.pdf
 
 ### Presentatie
 
-De link naar mijn Prezi presentatie kan <a href="https://prezi.com/p/490z0bt4qhf4/?present=1" target="_blank">hier</a> terug gevonden worden. [WIP]
+De link naar mijn Prezi presentatie kan <a href="https://prezi.com/p/490z0bt4qhf4/?present=1" target="_blank">hier</a> terug gevonden worden.
 
 © Mout Pessemier 2019 - 2020
