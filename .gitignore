@@ -47,8 +47,12 @@ Implementatie/AutomationAnywhere/SendFiles/.vs
 Implementatie/IntelliBot/SendFiles/.vs
 Implementatie/Microsoft\ Flow/MFSendFiles/.vs
 Implementatie/Microsoft\ Flow/AFSendFiles/.vs
-
 Implementatie/IntelliBot/SendFilesWorkflow/SendFiles.zip
 Implementatie/Microsoft\ Flow/Assets
 
 # Poster
+Poster/conference_poster.aux
+Poster/conference_poster.log
+Poster/conference_poster.pdf
+Poster/conference_poster.synctex.tex
+Poster/conference_poster.synctex.gz
