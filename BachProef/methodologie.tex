@@ -5,41 +5,41 @@
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}
 \label{ch:methodologie}
 
-Aan de hand van verschillende \acrshort{rpa} providers zal een concreet proces geautomatiseerd worden op Metamaze, het \acrfull{adp} platform bij Faktion zelf. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
+Aan de hand van verschillende \acrshort{rpa} providers zal een concreet proces geautomatiseerd worden op Metamaze. MetaMaze is een \acrfull{adp} tool ontwikkeld door Faktion. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
 
-Dit is onderzocht geweest vanuit het perspectief van een beginnende \acrshort{rpa} developer. Het algemeen gevoel rond de verschillende \acrshort{rpa} providers kan sterk verschillen met een ervaren developer.
+Dit is onderzocht geweest vanuit het perspectief van een beginnende \acrshort{rpa} ontwikkelaar. De ervaring rond het werken met de verschillende \acrshort{rpa} providers kan sterk verschillen met een ervaren developer.
 
 
 \section{Voorbereiding}
-Eerst en vooral is het MetaMaze platform, gebouwd door Faktion, gronding geëxploreerd geweest. Zo werd een nieuw project aangemaakt, werden er documenten geüpload en gelabeld om een model te kunnen trainen. Nadien werd dit model dan gebruikt om voorspellingen te doen op nieuwe, soortgelijke documenten. Hierbij werd soms expres een verkeerd document geüpload om ook de 'manual intervention' te testen en kijken hoe dit eventueel in een proces kan gegoten worden. Op basis hiervan is een algemeen voorbeeld proces ineen gestoken geweest.
+Eerst en vooral is het MetaMaze platform gronding geëxploreerd geweest. Zo werd een nieuw project aangemaakt, werden er documenten geüpload en gelabeld om een model te kunnen trainen. Nadien werd dit model dan gebruikt om voorspellingen te doen op nieuwe, soortgelijke documenten. Hierbij werd soms doelbewust een verkeerd document geüpload om ook de manuele interventie te testen en kijken hoe dit eventueel in een proces kan gegoten worden. Op basis hiervan werd een algemeen voorbeeld proces opgezet.
 
-Als tweede stap is de afweging gemaakt welke providers vergeleken gingen worden. Hierbij werd rekening gehouden dat er best twee grote, twee kleine en één iets ander concept pakken. De kandidaten die hieruit gekomen zijn, zijn UiPath, Automation Anywhere, WorkFusion, IntelliBot en Microsoft Flow. Hierbij zijn Uipath en Automation Anywhere de grote providers, WorkFusion en IntelliBot de kleine en Microsoft Flow het ander concept.
+Als tweede stap is de afweging gemaakt welke providers vergeleken gingen worden. Hierbij werd rekening gehouden dat er twee grote marktspelers, twee kleine en een provider die de implementatie van \acrshort{rpa} op een totaal andere manier aanpakt, gekozen waren. De volgende providers werden uiteindelijk gekozen: UiPath, Automation Anywhere, WorkFusion, IntelliBot en Microsoft Flow. Hierbij zijn Uipath en Automation Anywhere de grote providers, WorkFusion en IntelliBot de kleine en Microsoft Flow het ander concept.
 
-Nadien is door de verschillende platformen hun cursus gegaan om met elk familiair te worden en een eerste gevoel te krijgen hoe het ineen zit. Ondertussen is een demo proces bedacht geweest. De uitwerking hiervan is te zien in figuur ~\ref{fig:exampleProcess}.
+ Nadien werd de documentatie en cursussen van deze platformen grondig bekeken om uiteindelijk een demo proces te bekomen. De uitwerking hiervan is te zien in figuur ~\ref{fig:exampleProcess}.
 
 \begin{figure}[h]
-	\includegraphics[width=\linewidth]{exampleProcess.png}
-	\caption[Te automatiseren demoproces]{Voorbeeldproces dat gebruik maakt van de custom Send Files activiteit.}
+	\includegraphics[width=\linewidth]{ExampleProcess.png}
+	\caption[Te automatiseren demoproces]{Voorbeeldproces dat gebruik maakt van de custom Send Files \gls{activiteit}.}
 	\label{fig:exampleProcess}
 \end{figure}
 
-Het algemeen proces dat zal geautomatiseerd worden op de verschillende \acrshort{rpa} solutions gaat als volgt te werk: Eerst wordt vanuit een bepaald punt (folder op de computer, OneDrive, DropBox, SharePoint) een aantal files opgehaald. Deze files worden doorgegeven aan een zelfgeschreven activiteit. In deze activiteit zullen deze files verstuurd worden naar de MetaMaze \acrshort{api}. Nadien wordt er gewacht tot een antwoord terug komt van de server met de resultaten van de upload. Deze resultaten worden terug gegeven naar de volgende stap in de workflow. Door verder te weken met de resulterende JSON kan gekeken worden of de zekerheid waarmee een bepaalde entity dat uit een document is gehaald, onder de minimum zekerheid (threshold) zit of niet. Als er geen onder de threshold zitten wordt het proces afgesloten met een gepaste melding. Als er 1 of meerdere confidence scores onder de threshold zitten zal eerst een mail verstuurd worden naar de klant om te laten weten welke entities de minimum niet gehaald hebben voor dat het proces eindigt met een gepaste melding.
+Het algemeen proces dat zal geautomatiseerd worden op de verschillende \acrshort{rpa} solutions gaat als volgt te werk: Eerst wordt vanuit een bepaald punt (folder op de computer, OneDrive, DropBox, SharePoint) een aantal files opgehaald. Deze files worden doorgegeven aan een zelfgeschreven \gls{activiteit}. In deze \gls{activiteit} zullen deze files verstuurd worden naar de MetaMaze \acrshort{api}. De bestanden worden door de backend verwerkt. Nadien wordt er gewacht tot een antwoord terug komt van de server met de resultaten van de upload. Deze resultaten worden terug gegeven naar de volgende stap in de \gls{workflow}. Door verder te werken met de resulterende \acrshort{json} kan gekeken worden of de zekerheid waarmee een bepaalde entity dat uit een document is gehaald, onder de minimum zekerheid (threshold) zit of niet. Als er geen waarden onder de threshold zitten wordt het proces afgesloten met een gepaste melding. Als er één of meerdere confidence scores onder de threshold zitten zal eerst een mail verstuurd worden naar de klant om deze te informeren welke entities de minimum score niet gehaald hebben, voor dat het proces eindigt met een gepaste melding.
 
 \subsection{Criteria}
-De criteria die onderzocht zijn kunnen opgedeeld worden in 3 categorieën: technische criteria, bedrijfscriteria en financiële criteria. Onder de technische criteria valt de mogelijkheid om gemakkelijk zelfgeschreven activiteiten toe te voegen, of stukken workflow gemakkelijk te hergebruiken zijn, hoe het zit met de tools om de workflow te maken en de bots te managen en als laatste punt hoe het zit met de IPA capaciteiten. Onder bedrijfscriteria vinden we het feit of er een grote onderneming achter het platform staat, hoe actief de community is van het platform, hoe de klantservice is. Tot slot valt onder de financiële categorie natuurlijk de prijs van een enterprise versie maar daarnaast ook of er een mogelijkheid is om een community editie te gebruiken en hoe uitgebreid deze versie is.
+De criteria die onderzocht zijn kunnen opgedeeld worden in drie categorieën: technische criteria, bedrijfscriteria en financiële criteria. Onder de technische criteria valt de mogelijkheid om gemakkelijk zelfgeschreven \gls{activiteit}en toe te voegen of stukken \gls{workflow} gemakkelijk te hergebruiken zijn. Ook wordt er gekeken naar hoe het zit met de tools om de \gls{workflow}s te maken en de bots te managen. Als laatste punt hoe het zit met de \acrshort{ipa} capaciteiten. Bij de bedrijfscriteria wordt gekeken naar het feit of er een grote onderneming achter het platform staat, hoe actief de community is van het platform en hoe de klantservice is. Tot slot valt onder de financiële categorie de prijs van een enterprise versie maar daarnaast ook of er een mogelijkheid is om een community editie te gebruiken en hoe uitgebreid deze versie is.
 
 De nadruk wordt hier gelegd op een integratie met een eigen \acrshort{api}, op een eigen webplatform.
 
-De verschillende criteria hebben elk een zwaarte toegekend gekregen. Hierop worden ze gescoord en op het einde worden alle punten opgeteld.
+De verschillende criteria hebben elk een gewicht toegekend gekregen. Hierop worden ze gescoord en op het einde worden alle punten opgeteld.
 
 \subsubsection{Puntenverdeling}
 Technische Criteria
 \begin{itemize}
-	\item Custom activities/implementations --> is de mogelijkheid er om een eigen code toe te voegen. Als die er is, hoe uitgebreid is dit, enkel als script of ook volwaardige activiteiten: /5
-	\item Herbruikbaarheid --> kunnen bepaalde (zelfgemaakte) workflows/activities hergebruikt worden door jezelf en/of anderen: /3
-	\item Tools --> Hoe zit het met de tools om een workflow op te zetten: /5
-	\item Bot management --> hoe zit het met het managen van de bots. Hoe gebeurd dit en kan dit op een eenvoudige manier: /3
-	\item IPA capaciteiten --> kan AI en ML makkelijk geïntegreerd worden in de workflow om IPA te bereiken. Wat wordt aangeboden door de provider zelf: /3
+	\item Custom activities/implementations --> is de mogelijkheid er om een eigen code toe te voegen. Als die er is, hoe uitgebreid is dit, enkel als script of ook volwaardige \gls{activiteit}en: /5
+	\item Herbruikbaarheid --> kunnen bepaalde (zelfgemaakte) \gls{workflow}s/activities hergebruikt worden door jezelf en/of anderen: /3
+	\item Tools --> hoe uitgebreid zijn de tools om een \gls{workflow} op te zetten: /5
+	\item Bot management --> hoe en waar worden de bots gemanaged? Kan dit op een efficiënte manier: /3
+	\item IPA capaciteiten --> kan \acrshort{ai} en \acrshort{ml} makkelijk geïntegreerd worden in de \gls{workflow} om IPA te bereiken. Wat wordt aangeboden door de provider zelf: /3
 \end{itemize}
 
 Bedrijfscriteria
@@ -58,9 +58,9 @@ Financiële criteria
 Dit komt uit op een totale score van 34.
 
 \section{Implementatie}
-Voor de implementatie op elk platform is eenzelfde werkwijze gehanteerd geweest. Eerst werd de workflow opgebouwd rond de zelfgeschreven activiteit, nadien werd deze geïmplementeerd in de achterliggende programmeertaal van elk platform. Eens deze geschreven was, werd uitgezocht hoe deze activiteiten dan gebruikt konden worden binnen de verschillende workflows.
+Voor de implementatie op elk platform is eenzelfde werkwijze gehanteerd geweest. Eerst werd de \gls{workflow} opgebouwd rond de zelfgeschreven \gls{activiteit}, nadien werd deze geïmplementeerd in de achterliggende programmeertaal van elk platform. Eens deze geschreven was, werd uitgezocht hoe deze \gls{activiteit}en dan gebruikt konden worden binnen de verschillende \gls{workflow}s.
 
-Voor de uitwerking van de zelfgeschreven activiteit werd eerst via pseudocode een basis uitwerking beschreven die nadien tot realisatie werd gebracht in de respectievelijke talen.
+Voor de uitwerking van de zelfgeschreven \gls{activiteit} werd eerst via pseudocode een basis uitwerking beschreven die nadien tot realisatie werd gebracht in de respectievelijke talen.
 
 \subsection{Pseudocode}
 \begin{lstlisting}
@@ -97,23 +97,23 @@ Uitvoer: de resulterende JSON.
 23: end function
 \end{lstlisting}
 
-Eens het de pseudocode uitgedacht was, was het slechts opzoek werk voor de juiste klassen te vinden en het proces te implementeren. Aangezien de meeste \acrshort{rpa} providers C\# gebruiken als achterliggende taal, kon over het algemeen veel code hergebruikt worden doorheen de verschillende implementaties. De basisklassen van welke overgeërfd werd kan dan wel verschillen maar de algemene logica voor het versturen van een POST request en het ophalen van het resultaat met een GET request blijft hetzelfde.
+Eens de pseudocode uitgedacht was, was het slechts opzoek werk voor de juiste klassen te vinden en het proces te implementeren. Aangezien de meeste \acrshort{rpa} providers C\# gebruiken als achterliggende taal, kon over het algemeen veel code hergebruikt worden doorheen de verschillende implementaties. De basisklassen van welke overgeërfd werd kan dan wel verschillen maar de algemene logica voor het versturen van een POST request en het ophalen van het resultaat met een GET request blijft hetzelfde.
 
-Tijdens het implementeren werd natuurlijk rekening gehouden met de verschillende criteria, vooral de technische dan, die vooraf vastgelegd waren.
+Tijdens het implementeren werd rekening gehouden met de verschillende criteria, vooral de technische dan, die vooraf vastgelegd waren.
 
 \section{Beoordeling}
 Voor de beoordeling van de prijs wordt aangeraden om te kijken naar het prijzenonderzoek, te vinden in de bijlage van deze paper.
 
 \subsection{UiPath}
-Bij UiPath is het mogelijk om in de community edition custom activities toe te voegen. Hiervoor moet een C\# Class Library gemaakt worden. Van dit project moet nadien een NuGet Package gemaakt worden en lokaal toegevoegd worden aan UiPath om toegang te krijgen tot deze activiteit. Het nadeel hierbij is dat elke wijziging in code een nieuwe versie van de package voorstelt die opnieuw moet worden gepubliceerd. Daarnaast kan ook een VB script uitgevoerd worden. (4.5/5)
+Bij UiPath is het mogelijk om in de community edition custom activities toe te voegen. Hiervoor moet een C\# Class Library gemaakt worden. Van dit project moet nadien een NuGet Package gemaakt worden en lokaal toegevoegd worden aan UiPath om toegang te krijgen tot deze \gls{activiteit}. Het nadeel hierbij is dat elke wijziging in code een nieuwe versie van de package voorstelt die opnieuw moet worden gepubliceerd. Daarnaast kan ook een VB script uitgevoerd worden. (4.5/5)
 
-Voor de herbruikbaarheid van custom activities en workflows kan gebruikt worden van de Orchestrator\footnote{https://platform.uipath.com/} in combinatie met de market place. Packages kunnen gepubliceerd worden naar de orchestrator en deze kunnen op die manier ter beschikking gesteld worden op de market zodat anderen deze package kunnen hergebruiken. Het is ook mogelijk om workflow bestanden te gaan aanroepen binnen andere workflows. (3/3) 
+Voor de herbruikbaarheid van custom activities en \gls{workflow}s kan gebruikt gemaakt worden van de Orchestrator\footnote{https://platform.uipath.com/} in combinatie met de market place. Packages kunnen gepubliceerd worden naar de orchestrator en deze kunnen op die manier ter beschikking gesteld worden op de market zodat anderen deze package kunnen hergebruiken. Er is ook de mogelijkheid om \gls{workflow} bestanden aan te roepen binnen andere \gls{workflow}s. (3/3) 
 
-De beschikbare tool voor het implementeren van een workflow is UiPath Stuido, een ide die zich focust op het ontwerpen en uitwerken van een workflow. Hierbinnen kan niet geprogrammeerd worden, daarvoor moet beroep gedaan worden op een C\# ide zoals Visual Studio. De tool zelf voelt heel intuïtief aan en zit logisch ineen. Het is makkelijk om een workflow op te bouwen en er zijn ook features aanwezig om de workflow te debuggen. (5/5)
+De beschikbare tool voor het implementeren van een \gls{workflow} is UiPath Stuido, een \acrfull{ide} die zich focust op het ontwerpen en uitwerken van een \gls{workflow}. Hierbinnen kan niet geprogrammeerd worden, daarvoor moet beroep gedaan worden op een C\# \acrshort{ide} zoals Visual Studio. De tool zelf voelt heel intuïtief aan en zit logisch ineen. Het is makkelijk om een \gls{workflow} op te bouwen en er zijn ook features aanwezig om de \gls{workflow} te debuggen. (5/5)
 
-Het managen van de UiPath bots gebeurd aan de hand van het online platform, de UiPath Orchestrator. Hierop worden machines vastgelegd waarop een bot attended of unattended kan gaan werken, worden bots gedeployed, taken ingepland, queues opgezet en assets bewaard en analytics weergegeven. Kortom, alles wat nodig is om de verzameling bots te gaan managen op een professionele manier. Het platform zit logisch ineen en werkt uitstekend. (3/3)
+Het managen van de UiPath bots gebeurt aan de hand van het online platform, de UiPath Orchestrator. Hierop worden machines vastgelegd waarop een bot attended of unattended kan gaan werken, worden bots gedeployed, taken ingepland, queues opgezet en assets bewaard en analytics weergegeven. Kortom, alles wat nodig is om de verzameling bots te gaan managen op een professionele manier. Het platform zit logisch ineen en werkt uitstekend. (3/3)
 
-In Studio zijn OCR en Computer Vision mogelijk om te gebruiken binnen een standaard workflow maar de echte AI workflows moeten opgebouwd worden aan de hand van AI Fabric, de tool speciaal gemaakt voor dit soort zaken. Deze zit vergrendeld achter een enterprise versie. (2/3)
+In Studio zijn \acrshort{ocr} en Computer Vision mogelijk om te gebruiken binnen een standaard \gls{workflow} maar de echte \acrshort{ai} \gls{workflow}s moeten opgebouwd worden aan de hand van \acrshort{ai} Fabric, de tool speciaal gemaakt voor dit soort zaken. Deze zit vergrendeld achter een enterprise versie. (2/3)
 
 De community achter UiPath is groot en actief. Het forum wordt gebruik door zowel UiPath zelf om belangrijke mededelingen te maken, als door de klanten die er terecht kunnen met vragen over allerhande topics. (5/5)
 
@@ -126,45 +126,45 @@ De community edition van UiPath als platform is zeer uitgebreid. In Studio kan j
 Dit brengt de totale score van UiPath op 30.5/34.
 
 \subsection{Automation Anywhere}
-Automation Anywhere staat niet toe om een custom activity te gebruiken in de community edition. Alles moet geautomatiseerd worden met de standaard activiteiten. Het aanbod van deze reeds voorziene activiteiten is wel uitgebreider dan bij UiPath. Voor het implementeren van een custom activiteit kan gebruik gemaakt worden van een C\# Class Library. (3/5)
+Automation Anywhere staat niet toe om een custom activity te gebruiken in de community edition. Alles moet geautomatiseerd worden met de standaard \gls{activiteit}en. Het aanbod van deze reeds voorziene \gls{activiteit}en is wel uitgebreider dan bij UiPath. Voor het implementeren van een custom \gls{activiteit} kan gebruik gemaakt worden van een C\# Class Library. (3/5)
 
-De herbruikbaarheid bij Automation Anywhere is terug te vinden in hun BotStore\footnote{https://botstore.automationanywhere.com/}. Hier kunnen bots geupload en download worden om nadien te configureren en te gebruiken. Een equivalent van de UiPath market place. (2/3)
+De herbruikbaarheid bij Automation Anywhere is terug te vinden in hun BotStore\footnote{https://botstore.automationanywhere.com/}. Hier kunnen bots geüpload en gedownload worden om nadien te configureren en te gebruiken. De BotStore is een equivalent van de UiPath market place. (2/3)
 
-De tools die gebruikt worden om een workflow te implementeren zijn allemaal cloud-based. Op de site wordt de flow opgebouwd en nadien wordt verbinding gemaakt met het lokaal apparaat waarop de workflow getest kan worden. De tool is over het algemeen begrijpbaar maar voor eenzelfde stap in UiPath, zijn geregeld meerdere stappen nodig in Automation Anywhere. Er is ook een mogelijkheid om de workflow te debuggen. (4/5)
+De tools die gebruikt worden om een \gls{workflow} te implementeren zijn allemaal cloud-based. Op de site wordt de flow opgebouwd en nadien wordt verbinding gemaakt met het lokaal apparaat waarop de \gls{workflow} getest kan worden. De tool is over het algemeen begrijpbaar maar voor eenzelfde stap in UiPath, zijn geregeld meerdere stappen nodig in Automation Anywhere. Er is ook een mogelijkheid om de \gls{workflow} te debuggen. (4/5)
 
 Voor de bots te managen moet bij Automation Anywhere niet ver gegaan worden. Dit zit namelijk in het zelfde webplatform als het maken van de robots. Hier kunnen robots gestart worden om taken uit te voeren op bepaalde machines. Er zijn geen verschillende typen van bots. Ook de analytics zijn zichtbaar op dit platform. (1.5/3)
 
-Voor het maken van AI en ML bots kan beroep gedaan worden op de IQBot van Automation Anywhere. Hier wordt de focus gelegd op automated document processing (ADP) wat exact hetzelfde is als MetaMaze. Dit getrainde model kan dan gebruik worden in een gewone flow. Daarnaast zijn er ook nog enkele standaard activiteiten die werken met NLP en OCR. (2.5/3)
+Voor het maken van \acrshort{ai} en \acrshort{ml} bots kan beroep gedaan worden op de IQBot van Automation Anywhere. Hier wordt de focus gelegd op \acrfull{adp} wat exact hetzelfde is als MetaMaze. Dit getrainde model kan dan gebruikt worden in een gewone flow. Daarnaast zijn er ook nog enkele standaard \gls{activiteit}en die werken met NLP en OCR. (2.5/3)
 
-De community achter Automation Anywhere is groot en actief al worden er geen updates gepost door Automation Anywhere zelf. Ook hier wordt gebruik gemaakt van duidelijke subcategorieën om de posts in op te delen. (4.5/3) 
+De community achter Automation Anywhere is groot en actief, al worden er geen updates gepost door Automation Anywhere zelf. Ook hier wordt gebruik gemaakt van duidelijke subcategorieën om de posts in op te delen. (4.5/3) 
 
-Er is een zeer ruim aanbod aan lessen voor verschillende onderdelen van het \acrshort{rpa} development proces. Dit gaat van de voorbereiding tot het verstaan van de business needs en het implementeren van een proces. De video's zijn duidelijk opgebouwd in een cursus structuur en zijn makkelijk te volgen. (3/3)
+Er is een zeer ruim aanbod aan lessen voor verschillende onderdelen van het \acrshort{rpa} development proces. Dit gaat van de voorbereiding tot het verstaan van de bedrijfsbehoeftes en het implementeren van een proces. De video's zijn duidelijk opgebouwd in een cursus structuur en zijn makkelijk te volgen. (3/3)
 
-Support is lastig om in te schatten. In begin was contact via mail of telefoon is rap gelegd en er werd een inspanning geleverd om zo goed en snel mogelijk hulp te bieden op de verschillende vragen of problemen. Naargelang de tijd vorderde, verwaterde ook het contact. Dit kan natuurlijk te maken hebben met de COVID-19 crisis. (2/3)
+Support is lastig om in te schatten. In het begin was contact via mail of telefoon snel gelegd en er werd een inspanning geleverd om zo goed en snel mogelijk hulp te bieden op de verschillende vragen of problemen. Naargelang de tijd vorderde, verwaterde ook het contact. Dit kan natuurlijk te maken hebben met de COVID-19 crisis. (2/3)
 
-De community edition van Automation Anywhere is uitgebreid genoeg tot het punt waar de beslissing om voor dit platform te kiezen kan gemaakt worden maar langs de andere kant steekt ook veel weg achter de premium versie. Zo valt heel de BotStore weg en zit veel van het platform en de capaciteiten om bots te gaan inplannen en taken toe te voegen, vast achter een enterprise license. (3.5/5)
+De community editie van Automation Anywhere is uitgebreid genoeg tot het punt waar de beslissing om voor dit platform te kiezen kan gemaakt worden. Daartegenover wordt ook veel weggestoken achter de premium versie. Zo is er geen toegang tot de BotStore en zit veel van het platform en de capaciteiten om bots te gaan inplannen of taken toe te voegen, vast achter een enterprise license. Ook de IQBot zit verstopt achter een licentie. (3.5/5)
 
 Dit levert Automation Anywhere een score op van 26/34.
 
 \subsection{WorkFusion}
 
-Er is geen mogelijkheid om een custom activity toe te voegen in beide versies. Wel kan een custom script geschreven worden dat code kan uitvoeren. Dit script is geschreven in Groovy en kan alleen gebruik maken van de basic Groovy onderdelen. Geen andere jars kunnen toegevoegd worden wat resulteert in zeer beperkte mogelijkheden om een eigen iets te gebruiken. (1.5/5)
+Er is geen mogelijkheid om een custom activity toe te voegen in beide versies. Wel kan een custom script geschreven worden dat code kan uitvoeren. Dit script is geschreven in Groovy en kan alleen gebruik maken van de basic Groovy onderdelen. Geen andere jar bestanden kunnen toegevoegd worden wat resulteert in zeer beperkte mogelijkheden om een eigen iets te gebruiken. (1.5/5)
 
-Herbruikbaarheid bij WorkFusion kan gevonden worden in de recordings. Deze kunnen hergebruikt worden waarbij alleen de parameters moeten/kunnen aangepast worden. Ook kunnen functions en custom scripts hergebruikt worden doorheen verschillende recordings. (1.5/3)
+Herbruikbaarheid bij WorkFusion kan gevonden worden in de recordings. Deze kunnen hergebruikt worden waarbij alleen de parameters kunnen aangepast worden. Ook kunnen functies en zelfgeschreven scripts hergebruikt worden doorheen verschillende recordings. (1.5/3)
 
-De WorkFusion tools om een recording te maken bestaat uit een dedicated ide waar zowel in kan geprogrammeerd worden als een recording opgebouwd worden. Het grootste probleem bij het programmeer gedeelte is dat er geen syntax highlighting of autocomplete is. Er moet dus feitelijk blind geprogrammeerd worden. Daarom dat meestal andere ide's gebruikt worden zoals IntelliJ. Langs de recorder kant ziet de ide er zeer droog uit. De UI is niet aantrekkelijk en er zijn ook maar een beperkt aantal standaard activiteiten voorzien. (1/5)
+De WorkFusion tools om een recording te maken bestaat uit een dedicated \acrlong{ide} waar zowel in kan geprogrammeerd worden als een recording opgebouwd worden. Het grootste probleem bij het programmeer gedeelte is dat er geen syntax highlighting of autocomplete is. Er moet dus feitelijk blind geprogrammeerd worden. Daarom dat meestal andere \acrshort{ide}'s gebruikt worden zoals IntelliJ. Langs de recorder kant ziet de \acrshort{ide} er zeer droog uit. De \acrfull{ui} is niet aantrekkelijk en er zijn ook maar een beperkt aantal standaard \gls{activiteit}en voorzien. (1/5)
 
-Bot management gebeurd bij WorkFusion aan de hand van een online platform genaamd Contorl Tower. Hier worden recordings naar toe gepubliceerd. Met deze recordings wordt dan eerst een proces opgemaakt, BPMN style. Dit proces wordt dan toegekend aan een bot en nadien kan deze taak handmatig uitgevoerd worden of ingepland worden om op regelmatige tijdstip uitgevoerd te worden. Daarnaast is er ook een credential manager en data store. (2/3)
+Bot management gebeurt bij WorkFusion aan de hand van een online platform genaamd Contorl Tower. Hier worden recordings naartoe gepubliceerd. Met deze recordings wordt dan eerst een proces opgemaakt in \acrshort{bpm} stijl. Dit proces wordt dan toegekend aan een bot en nadien kan deze taak handmatig uitgevoerd worden of ingepland worden om op regelmatige tijdstippen uitgevoerd te worden. Daarnaast is er ook een credential manager en data store. (2/3)
 
-De IPA capaciteiten binnen de recording zijn zeer beperkt. Er wordt niets aangeboden rond AI of ML, noch rond NLP. Wel kan gebruik gemaakt worden van OCR. Andere AI en ML solutions zitten vast achter een premium account. (1/3)
+De \acrshort{ipa} capaciteiten binnen de recording zijn zeer beperkt. Er wordt niets aangeboden rond \acrshort{ai} of \acrshort{ml}, noch rond \acrshort{nlp}. Wel kan gebruik gemaakt worden van \acrshort{ocr}. Andere \acrshort{ai} en \acrshort{ml} solutions zitten vast achter een premium account. (1/3)
 
 De community is klein en inactief. Er gebeurd niet veel op het forum en de weinige vragen die gesteld worden, worden meestal niet opgelost. (1/5)
 
-Er worden online lessen aangeboden maar deze zijn beperkt en niet altijd even diepgaand. Het is een start maar er mag zeker nog meer/uitgebreid worden. (1/3)
+Er worden online lessen aangeboden maar deze zijn beperkt en niet altijd even diepgaand. Het is een start maar er mag zeker nog uitgebreid worden. (1/3)
 
-Support is zwak. Naast het forum dat geen ondersteuning aanbiedt wordt ook zeer traag tot niet op mails gereageerd. (0.5/3)
+De support is zwak. Naast het forum dat geen ondersteuning aanbiedt wordt ook zeer traag tot niet op mails gereageerd. (0.5/3)
 
-De community edition van WorkFusion bevat enkel de ide, geen toegang tot de Contorl Tower. Daarnaast geeft een premium versie ook een credential manager, task scheduler, meerdere parallel lopende bots, ML capaciteit en geavanceerde analytics. (2.5/5)
+De community edition van WorkFusion bevat enkel de \acrshort{ide}, geen toegang tot de Contorl Tower. Daarnaast geeft een premium versie ook een credential manager, task scheduler, meerdere parallel lopende bots, \acrshort{ml} capaciteit en geavanceerde analytics. (2.5/5)
 
 Alles opgeteld komt dit uit op 12/34 voor WorkFusion.
 
@@ -172,13 +172,13 @@ Alles opgeteld komt dit uit op 12/34 voor WorkFusion.
 
 Custom activities zijn zeer gemakelijk te schrijven voor IntelliBot en dit alles dan ook nog eens binnen de community editie. Er moet niet gebuild en gepubliceerd worden tot een package, de .dll file kan rechtstreeks gebruikt worden. Daarnaast is er ook nog eens de mogelijkheid om een script toe te voegen als een volledige class library niet nodig is. (5/5)
 
-Er is de mogelijkheid om een activiteit aan te roepen vanuit een workflow. Dit staat toe om workflows te gaan hergebruiken. Er is geen soort markt waar klanten workflows op kunnen zetten voor anderen maar het is wel mogelijk om workflows op te slaan en te gebruiken. (1/3)
+Er is de mogelijkheid om een \gls{activiteit} aan te roepen vanuit een \gls{workflow}. Dit staat toe om \gls{workflow}s te gaan hergebruiken. Er is geen soort markt waar klanten \gls{workflow}s op kunnen zetten voor anderen maar het is wel mogelijk om \gls{workflow}s op te slaan en te gebruiken. (1/3)
 
-De tools gebruikt om een workflow te bouwen in IntelliBot is hun eigen ide, IntelliBot Studio. Hierin kan niet geprogrammeerd worden. Het opbouwen van de workflow is totaal anders als de rest. Bij de andere providers was het altijd in sequentie op te bouwen en was het duidelijk welke activiteit volgt uit welke. Bij IntelliBot is dit een pak minder overzichtelijk. Hier wordt gebruik gemaakt van lijnen om activiteiten met elkaar te verbinden en zo de workflow op te bouwen. Van zodra een activiteit met veel input en output gebruikt wordt, dan wordt het rap een warboel van lijnen die door elkaar getrokken worden. Hierdoor is het makkelijk om het overzicht te verliezen. (2.5/5)
+De tools gebruikt om een \gls{workflow} te bouwen in IntelliBot is hun eigen \acrshort{ide}, IntelliBot Studio. Hierin kan niet geprogrammeerd worden. Het opbouwen van de \gls{workflow} is totaal anders als de rest. Bij de andere providers was het altijd in sequentie op te bouwen en was het duidelijk welke \gls{activiteit} volgt uit welke. Bij IntelliBot is dit een pak minder overzichtelijk. Hier wordt gebruik gemaakt van lijnen om \gls{activiteit}en met elkaar te verbinden en zo de \gls{workflow} op te bouwen. Van zodra een \gls{activiteit} met veel input en output gebruikt wordt, dan wordt het snel een warboel van lijnen die door elkaar getrokken worden. Hierdoor is het makkelijk om het overzicht te verliezen. (2.5/5)
 
 Ook IntelliBot heeft zoals UiPath een web platform, de Orchestrator\footnote{http://orchestrator.intellibot.io/}, waarop het managen van de bots plaats vindt. Beide platformen lijken op elkaar, al is die van UiPath uitgebreider en ook iets beter ineen gestoken. (2/3)
 
-De AI capaciteiten van IntelliBot zitten verweven in hun \acrfull{cmp}. Deze legt vooral de focus op het automatisch verwerken van documenten, zoals MetaMaze. Daarnaast zijn ook computer vision en enkele cognitieve activiteiten zoals sentiment analyse beschikbaar. (2/3)
+De \acrshort{ai} capaciteiten van IntelliBot zitten verweven in hun \acrfull{cmp}. Deze legt vooral de focus op het automatisch verwerken van documenten, zoals MetaMaze. Daarnaast zijn ook computer vision en enkele cognitieve \gls{activiteit}en zoals sentiment analyse beschikbaar. (2/3)
 
 De IntelliBot community is net zoals WorkFusion beperkt in aantal maar in tegenstelling tot WorkFusion is deze wel actief. De werknemers van IntelliBot volgen het forum op en antwoorden ook op de verschillende vragen. (3/5)
 
@@ -192,23 +192,23 @@ Intellibot scoort 23.5/34.
 
 \subsection{Microsoft Flow}
 
-Custom connectors kunnen geschreven worden als een \acrshort{api} die de OpenAPI standaarden volgt of als een Azure Function. Uit deze definitie kan dan de custom connector gemaakt worden en gebruikt worden in de verschillende workflows. Ook vanuit Azure Functions kunnen deze custom connectors gedefinieerd worden. In begin is dit zeker niet makkelijk maar eens de samenhang en de beide platformen duidelijk worden, kan dit gemakkelijk geïmplementeerd worden. (3.5/5)
+Custom connectors kunnen geschreven worden als een \acrshort{api} die de Open\acrshort{api} standaarden volgt of als een Azure Function. Uit deze definitie kan dan de custom connector gemaakt worden en gebruikt worden in de verschillende \gls{workflow}s. Ook vanuit Azure Functions kunnen deze custom connectors gedefinieerd worden. In begin is dit zeker niet makkelijk maar eens de samenhang en de beide platformen duidelijk worden, kan dit gemakkelijk geïmplementeerd worden. (3.5/5)
 
 Custom Connectors kunnen herbruikt worden binnen meerdere flows. Ook kunnen ze verspreid worden naar andere klanten door de connector te publishen. Hiervoor moet door een validatie proces gegaan worden waarbij de custom connector getest moet worden en nadien gepubliceerd wordt. (2/3)
 
-De tool gebruikt om de workflow te maken is het web platform. Hierbinnen kunnen verschillende triggers en connectoren gebruikt worden om een flow op te bouwen. De layout is zeer proper, alles is duidelijk en zit logisch ineen. (4/5)
+De tool die gebruikt word om de \gls{workflow} te maken is het web platform. Hierbinnen kunnen verschillende triggers en connectoren gebruikt worden om een flow op te bouwen. De layout is zeer proper, alles is duidelijk en zit logisch ineen. (4/5)
 
-Voor het managen van bots bij Power Automate kan op dezelfde site gebleven worden. Het manueel uitvoeren van een bot gebeurd op de site, de andere soort robots zijn trigger-based. Dit wil zeggen dat ze automatisch uitgevoerd worden als een bepaalde conditie voldaan is zoals een nieuwe file in een folder toevoegen of het sturen van een HTTP request. (1.5/3)
+Voor het managen van bots bij Power Automate kan op dezelfde site gebleven worden. Het manueel uitvoeren van een bot gebeurd op de site, de andere soort robots zijn trigger-based. Dit wil zeggen dat ze automatisch uitgevoerd worden als een bepaalde conditie voldaan is zoals een nieuwe file in een folder toevoegen of het sturen van een \acrshort{http} request. (1.5/3)
 
-Connectors die AI en ML platformen gaan aanspreken. Daarnaast hebben ze ook een AI Builder die kan gebruikt worden om modellen te trainen en functies zoals sentiment analyse, taaldetectie, tekstherkenning, object herkenning en voorspellingen te maken. Deze zit ook vast achter een premium account. (2.5/3)
+Wanneer gekeken wordt naar de \acrshort{ai} capaciteiten gekeken wordt, dan zijn er connectors die \acrshort{ai} en \acrshort{ml} platformen gaan aanspreken. Daarnaast hebben ze ook een \acrshort{ai} Builder die kan gebruikt worden om modellen te trainen en functies zoals sentiment analyse, taaldetectie, tekstherkenning, object herkenning en voorspellingen te maken. Deze zit ook vast achter een premium account. (2.5/3)
 
 De community achter Power Automate en Flow is groot en actief. Het forum wordt niet gebruikt door Microsoft zelf om belangrijke aankondigingen te maken. (4/5)
 
 Microsoft biedt zelf geen lessen aan, er zijn wel vele lessen online terug te vinden. (0/3)
 
-Het is nog steeds een Microsoft product. Support is zeer zwak, zelfs de premium versie ervan. Zeer trage hulpverlening en reacties die geregeld niet helpen. (0.5/3)
+Support is zeer zwak, zelfs de premium versie ervan. Zeer trage hulpverlening en reacties die geregeld niet helpen. (0.5/3)
 
-De community editie is extreem beperkt. Bijna elke connector vereist een premium account en bij de gratis connectoren zitter er vele tussen die gebruik maken van een gateway of andere feature waarvoor je opnieuw een premium account nodig hebt. Zonder premium is het praktisch onmogelijk om een proces succesvol te automatiseren (0.5/5)
+De community editie is extreem beperkt. Bijna elke connector vereist een premium account en bij de gratis connectoren zitten er vele tussen die gebruik maken van een gateway of andere feature waarvoor je opnieuw een premium account nodig hebt. Zonder premium is het praktisch onmogelijk om een proces succesvol te automatiseren (0.5/5)
 
 Microsoft Flow behaalt een score van 18.5/34.
 
@@ -226,7 +226,7 @@ Waar sommige \acrshort{rpa} providers punten verloren hebben op bepaalde aspecte
 		\hline
 		Custom Activities & community & enterprise & community & community & community \\
 		\hline
-		Herbruikbaarheid & \makecell{NuGet package \&\\Orchestrator}  & BotStore & \makecell{Recordings zijn\\herbruikbaar} & \makecell{invokeren\\van workflows} & \makecell{publiceer\\connectors} \\
+		Herbruikbaarheid & \makecell{NuGet package \&\\Orchestrator}  & BotStore & \makecell{Recordings zijn\\herbruikbaar} & \makecell{invokeren\\van \gls{workflow}s} & \makecell{publiceer\\connectors} \\
 		\hline
 		Tools & \makecell{UiPath\\Studio} & \makecell{Web\\platform} & \makecell{Workfusion\\Intelligent\\Automation\\Cloud} & \makecell{IntelliBot\\Studio} & \makecell{Web\\platform} \\
 		\hline
@@ -234,7 +234,7 @@ Waar sommige \acrshort{rpa} providers punten verloren hebben op bepaalde aspecte
 		\hline
 		Bot management & Orchestrator & \makecell{All-in-on\\webplatform} & Control Tower & Orchestrator & \makecell{All-in-on\\webplatform} \\
 		\hline
-		IPA capaciteiten & AI Fabric & IQBot & \makecell{enkele\\activiteiten} & \acrshort{cmp} & AI Builder   \\
+		IPA capaciteiten & \acrshort{ai} Fabric & IQBot & \makecell{enkele\\\gls{activiteit}en} & \acrshort{cmp} & \acrshort{ai} Builder   \\
 		\hline
 		Community & \makecell{Groot \&\\actief} & \makecell{Groot \&\\actief} & \makecell{Klein \&\\inactief} & \makecell{Klein \&\\actief} & \makecell{Groot \&\\actief} \\
 		\hline
