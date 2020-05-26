@@ -11,7 +11,7 @@ Dit is onderzocht geweest vanuit het perspectief van een beginnende \acrshort{rp
 
 
 \section{Voorbereiding}
-Eerst en vooral is het MetaMaze platform gronding geëxploreerd geweest. Zo werd een nieuw project aangemaakt, werden er documenten geüpload en gelabeld om een model te kunnen trainen. Nadien werd dit model dan gebruikt om voorspellingen te doen op nieuwe, soortgelijke documenten. Hierbij werd soms doelbewust een verkeerd document geüpload om ook de manuele interventie te testen en kijken hoe dit eventueel in een proces kan gegoten worden. Op basis hiervan werd een algemeen voorbeeld proces opgezet.
+Eerst en vooral is het MetaMaze platform grondig geëxploreerd geweest. Zo werd een nieuw project aangemaakt, werden er documenten geüpload en gelabeld om een model te kunnen trainen. Nadien werd dit model dan gebruikt om voorspellingen te doen op nieuwe, soortgelijke documenten. Hierbij werd soms doelbewust een verkeerd document geüpload om ook de manuele interventie te testen en kijken hoe dit eventueel in een proces kan gegoten worden. Op basis hiervan werd een algemeen voorbeeld proces opgezet.
 
 Als tweede stap is de afweging gemaakt welke providers vergeleken gingen worden. Hierbij werd rekening gehouden dat er twee grote marktspelers, twee kleine en een provider die de implementatie van \acrshort{rpa} op een totaal andere manier aanpakt, gekozen waren. De volgende providers werden uiteindelijk gekozen: UiPath, Automation Anywhere, WorkFusion, IntelliBot en Microsoft Flow. Hierbij zijn Uipath en Automation Anywhere de grote providers, WorkFusion en IntelliBot de kleine en Microsoft Flow het ander concept.
 
@@ -24,6 +24,8 @@ Als tweede stap is de afweging gemaakt welke providers vergeleken gingen worden.
 \end{figure}
 
 Het algemeen proces dat zal geautomatiseerd worden op de verschillende \acrshort{rpa} solutions gaat als volgt te werk: Eerst wordt vanuit een bepaald punt (folder op de computer, OneDrive, DropBox, SharePoint) een aantal files opgehaald. Deze files worden doorgegeven aan een zelfgeschreven \gls{activiteit}. In deze \gls{activiteit} zullen deze files verstuurd worden naar de MetaMaze \acrshort{api}. De bestanden worden door de backend verwerkt. Nadien wordt er gewacht tot een antwoord terug komt van de server met de resultaten van de upload. Deze resultaten worden terug gegeven naar de volgende stap in de \gls{workflow}. Door verder te werken met de resulterende \acrshort{json} kan gekeken worden of de zekerheid waarmee een bepaalde entity dat uit een document is gehaald, onder de minimum zekerheid (threshold) zit of niet. Als er geen waarden onder de threshold zitten wordt het proces afgesloten met een gepaste melding. Als er één of meerdere confidence scores onder de threshold zitten zal eerst een mail verstuurd worden naar de klant om deze te informeren welke entities de minimum score niet gehaald hebben, voor dat het proces eindigt met een gepaste melding.
+
+Dit is echter slechts een voorbeeldproces dat gebruikt wordt om de capaciteiten voor algemene taken zoals het versturen van een mail en werken met het bestandssysteem van de host te gaan onderzoeken.
 
 \subsection{Criteria}
 De criteria die onderzocht zijn kunnen opgedeeld worden in drie categorieën: technische criteria, bedrijfscriteria en financiële criteria. Onder de technische criteria valt de mogelijkheid om gemakkelijk zelfgeschreven \gls{activiteit}en toe te voegen of stukken \gls{workflow} gemakkelijk te hergebruiken zijn. Ook wordt er gekeken naar hoe het zit met de tools om de \gls{workflow}s te maken en de bots te managen. Als laatste punt hoe het zit met de \acrshort{ipa} capaciteiten. Bij de bedrijfscriteria wordt gekeken naar het feit of er een grote onderneming achter het platform staat, hoe actief de community is van het platform en hoe de klantservice is. Tot slot valt onder de financiële categorie de prijs van een enterprise versie maar daarnaast ook of er een mogelijkheid is om een community editie te gebruiken en hoe uitgebreid deze versie is.
@@ -109,7 +111,7 @@ Bij UiPath is het mogelijk om in de community edition custom activities toe te v
 
 Voor de herbruikbaarheid van custom activities en \gls{workflow}s kan gebruikt gemaakt worden van de Orchestrator\footnote{https://platform.uipath.com/} in combinatie met de market place. Packages kunnen gepubliceerd worden naar de orchestrator en deze kunnen op die manier ter beschikking gesteld worden op de market zodat anderen deze package kunnen hergebruiken. Er is ook de mogelijkheid om \gls{workflow} bestanden aan te roepen binnen andere \gls{workflow}s. (3/3) 
 
-De beschikbare tool voor het implementeren van een \gls{workflow} is UiPath Stuido, een \acrfull{ide} die zich focust op het ontwerpen en uitwerken van een \gls{workflow}. Hierbinnen kan niet geprogrammeerd worden, daarvoor moet beroep gedaan worden op een C\# \acrshort{ide} zoals Visual Studio. De tool zelf voelt heel intuïtief aan en zit logisch ineen. Het is makkelijk om een \gls{workflow} op te bouwen en er zijn ook features aanwezig om de \gls{workflow} te debuggen. (5/5)
+De beschikbare tool voor het implementeren van een \gls{workflow} is UiPath Studio, een \acrfull{ide} die zich focust op het ontwerpen en uitwerken van een \gls{workflow}. Hierbinnen kan niet geprogrammeerd worden, daarvoor moet beroep gedaan worden op een C\# \acrshort{ide} zoals Visual Studio. De tool zelf voelt heel intuïtief aan en zit logisch ineen. Het is makkelijk om een \gls{workflow} op te bouwen en er zijn ook features aanwezig om de \gls{workflow} te debuggen. (5/5)
 
 Het managen van de UiPath bots gebeurt aan de hand van het online platform, de UiPath Orchestrator. Hierop worden machines vastgelegd waarop een bot attended of unattended kan gaan werken, worden bots gedeployed, taken ingepland, queues opgezet en assets bewaard en analytics weergegeven. Kortom, alles wat nodig is om de verzameling bots te gaan managen op een professionele manier. Het platform zit logisch ineen en werkt uitstekend. (3/3)
 
@@ -123,7 +125,7 @@ Support zit ook goed. Ze zijn makkelijk te bereiken via ofwel het forum ofwel vi
 
 De community edition van UiPath als platform is zeer uitgebreid. In Studio kan je alles wat ook mogelijk is in de enterprise versie. Het grote verschil ligt hem in de Orchestrator. Hirbij wordt dit een on-premise (geïnstalleerd op de machine van de host) of cloud-hosted Orchestrator waarbij er een oneindig aantal robots kan gemaakt worden. Ook kunnen er meerdere soorten bots gemaakt worden. Ook wordt toegang verleend tot premium support en is er de mogelijkheid om up/down te scalen met wat nodig is binnen het bedrijf. (3/3)
 
-Dit brengt de totale score van UiPath op 30.5/34.
+Dit brengt de totale score van UiPath tot 30.5/34.
 
 \subsection{Automation Anywhere}
 Automation Anywhere staat niet toe om een custom activity te gebruiken in de community edition. Alles moet geautomatiseerd worden met de standaard \gls{activiteit}en. Het aanbod van deze reeds voorziene \gls{activiteit}en is wel uitgebreider dan bij UiPath. Voor het implementeren van een custom \gls{activiteit} kan gebruik gemaakt worden van een C\# Class Library. (3/5)
@@ -200,7 +202,7 @@ De tool die gebruikt word om de \gls{workflow} te maken is het web platform. Hie
 
 Voor het managen van bots bij Power Automate kan op dezelfde site gebleven worden. Het manueel uitvoeren van een bot gebeurd op de site, de andere soort robots zijn trigger-based. Dit wil zeggen dat ze automatisch uitgevoerd worden als een bepaalde conditie voldaan is zoals een nieuwe file in een folder toevoegen of het sturen van een \acrshort{http} request. (1.5/3)
 
-Wanneer gekeken wordt naar de \acrshort{ai} capaciteiten gekeken wordt, dan zijn er connectors die \acrshort{ai} en \acrshort{ml} platformen gaan aanspreken. Daarnaast hebben ze ook een \acrshort{ai} Builder die kan gebruikt worden om modellen te trainen en functies zoals sentiment analyse, taaldetectie, tekstherkenning, object herkenning en voorspellingen te maken. Deze zit ook vast achter een premium account. (2.5/3)
+Wanneer gekeken wordt naar de \acrshort{ai} capaciteiten, dan zijn er connectors die \acrshort{ai} en \acrshort{ml} platformen gaan aanspreken. Daarnaast hebben ze ook een \acrshort{ai} Builder die kan gebruikt worden om modellen te trainen en functies zoals sentiment analyse, taaldetectie, tekstherkenning, object herkenning en voorspellingen te maken. Deze zit ook vast achter een premium account. (2.5/3)
 
 De community achter Power Automate en Flow is groot en actief. Het forum wordt niet gebruikt door Microsoft zelf om belangrijke aankondigingen te maken. (4/5)
 
