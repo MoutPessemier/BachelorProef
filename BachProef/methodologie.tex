@@ -5,15 +5,15 @@
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}
 \label{ch:methodologie}
 
-Aan de hand van verschillende \acrshort{rpa} providers zal een concreet proces geautomatiseerd worden op Metamaze. MetaMaze is een \acrfull{adp} tool ontwikkeld door Faktion. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen is.
+Aan de hand van verschillende \acrshort{rpa} providers zal een concreet proces geautomatiseerd worden op MetaMaze. MetaMaze is een \acrfull{adp} tool ontwikkeld door Faktion. De code voor de verschillende workflows en packages geschreven voor dit onderzoek zijn te vinden op GitHub\footnote{https://github.com/MoutPessemier/BachelorProef}. Aan de hand van de uitwerking van dit proces worden de verschillende platformen gequoteerd. Deze score is een indicator hoe professioneel en gebruiksvriendelijk elk van de onderzochte platformen zijn.
 
-Dit is onderzocht geweest vanuit het perspectief van een beginnende \acrshort{rpa} ontwikkelaar. De ervaring rond het werken met de verschillende \acrshort{rpa} providers kan sterk verschillen met een ervaren developer.
+Het onderzoek werd gestart vanuit het perspectief van een beginnende \acrshort{rpa} ontwikkelaar. De ervaring rond het werken met de verschillende \acrshort{rpa} providers kan sterk verschillen met een ervaren developer.
 
 
 \section{Voorbereiding}
-Eerst en vooral is het MetaMaze platform grondig geëxploreerd geweest. Zo werd een nieuw project aangemaakt, werden er documenten geüpload en gelabeld om een model te kunnen trainen. Nadien werd dit model dan gebruikt om voorspellingen te doen op nieuwe, soortgelijke documenten. Hierbij werd soms doelbewust een verkeerd document geüpload om ook de manuele interventie te testen en kijken hoe dit eventueel in een proces kan gegoten worden. Op basis hiervan werd een algemeen voorbeeld proces opgezet.
+Eerst en vooral is het MetaMaze platform grondig geëxploreerd geweest. Zo werd een nieuw project aangemaakt, werden er documenten geüpload en gelabeld om een model te kunnen trainen. Nadien werd dit model dan gebruikt om voorspellingen te doen op nieuwe, soortgelijke documenten. Hierbij werd soms doelbewust een verkeerd document geüpload om ook de manuele interventie te testen en te kijken hoe dit eventueel in een proces kan gegoten worden. Op basis hiervan werd een algemeen voorbeeld proces opgezet.
 
-Als tweede stap is de afweging gemaakt welke providers vergeleken gingen worden. Hierbij werd rekening gehouden dat er twee grote marktspelers, twee kleine en een provider die de implementatie van \acrshort{rpa} op een totaal andere manier aanpakt, gekozen waren. De volgende providers werden uiteindelijk gekozen: UiPath, Automation Anywhere, WorkFusion, IntelliBot en Microsoft Flow. Hierbij zijn Uipath en Automation Anywhere de grote providers, WorkFusion en IntelliBot de kleine en Microsoft Flow het ander concept.
+Als tweede stap is de afweging gemaakt welke providers vergeleken gingen worden. Hierbij werd rekening gehouden dat er twee grote marktspelers, twee kleine en een provider die de implementatie van \acrshort{rpa} op een totaal andere manier aanpakt, gekozen waren. De volgende providers werden uiteindelijk gekozen: UiPath, Automation Anywhere, WorkFusion, IntelliBot en Microsoft Flow. Hierbij zijn Uipath en Automation Anywhere de grote providers, WorkFusion en IntelliBot de kleine en Microsoft Flow als ander concept.
 
  Nadien werd de documentatie en cursussen van deze platformen grondig bekeken om uiteindelijk een demo proces te bekomen. De uitwerking hiervan is te zien in figuur ~\ref{fig:exampleProcess}.
 
@@ -28,7 +28,10 @@ Het algemeen proces dat zal geautomatiseerd worden op de verschillende \acrshort
 Dit is echter slechts een voorbeeldproces dat gebruikt wordt om de capaciteiten voor algemene taken zoals het versturen van een mail en werken met het bestandssysteem van de host te gaan onderzoeken.
 
 \subsection{Criteria}
-De criteria die onderzocht zijn kunnen opgedeeld worden in drie categorieën: technische criteria, bedrijfscriteria en financiële criteria. Onder de technische criteria valt de mogelijkheid om gemakkelijk zelfgeschreven \gls{activiteit}en toe te voegen of stukken \gls{workflow} gemakkelijk te hergebruiken zijn. Ook wordt er gekeken naar hoe het zit met de tools om de \gls{workflow}s te maken en de bots te managen. Als laatste punt hoe het zit met de \acrshort{ipa} capaciteiten. Bij de bedrijfscriteria wordt gekeken naar het feit of er een grote onderneming achter het platform staat, hoe actief de community is van het platform en hoe de klantservice is. Tot slot valt onder de financiële categorie de prijs van een enterprise versie maar daarnaast ook of er een mogelijkheid is om een community editie te gebruiken en hoe uitgebreid deze versie is.
+De criteria die onderzocht zijn kunnen opgedeeld worden in drie categorieën: technische criteria, bedrijfscriteria en financiële criteria.\\
+Onder de technische criteria valt de mogelijkheid om zelfgeschreven \gls{activiteit}en gemakkelijk toe te voegen of te hergebruiken. Ook wordt er gekeken naar hoe het zit met de tools om de \gls{workflow}s te maken en de bots te managen. Als laatste punt wordt gekeken naar de \acrshort{ipa} capaciteiten.\\
+Bij de bedrijfscriteria wordt rekening gehouden met het feit of er een grote onderneming achter het platform staat, hoe actief de community is en hoe professioneel de klantservice is.\\
+Tot slot valt onder de financiële categorie de prijs van een enterprise versie maar daarnaast de mogelijkheid om een community editie te gebruiken en hoe uitgebreid deze versie is.
 
 De nadruk wordt hier gelegd op een integratie met een eigen \acrshort{api}, op een eigen webplatform.
 
@@ -60,7 +63,7 @@ Financiële criteria
 Dit komt uit op een totale score van 34.
 
 \section{Implementatie}
-Voor de implementatie op elk platform is eenzelfde werkwijze gehanteerd geweest. Eerst werd de \gls{workflow} opgebouwd rond de zelfgeschreven \gls{activiteit}, nadien werd deze geïmplementeerd in de achterliggende programmeertaal van elk platform. Eens deze geschreven was, werd uitgezocht hoe deze \gls{activiteit}en dan gebruikt konden worden binnen de verschillende \gls{workflow}s.
+Voor de implementatie op elk platform werd eenzelfde werkwijze gehanteerd. Eerst werd de \gls{workflow} opgebouwd rond de zelfgeschreven \gls{activiteit} om deze nadien te implementeren in de achterliggende programmeertaal van het platform. Eens deze uitgeschreven was, werd uitgezocht hoe deze \gls{activiteit}en gebruikt konden worden binnen de verschillende \gls{workflow}s.
 
 Voor de uitwerking van de zelfgeschreven \gls{activiteit} werd eerst via pseudocode een basis uitwerking beschreven die nadien tot realisatie werd gebracht in de respectievelijke talen.
 
@@ -99,9 +102,9 @@ Uitvoer: de resulterende JSON.
 23: end function
 \end{lstlisting}
 
-Eens de pseudocode uitgedacht was, was het slechts opzoek werk voor de juiste klassen te vinden en het proces te implementeren. Aangezien de meeste \acrshort{rpa} providers C\# gebruiken als achterliggende taal, kon over het algemeen veel code hergebruikt worden doorheen de verschillende implementaties. De basisklassen van welke overgeërfd werd kan dan wel verschillen maar de algemene logica voor het versturen van een POST request en het ophalen van het resultaat met een GET request blijft hetzelfde.
+Eens de pseudocode uitgedacht was, moest er slechts gezocht worden naar de juiste klassen om het proces te implementeren. Aangezien de meeste \acrshort{rpa} providers C\# gebruiken als achterliggende taal, kon over het algemeen veel code hergebruikt worden doorheen de verschillende implementaties. De overgeërfde basisklassen kan dan wel verschillen maar de algemene logica voor het versturen van een POST request en het ophalen van het resultaat met een GET request blijft dezelfde.
 
-Tijdens het implementeren werd rekening gehouden met de verschillende criteria, vooral de technische dan, die vooraf vastgelegd waren.
+Tijdens het implementeren werd rekening gehouden met de verschillende criteria die vooraf vastgelegd waren.
 
 \section{Beoordeling}
 Voor de beoordeling van de prijs wordt aangeraden om te kijken naar het prijzenonderzoek, te vinden in de bijlage van deze paper.
