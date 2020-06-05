@@ -1,0 +1,47 @@
+Goeiemiddag iedereen, ik ben Mout Pessemier. Vandaag ga ik het hebben over mijn bachelorproef met als titel: RPA, automatisatie van morgen, vandaag.
+
+Wat staat er nu allemaal op het programma?
+Eerst ga ik meer uitleg geven wat RPA nu juist is, wat enkele voor en nadelen zijn bij het gebruik van RPA en waar de toekomst naartoe lijkt te gaan.
+Daarna ga ik kort het doel of de reden achter mijn bachelorproef toelichten.
+Nadien ga ik mijn werkwijze uitleggen hoe ik tot mijn resultaten gekomen ben en als afsluiter gaan mijn conclusies besproken worden.
+
+Dat gezegd zijnde gaan w er meteen aan beginnen.
+Wat is nu eigenlijk RPA?
+
+RPA of in het languit Robotic Process Automation, is een manier waarop bedrijven processen kunnen automatiseren. Hierbij wordt de nadruk gelegd op zo min mogelijk menselijke tussenkomst. Er zijn vele aanbieders of RPA-providers die zo een service beschikbaar maken. Elk hebben ze hun voor en nadelen maar over het algemeen gaan ze op eenzelfde manier te werken, namelijk: een software agent wat ook wel een robot genoemd wordt binnen RPA, gaat aan de hand van een workflow, het werk dat beschreven staat in zo een workflow, gaan uitvoeren op het host systeem. Hierbij is een workflow de volgorde van stappen waarin een taak moet uitgevoerd worden. Bij het uitvoeren van zo een workflow zijn er twee verschillende types van robotten. Attended robots: deze software agenten hebben van tijd tot tijd nog menselijke interactie nodig om bijvoorbeeld iets na te kijken of te bevestigen. Unattended robots kunnen de taak dan weer volledig autonoom uitvoeren. RPA wordt vooral gebruikt in sectoren zoals HR en accounting om repetitieve processen te automatiseren die duidelijk afgebakende regels volgen.
+
+Wat zijn nu de voor en nadelen van RPA?
+Een eerste voordeel dat RPA met zich meebrengt is een verhoging van de efficiëntie binnen het bedrijf. Dit komt omdat robots geen pauze nodig hebben, niet ziek vallen, een proces sneller kunnen uitvoeren maar ook omdat de werknemers meer gemotiveerd zijn omdat ze van die repetitieve taak vanaf zijn.
+
+Ook de nauwkeurigheid van uitvoering zal stijgen. Zo heeft een robot maar 1 correct voorbeeld nodig om het process correct te blijven uitvoeren. Hierdoor verminderd het aantal gemaakte fouten drastisch.
+
+RPA brengt ook een kostvermindering met zich mee. Door dat RPA ingezet wordt, kan de kwantiteit van het geleverd werk stijgen met eenzelfde aantal werknemers. Enkel de kost van RPA zal doorgerekend worden.
+
+Doordat RPA de vervelende en repetitieve taken op zich neemt, kan een werknemer de focus leggen op het uitvoeren van interessante en uitdagende taken wat er voor zorgt dat de werknemer zich meer betrokken voelt bij de onderneming. Hieruit volgt dat de productiviteit en moraal van werknemers stijgt.
+
+Een laaste groot voordeel dat RPA met zich meebrengt is het helpen de onderneming te begeleiden in de digitale transformatie. Nu met de coronacrisis is dit belangrijker dan ooit met het werk dat van thuis uit geleverd wordt.
+
+RPA is niet alleen zonneschijn, er zijn ook enkele nadelen of moeilijkheden mee verbonden.
+Een eerst probleem dat men moet overkomen is de security risico's die RPA meebrengt. Stel u voor, een bot voert een taak uit waarbij hij admin rechten heeft en werkt met sensitieve data. Dan moet men zeker zijn dat deze data niet verkeerd gebruikt wordt of gedeeld wordt online of dat de robot niets kapot maakt aan het systeem vanwege zijn admin rechten. De security binnen een bedrijf zal veel tijd en moeite moeten steken in het veilig opstellen van deze robots.
+
+Een tweede struikelblok is de onderhoud die RPA vraagt. Het is niet voldoende om een proces te automatiseren en er nadien niet meer naar om te kijken. Zo kan er altijd iets fout lopen, kan belangrijke data uit het proces gehaald worden of moet RPA geüpdate worden met elke wijziging aan het bedrijfsproces.
+
+Er is sprake van een kloof tussen business en IT, waarbij de business de IT kant van het verhaal niet begrijpt en omgekeerd. Aangezien RPA een IT implementatie is van een business proces zal hier een samenwerking vereist zijn. Dit kan voor heel wat problemen zorgen. Het voordeel echter is dat een succesvolle implementatie ook de kloof tussen business en IT verkleint.
+
+Als laaste nadeel moet de kost van RPA toch even uitgelicht worden. Deze service is duur. De meeste start-ups en kleine bedrijven beschikken niet over de nodige financiële middelen om RPA te kunnen betalen.
+
+Hoe ziet de toekomst van RPA er uit?
+Wel, binnekort zal men niet enkel meer spreken van RPA, maar ook van IPA of Intelligent Process Automation. Dit is een verdere stap waarbij RPA gecombineerd wordt met technieken zoals artificiële intelligentie en machine learning om ervoor te zorgen dat een robot in bepaalde situaties zelf een beslissing kan maken wat hij moet doen in plaats van menselijke tussenkomst nodig heeft.
+
+Op dit moment zijn 2 verschillende vormen van IPA aan de gang, RPA 2.0 en Hyperautomation. Beide beschrijven ongeveer dezelfde technieken.
+
+Zo nu jullie een achtergrond hebben in RPA is het tijd om mijn doel van de bachelorproef uit te leggen. Als gekeken wordt naar de RPA markt, dan valt al snel op dat er veel spelers zijn. Als bedrijf is het dan ook niet gemakkelijk om de juiste provider uit deze hoop te kiezen. Vandaar dat ik een onderzoek heb gedaan naar enkele spelers binnen deze markt om belangrijke eigenschappen uit te lichten en de keuze voor het kiezen van de juiste provider, makkelijker maakt. Zo heb ik gekeken naar 2 grote providers in UiPath en Automation Anywhere en 2 kleine providers in IntelliBot en WorkFusion. Als laatste heb ik ook naar Microsoft Flow onderzocht omdat zij RPA toch op een iets andere manier aanpakken den de traditionele providers.
+
+Hoe ben ik nu tewerk gegaan? Als eerste is er natuurlijk een proces nodig dat geautomatiseerd moet worden, ik heb dan ook een demo proces ineen gestoken dat op de verschillende platformen geïmplementeerd is geweest. Bij dit proces heb ik rekening gehouden enkele veel gebruikte activiteiten te gebruiken. Zo wordt er gewerkt met het bestand systeem van de host, het verzenden van een mail en is er een eigen activiteit geschreven. Hier is het uitgewerkte demo proces. Eerst worden de bestanden opgehaald en doorgegeven naar het MetaMaze platform. Daar worden de bestanden verwerkt en het resultaat wordt teruggestuurd. Dan wordt er een controle gedaan of er een mail verstuurd moet worden en als laatste is er het loggen van succes. Omdat de eigen activiteit een zelfgeschreven stuk code is, heb ik dit dan ook eerst uitgeschreven in pseudocode. Zo zie je dat de HttpClient aangemaakt wordt om een HTTP request te versturen, hierbij wordt de url en de authorisatie goed gezet. Nadien worden de bestanden toegevoegd aan een mutlipart/form-data. Dit is een manier om meerdere bestanden te versturen. Deze wordt dan ook verstuurd naar de url en nadien wordt er gewacht tot een antwoord terug komt van de server. Dat antwoord wordt dan doorgegeven naar de rest van de workflow. Eens de pseudocode uitgewerkt was ben ik door de cursussen op de platformen gegaan, heb ik het proces geïmplementeerd, nadien de eigen geschreven activiteit uitgewerkt, deze verwerkt in de workflow en nadien alles extensief getest.
+
+[uitleggen flows]
+
+Wat heeft dit nu allemaal opgeleverd? Tijdens en na het implementeren van de workflows heb ik mijn bevindingen neergeschreven en samengevat in volgende tabel. Ook heb ik punten toegekend aan elk platform om een onderlinge vergelijking mogelijk te maken. Zo zie je al snel dat UiPath er met kop en schouders bovenuit steekt en dat WorkFusion een grootte teleurstelling was. [...]
+
+Dit brengt ons bij de conclusies van mijn bachelorproef. De beste grote provider is UiPath, de beste kleine provider is IntelliBot en de grooste teleurstellingen waren WorkFusion vanwege de beperkingen op het platform en de communicatie vanuit het bedrijf zelf was zeer zwak. Bij Microsoft Flow was de teleurstelling dan weer groot omdat de werkwijze veel complexer ineen zit dan al de andere onderzochte providers. Dit komt door de nauwe samenwerking binnen de Microsoft Suite, vooral dan tussen Flow, Azure en Power apps. Er zijn dus eigenlijk 3 platformen die men moet leren gebruiken om een succesvolle implementatie te kunnen voorzien.
+Daarnaast is in het kort ook een marktonderzoek uitgevoerd en hier zijn ook 2 interessante onderwerpen naar boven gekomen. Zoals al eerder gezegd is RPA zeer prijzig, het is dus niet voor de kleine ondernemingen. Een 2de conclusie die uit het marktonderzoek naar boven kwam is dat er een soort race aan de gang is tussen de grote 3 providers UiPath, Automation Anywhere en BluePrism. Velen speculeren dat de kleine providers op lange termijn uit de markt zullen geduwd worden en dat enkel de 3 grote zullen overleven. Van deze 3 grote is UiPath momenteel aan het winnen.
