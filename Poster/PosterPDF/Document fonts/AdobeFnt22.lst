@@ -1,0 +1,192 @@
+%!Adobe-FontList 1.22
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/AdobeFnt22.lst
+FileLength:4109
+FileModTime:613124788
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:SommetBlack
+FamilyName:Sommet
+StyleName:Black
+MenuName:Sommet Black
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Sommet Black
+WritingScript:Roman
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/SommetBlack.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:55116
+FileModTime:287182530
+NameArray:0,Mac,4,Sommet Black
+NameArray:0,Win,1,Sommet Black
+NameArray:0,Win,16,Sommet
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:SommetBold
+FamilyName:Sommet
+StyleName:Bold
+MenuName:Sommet Bold
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Sommet Bold
+WritingScript:Roman
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/SommetBold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:54328
+FileModTime:287182530
+NameArray:0,Mac,4,Sommet Bold
+NameArray:0,Win,1,Sommet Bold
+NameArray:0,Win,16,Sommet
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:SommetBoldItalic
+FamilyName:Sommet
+StyleName:Bold Italic
+MenuName:Sommet Bold Italic
+StyleBits:3
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Sommet Bold Italic
+WritingScript:Roman
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/SommetBoldItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:56576
+FileModTime:287181186
+NameArray:0,Mac,4,Sommet Bold Italic
+NameArray:0,Win,1,Sommet Bold Italic
+NameArray:0,Win,16,Sommet
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:SommetHeavy
+FamilyName:Sommet
+StyleName:Heavy
+MenuName:Sommet Heavy
+StyleBits:0
+WeightClass:900
+WidthClass:5
+AngleClass:0
+FullName:Sommet Heavy
+WritingScript:Roman
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/SommetHeavy.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:54156
+FileModTime:287182532
+NameArray:0,Mac,4,Sommet Heavy
+NameArray:0,Win,1,Sommet Heavy
+NameArray:0,Win,16,Sommet
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:SommetLight
+FamilyName:Sommet
+StyleName:Light
+MenuName:Sommet Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Sommet Light
+WritingScript:Roman
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/SommetLight.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:53416
+FileModTime:287182530
+NameArray:0,Mac,4,Sommet Light
+NameArray:0,Win,1,Sommet Light
+NameArray:0,Win,16,Sommet
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Sommet
+FamilyName:Sommet
+StyleName:Regular
+MenuName:Sommet
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Sommet
+WritingScript:Roman
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/SommetRegular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:54136
+FileModTime:287182530
+NameArray:0,Mac,18,Sommet Regular
+NameArray:0,Mac,4,Sommet
+NameArray:0,Win,1,Sommet
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:StrangerTimes-Regular
+FamilyName:Stranger Times
+StyleName:Regular
+MenuName:Stranger Times
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Stranger Times Regular
+WritingScript:Roman
+OutlineFileName:/Users/bjornclaes/Desktop/rpa-poster-mout/Document fonts/StrangerTimes-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:yes
+VariableFontType:NonVariableFont
+FileLength:1344172
+FileModTime:541380578
+NameArray:0,Mac,4,Stranger Times Regular
+NameArray:0,Win,1,Stranger Times
+%EndFont
+
