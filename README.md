@@ -68,4 +68,4 @@ xdg-open Poster/conference_poster.pdf
 Mijn presentatie is terug te vinden onder `Presentatie/EindPresentatie.pptx`.
 Dit is een gewoon PowerPoint bestand en hoeft niet gecompileerd te worden.
 
-© Mout Pessemier 2019 - 2020
+Written by Mout Pessemier during 2019 - 2020
